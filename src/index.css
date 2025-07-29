@@ -241,4 +241,18 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
     0%, 100% { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
     50% { box-shadow: 0 0 40px hsl(var(--accent) / 0.6); }
   }
+
+  /* Background Patterns */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: grid-move 20s linear infinite;
+  }
+
+  @keyframes grid-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 30px 30px; }
+  }
 }
