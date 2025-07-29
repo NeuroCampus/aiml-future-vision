@@ -28,7 +28,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-animated">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {floatingIcons.map(({ Icon, delay }, index) => (
