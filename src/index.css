@@ -164,15 +164,15 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
 }
 
 @layer components {
-  /* Futuristic button variants */
+  /* Professional button variants */
   .btn-glow {
     @apply relative overflow-hidden bg-gradient-to-r from-primary to-accent text-primary-foreground;
     box-shadow: var(--shadow-glow);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .btn-glow:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: var(--shadow-strong), var(--shadow-glow);
   }
   
@@ -183,45 +183,37 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
   }
   
   .btn-glow:hover::before {
     left: 100%;
   }
   
-  /* Animated gradient backgrounds */
-  .bg-gradient-animated {
-    background: var(--gradient-hero);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
-  }
-  
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  /* Floating animation for hero elements */
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  /* Card hover effects */
+  /* Enhanced card hover effects */
   .card-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .card-hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: inherit;
   }
   
   .card-hover:hover {
-    transform: translateY(-8px);
+    transform: translateY(-12px) scale(1.02);
     box-shadow: var(--shadow-strong);
+  }
+  
+  .card-hover:hover::before {
+    opacity: 1;
   }
   
   /* Text gradient effect */
@@ -230,15 +222,112 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradientText 3s ease infinite;
   }
   
-  /* Pulse effect for CTA elements */
+  @keyframes gradientText {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* Professional floating animation */
+  .float-animation {
+    animation: professionalFloat 8s ease-in-out infinite;
+  }
+  
+  @keyframes professionalFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(1deg); }
+    50% { transform: translateY(-8px) rotate(0deg); }
+    75% { transform: translateY(-20px) rotate(-1deg); }
+  }
+  
+  /* Scroll reveal animations */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+  
+  /* Interactive background effects */
+  .interactive-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .interactive-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                                hsl(var(--accent) / 0.1) 0%, 
+                                transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .interactive-bg:hover::before {
+    opacity: 1;
+  }
+  
+  /* Enhanced pulse effect */
   .pulse-glow {
-    animation: pulseGlow 2s infinite;
+    animation: enhancedPulse 3s ease infinite;
   }
   
-  @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 20px hsl(var(--accent) / 0.3); }
-    50% { box-shadow: 0 0 40px hsl(var(--accent) / 0.6); }
+  @keyframes enhancedPulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--accent) / 0.3),
+                  0 0 40px hsl(var(--accent) / 0.1); 
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--accent) / 0.6),
+                  0 0 80px hsl(var(--accent) / 0.2); 
+    }
+  }
+  
+  /* Shimmer effect for loading states */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Smooth section transitions */
+  .section-transition {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Logo animation */
+  .logo-animate {
+    transition: all 0.3s ease;
+  }
+  
+  .logo-animate:hover {
+    transform: scale(1.1) rotate(5deg);
   }
 }
