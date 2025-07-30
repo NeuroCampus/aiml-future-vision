@@ -8,57 +8,55 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
 
 @layer base {
   :root {
-    /* Base colors - Light blue academic theme */
-    --background: 220 20% 98%;
-    --foreground: 220 30% 15%;
+    /* Modern gradient theme - inspired by Prismo */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 220 15% 97%;
-    --card-foreground: 220 25% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
-    --popover: 220 15% 98%;
-    --popover-foreground: 220 25% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
 
-    /* Primary - Deep academic blue */
-    --primary: 220 85% 25%;
-    --primary-foreground: 220 15% 98%;
+    /* Primary - Clean modern dark */
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
     
-    /* Secondary - Lighter blue accent */
-    --secondary: 215 25% 88%;
-    --secondary-foreground: 220 30% 25%;
+    /* Secondary - Light background */
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
 
-    /* Muted - Soft blue grays */
-    --muted: 215 20% 92%;
-    --muted-foreground: 215 15% 45%;
+    /* Muted - Subtle grays */
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    /* Accent - Bright tech blue */
-    --accent: 210 90% 60%;
-    --accent-foreground: 220 15% 98%;
+    /* Accent - Clean accent */
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 215 25% 88%;
-    --input: 215 25% 90%;
-    --ring: 220 85% 25%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
 
-    /* AI/Tech specific colors */
-    --tech-blue: 210 90% 60%;
-    --tech-cyan: 190 85% 65%;
-    --tech-purple: 270 75% 70%;
-    --tech-gradient-start: 220 85% 25%;
-    --tech-gradient-end: 210 90% 60%;
+    /* Gradient theme colors - Pink to Purple */
+    --gradient-start: 322 100% 84%;  /* Pink */
+    --gradient-mid: 280 100% 70%;    /* Purple */
+    --gradient-end: 240 100% 85%;    /* Light purple */
     
-    /* Gradients for futuristic feel */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--tech-gradient-start)), hsl(var(--tech-gradient-end)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--tech-cyan)), hsl(var(--tech-purple)));
-    --gradient-hero: linear-gradient(135deg, hsl(220 85% 25%) 0%, hsl(210 90% 60%) 50%, hsl(190 85% 65%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220 15% 97%) 0%, hsl(215 20% 94%) 100%);
+    /* Modern gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-mid)), hsl(var(--gradient-end)));
+    --gradient-hero: linear-gradient(135deg, hsl(322 100% 84%), hsl(280 100% 70%), hsl(240 100% 85%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8), hsl(240 4.8% 95.9% / 0.8));
+    --gradient-subtle: linear-gradient(135deg, hsl(322 100% 84% / 0.1), hsl(280 100% 70% / 0.1), hsl(240 100% 85% / 0.1));
     
-    /* Shadows with blue tints */
-    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
-    --shadow-medium: 0 8px 30px -4px hsl(var(--primary) / 0.15);
-    --shadow-strong: 0 16px 40px -8px hsl(var(--primary) / 0.2);
-    --shadow-glow: 0 0 30px hsl(var(--tech-blue) / 0.3);
+    /* Modern shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(240 5.9% 10% / 0.08);
+    --shadow-medium: 0 8px 32px -8px hsl(240 5.9% 10% / 0.12);
+    --shadow-strong: 0 16px 40px -8px hsl(240 5.9% 10% / 0.16);
+    --shadow-glow: 0 0 40px hsl(280 100% 70% / 0.3);
 
     --radius: 0.75rem;
 

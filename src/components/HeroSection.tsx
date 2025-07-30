@@ -28,13 +28,16 @@ const HeroSection = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Modern Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--gradient-start))] via-[hsl(var(--gradient-mid))] to-[hsl(var(--gradient-end))] opacity-100"></div>
+      
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {floatingIcons.map(({ Icon, delay }, index) => (
           <Icon 
             key={index}
-            className={`absolute text-accent/20 w-20 h-20 float-animation`}
+            className={`absolute text-white/20 w-20 h-20 float-animation`}
             style={{
               top: `${20 + index * 25}%`,
               right: `${10 + index * 15}%`,
@@ -44,8 +47,8 @@ const HeroSection = () => {
         ))}
         
         {/* Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-tech-blue/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-tech-cyan/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -53,32 +56,33 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-sm font-medium">
                 <Brain className="w-4 h-4 mr-2" />
                 Next-Gen AI Education
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight text-white">
                 Shaping the Future of{' '}
-                <span className="text-gradient relative">
-                  {words[currentWord]}
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-pulse"></span>
+                <span className="relative">
+                  <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                    {words[currentWord]}
+                  </span>
                 </span>
               </h1>
               
-              <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
+              <p className="text-xl text-white/80 max-w-lg leading-relaxed">
                 Join the CSE-AIML program at AMC College of Engineering and be part of the artificial intelligence revolution. Build intelligent systems, master machine learning, and innovate for tomorrow.
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="btn-glow group">
+              <Button size="lg" variant="gradient" className="group">
                 Explore Programs
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
               
-              <Button size="lg" variant="outline" className="group border-accent text-accent hover:bg-accent/10">
+              <Button size="lg" variant="outline" className="group border-white/30 text-white hover:bg-white/10 backdrop-blur-md">
                 <Play className="mr-2 h-5 w-5" />
                 Watch Demo
               </Button>
@@ -88,8 +92,8 @@ const HeroSection = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center animate-scale-in" style={{animationDelay: `${index * 0.1}s`}}>
-                  <div className="text-2xl lg:text-3xl font-bold text-accent">{stat.number}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-2xl lg:text-3xl font-bold text-white">{stat.number}</div>
+                  <div className="text-sm text-white/70">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -135,8 +139,8 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse"></div>
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
