@@ -24,7 +24,8 @@ const ContactSection = () => {
       details: [
         'CSE-AIML Department',
         'AMC Engineering College',
-        'Bangalore-560083, Karnataka',
+        'Kalkere, Anekal Taluka',
+        'Bengaluru - 560083, Karnataka',
         'India'
       ],
     },
@@ -289,7 +290,7 @@ const ContactSection = () => {
                 Find Us on <span className="text-gradient">Campus</span>
               </CardTitle>
               <p className="text-muted-foreground">
-                Located in the heart of Bangalore's tech corridor
+                Located in Kalkere, Anekal Taluka, Bengaluru - A hub for technical education
               </p>
             </CardHeader>
             <CardContent className="p-0">

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowRight, Play, Brain, Cpu, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import heroImage from '@/assets/hero-aiml.jpg';
+import heroImage from '@/assets/students-group-real.jpg';
 
 const HeroSection = () => {
   const [currentWord, setCurrentWord] = useState(0);

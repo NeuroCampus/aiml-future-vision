@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Quote, Star, ChevronLeft, ChevronRight, Users, TrendingUp, Award, Briefcase } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import studentsImage from '@/assets/students-collaboration.jpg';
+import studentsImage from '@/assets/case-lab-real.jpg';
 
 const StudentsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);

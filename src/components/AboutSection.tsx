@@ -1,6 +1,6 @@
 import { Users, Award, BookOpen, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import neuralNetworkImage from '@/assets/neural-network.jpg';
+import neuralNetworkImage from '@/assets/seminar-hall-real.jpg';
 
 const AboutSection = () => {
   const highlights = [

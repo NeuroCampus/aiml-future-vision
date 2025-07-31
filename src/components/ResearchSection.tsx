@@ -20,7 +20,7 @@ const ResearchSection = () => {
       status: 'Active',
       technologies: ['Python', 'Scikit-learn', 'Data Analysis'],
       publications: 2,
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80',
+      image: '/src/assets/hacktopus-winners.jpg',
     },
     {
       title: 'Smart Healthcare Monitoring System',
@@ -32,7 +32,7 @@ const ResearchSection = () => {
       status: 'Active',
       technologies: ['IoT Sensors', 'Machine Learning', 'Cloud Computing'],
       publications: 3,
-      image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80',
+      image: '/src/assets/ideathon-participants.jpg',
     },
     {
       title: 'Automated Resume Screening System',
@@ -44,7 +44,7 @@ const ResearchSection = () => {
       status: 'Completed',
       technologies: ['NLP', 'Text Processing', 'Classification'],
       publications: 1,
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80',
+      image: '/src/assets/student-clubs-real.jpg',
     },
     {
       title: 'Image Classification for Medical Diagnosis',
