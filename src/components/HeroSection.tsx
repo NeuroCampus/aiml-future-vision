@@ -16,10 +16,10 @@ const HeroSection = () => {
   }, []);
 
   const stats = [
-    { number: '500+', label: 'Students Enrolled' },
-    { number: '95%', label: 'Placement Rate' },
-    { number: '50+', label: 'Industry Partners' },
-    { number: '20+', label: 'Research Projects' },
+    { number: '200+', label: 'Students Enrolled' },
+    { number: '85%', label: 'Placement Rate' },
+    { number: '25+', label: 'Industry Partners' },
+    { number: '15+', label: 'Research Projects' },
   ];
 
   const floatingIcons = [
@@ -140,7 +140,7 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.8 }}
               >
-                Join the CSE-AIML program at AMC College of Engineering and be part of the artificial intelligence revolution. Build intelligent systems, master machine learning, and innovate for tomorrow.
+                Department of Computer Science & Engineering - Artificial Intelligence & Machine Learning at AMC College of Engineering. Established in 2018, preparing the next generation of AI professionals.
               </motion.p>
             </div>
 

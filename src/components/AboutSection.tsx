@@ -7,30 +7,30 @@ const AboutSection = () => {
     {
       icon: Target,
       title: 'Our Vision',
-      description: 'To be a globally recognized center of excellence in AI and ML education, research, and innovation.',
+      description: 'To provide progressive education and flourish student ingenuity for successful professionals impacting society for a smarter and ethical world.',
     },
     {
       icon: BookOpen,
       title: 'Academic Excellence',
-      description: 'Comprehensive curriculum designed by industry experts and academic leaders.',
+      description: 'AICTE approved 4-year B.Tech program with comprehensive AI/ML curriculum and hands-on learning.',
     },
     {
       icon: Users,
       title: 'Expert Faculty',
-      description: 'PhD holders and industry professionals with extensive AI/ML experience.',
+      description: 'Qualified faculty with PhDs and industry experience in AI, ML, and emerging technologies.',
     },
     {
       icon: Award,
-      title: 'Recognition',
-      description: 'AICTE approved program with NBA accreditation and industry endorsements.',
+      title: 'Industry Recognition',
+      description: 'Strong industry partnerships and placement record with leading tech companies.',
     },
   ];
 
   const achievements = [
-    { metric: '15+', label: 'PhD Faculty Members' },
-    { metric: '100+', label: 'Research Publications' },
-    { metric: '25+', label: 'Patent Applications' },
-    { metric: '₹50L+', label: 'Research Funding' },
+    { metric: '10+', label: 'Qualified Faculty' },
+    { metric: '50+', label: 'Research Publications' },
+    { metric: '15+', label: 'Industry Projects' },
+    { metric: '2018', label: 'Established' },
   ];
 
   return (
@@ -52,10 +52,10 @@ const AboutSection = () => {
             <div>
               <h3 className="text-2xl font-display font-bold mb-4">Leading the AI Revolution</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The Computer Science & Engineering - Artificial Intelligence & Machine Learning department at AMC College of Engineering stands at the forefront of technological advancement. Our program is meticulously designed to nurture the next generation of AI innovators and ML specialists.
+                The Computer Science & Engineering - Artificial Intelligence & Machine Learning department at AMC College of Engineering is established in 2018 to meet the growing demand for AI/ML professionals. Our 4-year B.Tech program focuses on cutting-edge AI and ML concepts, preparing students to build intelligent systems.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                With state-of-the-art infrastructure, world-class faculty, and strong industry partnerships, we provide students with unparalleled opportunities to explore, innovate, and excel in the rapidly evolving field of artificial intelligence.
+                We emphasize problem-solving, programming skills, and experiential learning through industry collaborations, making our students industry-ready professionals in AI and Machine Learning domains.
               </p>
             </div>
 

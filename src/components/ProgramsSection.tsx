@@ -8,74 +8,74 @@ const ProgramsSection = () => {
   const courses = [
     {
       icon: Brain,
-      title: 'Machine Learning Fundamentals',
-      description: 'Comprehensive introduction to ML algorithms, supervised and unsupervised learning.',
-      topics: ['Linear Regression', 'Decision Trees', 'Neural Networks', 'Clustering'],
+      title: 'Fundamentals of AI & ML',
+      description: 'Core concepts of artificial intelligence and machine learning algorithms.',
+      topics: ['Python Programming', 'Linear Algebra', 'Statistics', 'ML Algorithms'],
       level: 'Core',
     },
     {
       icon: Code,
-      title: 'Deep Learning & AI',
-      description: 'Advanced neural networks, computer vision, and natural language processing.',
-      topics: ['CNN', 'RNN', 'Transformers', 'Computer Vision'],
-      level: 'Advanced',
-    },
-    {
-      icon: Database,
-      title: 'Big Data Analytics',
-      description: 'Processing and analyzing large-scale datasets using modern tools and frameworks.',
-      topics: ['Hadoop', 'Spark', 'NoSQL', 'Data Mining'],
-      level: 'Specialized',
-    },
-    {
-      icon: Zap,
-      title: 'AI Ethics & Governance',
-      description: 'Understanding responsible AI development and ethical implications.',
-      topics: ['Bias Detection', 'Fairness', 'Privacy', 'Regulation'],
+      title: 'Data Structures & Algorithms',
+      description: 'Fundamental programming concepts essential for AI/ML implementation.',
+      topics: ['Arrays', 'Trees', 'Graphs', 'Sorting Algorithms'],
       level: 'Core',
     },
     {
+      icon: Database,
+      title: 'Database Management Systems',
+      description: 'Database design and management for handling large datasets.',
+      topics: ['SQL', 'NoSQL', 'Data Warehousing', 'Query Optimization'],
+      level: 'Core',
+    },
+    {
+      icon: Brain,
+      title: 'Deep Learning',
+      description: 'Advanced neural networks and deep learning architectures.',
+      topics: ['CNN', 'RNN', 'Neural Networks', 'TensorFlow'],
+      level: 'Advanced',
+    },
+    {
       icon: Globe,
-      title: 'IoT & Edge Computing',
-      description: 'Implementing AI solutions on edge devices and IoT systems.',
-      topics: ['Edge AI', 'TensorFlow Lite', 'Embedded Systems', 'Real-time Processing'],
+      title: 'Computer Vision',
+      description: 'Image processing and computer vision applications.',
+      topics: ['Image Processing', 'Object Detection', 'Pattern Recognition'],
       level: 'Specialized',
     },
     {
       icon: Shield,
-      title: 'AI Security',
-      description: 'Securing AI systems and understanding adversarial attacks.',
-      topics: ['Adversarial ML', 'Model Security', 'Privacy-Preserving AI', 'Robustness'],
+      title: 'Natural Language Processing',
+      description: 'Processing and understanding human language using AI.',
+      topics: ['Text Mining', 'Sentiment Analysis', 'Language Models'],
       level: 'Advanced',
     },
   ];
 
   const labs = [
     {
-      name: 'AI Research Lab',
-      description: 'High-performance computing cluster with NVIDIA GPUs for deep learning research.',
-      equipment: '64 GPU cores, 256GB RAM, Quantum simulators',
+      name: 'CASE Lab',
+      description: 'Computer Aided Software Engineering lab with modern development tools.',
+      equipment: 'Latest computers, Software development tools, IDEs',
     },
     {
-      name: 'Computer Vision Lab',
-      description: 'Specialized equipment for image processing and computer vision projects.',
-      equipment: 'High-res cameras, 3D scanners, VR/AR devices',
+      name: 'Linux Lab',
+      description: 'Dedicated Linux environment for system programming and open-source development.',
+      equipment: 'Linux workstations, Server setup, Network tools',
     },
     {
-      name: 'NLP Lab',
-      description: 'Natural language processing and computational linguistics research facility.',
-      equipment: 'Speech recognition systems, Text analysis tools',
+      name: 'R&D Lab',
+      description: 'Research and Development lab for AI/ML projects and innovation.',
+      equipment: 'High-performance machines, Research software, GPUs',
     },
     {
-      name: 'Robotics Lab',
-      description: 'Integration of AI with robotics for autonomous system development.',
-      equipment: 'Industrial robots, Sensors, Control systems',
+      name: 'Seminar Hall',
+      description: 'Modern presentation facility for technical seminars and workshops.',
+      equipment: 'Projector, Audio system, Video conferencing',
     },
   ];
 
   const industryPartners = [
-    'Google AI', 'Microsoft Azure', 'Amazon AWS', 'NVIDIA', 'Intel AI', 'IBM Watson',
-    'TCS Innovation', 'Infosys Labs', 'Wipro HOLMES', 'HCL Technologies'
+    'TCS', 'Infosys', 'Wipro', 'Microsoft', 'Amazon', 'Google',
+    'IBM', 'Accenture', 'Cognizant', 'Tech Mahindra'
   ];
 
   return (
