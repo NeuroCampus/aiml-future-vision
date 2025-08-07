@@ -8,57 +8,68 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
 
 @layer base {
   :root {
-    /* Base colors - Light blue academic theme */
-    --background: 220 20% 98%;
-    --foreground: 220 30% 15%;
+    /* Professional AIML Academy Theme - Light Mode */
+    --background: 240 20% 99%;
+    --foreground: 240 30% 8%;
 
-    --card: 220 15% 97%;
-    --card-foreground: 220 25% 20%;
+    --card: 240 15% 98%;
+    --card-foreground: 240 25% 12%;
 
-    --popover: 220 15% 98%;
-    --popover-foreground: 220 25% 20%;
+    --popover: 240 15% 99%;
+    --popover-foreground: 240 25% 12%;
 
-    /* Primary - Deep academic blue */
-    --primary: 220 85% 25%;
-    --primary-foreground: 220 15% 98%;
+    /* Primary - Deep Professional Blue */
+    --primary: 240 80% 35%;
+    --primary-foreground: 240 15% 98%;
     
-    /* Secondary - Lighter blue accent */
-    --secondary: 215 25% 88%;
-    --secondary-foreground: 220 30% 25%;
+    /* Secondary - Modern Slate */
+    --secondary: 240 20% 90%;
+    --secondary-foreground: 240 30% 20%;
 
-    /* Muted - Soft blue grays */
-    --muted: 215 20% 92%;
-    --muted-foreground: 215 15% 45%;
+    /* Muted - Professional Gray */
+    --muted: 240 15% 94%;
+    --muted-foreground: 240 15% 40%;
 
-    /* Accent - Bright tech blue */
-    --accent: 210 90% 60%;
-    --accent-foreground: 220 15% 98%;
+    /* Accent - Vibrant Cyan */
+    --accent: 195 95% 55%;
+    --accent-foreground: 240 15% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 240 15% 98%;
 
-    --border: 215 25% 88%;
-    --input: 215 25% 90%;
-    --ring: 220 85% 25%;
+    --border: 240 20% 88%;
+    --input: 240 20% 92%;
+    --ring: 240 80% 35%;
 
-    /* AI/Tech specific colors */
-    --tech-blue: 210 90% 60%;
-    --tech-cyan: 190 85% 65%;
-    --tech-purple: 270 75% 70%;
-    --tech-gradient-start: 220 85% 25%;
-    --tech-gradient-end: 210 90% 60%;
+    /* Enhanced AI/Tech Colors */
+    --tech-blue: 220 85% 55%;
+    --tech-cyan: 195 95% 55%;
+    --tech-purple: 270 80% 65%;
+    --tech-violet: 260 85% 70%;
+    --tech-emerald: 160 90% 45%;
+    --tech-orange: 25 95% 60%;
+    --aiml-primary: 240 80% 35%;
+    --aiml-secondary: 195 95% 55%;
+    --aiml-tertiary: 270 80% 65%;
     
-    /* Gradients for futuristic feel */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--tech-gradient-start)), hsl(var(--tech-gradient-end)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--tech-cyan)), hsl(var(--tech-purple)));
-    --gradient-hero: linear-gradient(135deg, hsl(220 85% 25%) 0%, hsl(210 90% 60%) 50%, hsl(190 85% 65%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220 15% 97%) 0%, hsl(215 20% 94%) 100%);
+    /* Advanced Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(240 80% 35%) 0%, hsl(195 95% 55%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(195 95% 55%) 100%);
+    --gradient-tertiary: linear-gradient(135deg, hsl(160 90% 45%) 0%, hsl(195 95% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(240 80% 35%) 0%, hsl(220 85% 55%) 30%, hsl(195 95% 55%) 70%, hsl(270 80% 65%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 15% 98%) 0%, hsl(240 20% 95%) 50%, hsl(240 15% 97%) 100%);
+    --gradient-glass: linear-gradient(145deg, hsla(240, 15%, 98%, 0.9) 0%, hsla(240, 20%, 95%, 0.8) 100%);
+    --gradient-mesh: radial-gradient(circle at 20% 80%, hsla(195, 95%, 55%, 0.15) 0%, transparent 50%),
+                     radial-gradient(circle at 80% 20%, hsla(270, 80%, 65%, 0.15) 0%, transparent 50%),
+                     radial-gradient(circle at 40% 40%, hsla(240, 80%, 35%, 0.1) 0%, transparent 50%);
     
-    /* Shadows with blue tints */
-    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
-    --shadow-medium: 0 8px 30px -4px hsl(var(--primary) / 0.15);
-    --shadow-strong: 0 16px 40px -8px hsl(var(--primary) / 0.2);
-    --shadow-glow: 0 0 30px hsl(var(--tech-blue) / 0.3);
+    /* Professional Shadows with Color Tints */
+    --shadow-soft: 0 2px 15px -3px hsla(240, 80%, 35%, 0.12), 0 1px 6px -2px hsla(240, 80%, 35%, 0.05);
+    --shadow-medium: 0 4px 25px -5px hsla(240, 80%, 35%, 0.15), 0 2px 10px -3px hsla(240, 80%, 35%, 0.08);
+    --shadow-strong: 0 10px 40px -10px hsla(240, 80%, 35%, 0.25), 0 4px 15px -5px hsla(240, 80%, 35%, 0.12);
+    --shadow-glow: 0 0 30px hsla(195, 95%, 55%, 0.4), 0 0 60px hsla(195, 95%, 55%, 0.2);
+    --shadow-ai-glow: 0 0 40px hsla(270, 80%, 65%, 0.3), 0 0 80px hsla(270, 80%, 65%, 0.15);
+    --shadow-tech-glow: 0 0 35px hsla(220, 85%, 55%, 0.35), 0 0 70px hsla(220, 85%, 55%, 0.18);
 
     --radius: 0.75rem;
 
@@ -80,50 +91,57 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   }
 
   .dark {
-    /* Dark mode - Deep blue professional theme */
-    --background: 220 35% 8%;
-    --foreground: 220 15% 92%;
+    /* Professional AIML Academy Theme - Dark Mode */
+    --background: 240 25% 6%;
+    --foreground: 240 15% 95%;
 
-    --card: 220 30% 12%;
-    --card-foreground: 220 15% 90%;
+    --card: 240 20% 8%;
+    --card-foreground: 240 15% 92%;
 
-    --popover: 220 30% 10%;
-    --popover-foreground: 220 15% 90%;
+    --popover: 240 25% 5%;
+    --popover-foreground: 240 15% 92%;
 
-    /* Primary - Bright blue for dark mode */
-    --primary: 210 90% 60%;
-    --primary-foreground: 220 30% 12%;
+    /* Primary - Bright Cyan for Dark */
+    --primary: 195 95% 55%;
+    --primary-foreground: 240 25% 8%;
 
-    /* Secondary - Dark blue accent */
-    --secondary: 220 25% 18%;
-    --secondary-foreground: 220 15% 88%;
+    /* Secondary - Dark Professional */
+    --secondary: 240 20% 12%;
+    --secondary-foreground: 240 15% 88%;
 
-    /* Muted - Dark blue grays */
-    --muted: 220 20% 15%;
-    --muted-foreground: 215 15% 65%;
+    /* Muted - Dark Professional Gray */
+    --muted: 240 15% 10%;
+    --muted-foreground: 240 15% 70%;
 
-    /* Accent - Cyan accent for dark */
-    --accent: 190 85% 65%;
-    --accent-foreground: 220 30% 12%;
+    /* Accent - Vibrant Purple */
+    --accent: 270 80% 65%;
+    --accent-foreground: 240 25% 8%;
 
     --destructive: 0 62.8% 50%;
-    --destructive-foreground: 220 15% 90%;
+    --destructive-foreground: 240 15% 92%;
 
-    --border: 220 25% 18%;
-    --input: 220 25% 16%;
-    --ring: 210 90% 60%;
+    --border: 240 20% 15%;
+    --input: 240 20% 12%;
+    --ring: 195 95% 55%;
     
-    /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 35% 8%), hsl(210 90% 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(190 85% 65%), hsl(270 75% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 35% 8%) 0%, hsl(220 25% 18%) 50%, hsl(210 90% 60%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(220 30% 12%) 0%, hsl(220 25% 15%) 100%);
+    /* Dark Mode Enhanced Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(240 25% 6%) 0%, hsl(195 95% 55%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(195 95% 55%) 100%);
+    --gradient-tertiary: linear-gradient(135deg, hsl(160 90% 45%) 0%, hsl(270 80% 65%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(240 25% 6%) 0%, hsl(240 20% 12%) 30%, hsl(195 95% 55%) 70%, hsl(270 80% 65%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 20% 8%) 0%, hsl(240 20% 12%) 50%, hsl(240 20% 10%) 100%);
+    --gradient-glass: linear-gradient(145deg, hsla(240, 20%, 8%, 0.95) 0%, hsla(240, 20%, 12%, 0.9) 100%);
+    --gradient-mesh: radial-gradient(circle at 20% 80%, hsla(195, 95%, 55%, 0.08) 0%, transparent 50%),
+                     radial-gradient(circle at 80% 20%, hsla(270, 80%, 65%, 0.08) 0%, transparent 50%),
+                     radial-gradient(circle at 40% 40%, hsla(240, 80%, 35%, 0.05) 0%, transparent 50%);
     
-    /* Dark mode shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
-    --shadow-medium: 0 8px 30px -4px hsl(0 0% 0% / 0.4);
-    --shadow-strong: 0 16px 40px -8px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 30px hsl(var(--tech-blue) / 0.4);
+    /* Dark Mode Enhanced Shadows */
+    --shadow-soft: 0 2px 15px -3px hsla(0, 0%, 0%, 0.3), 0 1px 6px -2px hsla(0, 0%, 0%, 0.15);
+    --shadow-medium: 0 4px 25px -5px hsla(0, 0%, 0%, 0.4), 0 2px 10px -3px hsla(0, 0%, 0%, 0.2);
+    --shadow-strong: 0 10px 40px -10px hsla(0, 0%, 0%, 0.6), 0 4px 15px -5px hsla(0, 0%, 0%, 0.3);
+    --shadow-glow: 0 0 40px hsla(195, 95%, 55%, 0.5), 0 0 80px hsla(195, 95%, 55%, 0.25);
+    --shadow-ai-glow: 0 0 50px hsla(270, 80%, 65%, 0.4), 0 0 100px hsla(270, 80%, 65%, 0.2);
+    --shadow-tech-glow: 0 0 45px hsla(220, 85%, 55%, 0.45), 0 0 90px hsla(220, 85%, 55%, 0.22);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
