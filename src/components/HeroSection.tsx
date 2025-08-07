@@ -136,7 +136,7 @@ const HeroSection = () => {
             >
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/cs-aiml photos/CSAI Logo.png" 
+                  src="/cs-aiml photos/CSAI Logo.jpeg" 
                   alt="CSAI Logo" 
                   className="h-12 w-auto object-contain"
                 />

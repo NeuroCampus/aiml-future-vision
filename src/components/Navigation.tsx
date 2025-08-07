@@ -76,7 +76,7 @@ const Navigation = () => {
             >
               <div className="relative group">
                 <motion.img
-                  src="/cs-aiml photos/CSAI Logo.png"
+                  src="/cs-aiml photos/CSAI Logo.jpeg"
                   alt="CSAI Logo"
                   className="h-12 w-12 lg:h-14 lg:w-14 object-contain transition-all duration-300 group-hover:drop-shadow-2xl"
                   whileHover={{ rotate: [0, -5, 5, 0] }}
