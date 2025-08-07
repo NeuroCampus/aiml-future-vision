@@ -47,19 +47,23 @@ const AboutSection = () => {
   ];
 
   const achievements = [
-    { metric: '10+', label: 'Qualified Faculty', icon: Users, color: 'text-aiml-primary' },
+    { metric: '15+', label: 'Qualified Faculty', icon: Users, color: 'text-aiml-primary' },
     { metric: '50+', label: 'Research Publications', icon: BookOpen, color: 'text-aiml-secondary' },
     { metric: '15+', label: 'Industry Projects', icon: Code, color: 'text-tech-purple' },
-    { metric: '2018', label: 'Established', icon: Star, color: 'text-tech-cyan' },
+    { metric: '2021', label: 'Established', icon: Star, color: 'text-tech-cyan' },
   ];
 
   const tabContent = [
     {
       title: "Our Mission",
       content: "Empowering students with cutting-edge AI/ML knowledge and skills to solve real-world challenges and drive innovation in the digital age.",
-      features: ["Industry-Relevant Curriculum", "Hands-on Learning", "Research Focus", "Global Perspective"],
+      features: ["Facilitate state-of-the-art infrastructure and exposure to the latest AI tools.",
+    "Achieve academic excellence through research and creative pedagogy in AI & ML.",
+    "Strengthen Industry-Institute Interaction to prepare students for real-world environments.",
+    "Develop entrepreneurial, ethical, and socially responsible AI professionals."],
       image: "/cs-aiml photos/Labpics/Seminarhall.jpg"
     },
+    
     {
       title: "Research Excellence",
       content: "Our faculty and students are actively engaged in groundbreaking research across various domains of AI and ML.",
@@ -113,8 +117,8 @@ const AboutSection = () => {
               About <span className="bg-gradient-to-r from-aiml-primary via-aiml-secondary to-aiml-tertiary bg-clip-text text-transparent">CSE-AIML</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Pioneering the future of artificial intelligence and machine learning education through 
-              innovative curriculum, cutting-edge research, and industry collaboration.
+            The Department of Computer Science and Engineering (Artificial Intelligence & Machine Learning) is committed to producing 
+            competent professionals with strong technical skills and research capabilities....
             </p>
           </motion.div>
         </motion.div>

@@ -2,7 +2,7 @@ import { Code, Database, Brain, Zap, Globe, Shield } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import researchLabImage from '@/assets/rd-lab-real.jpg';
+import researchLabImage from '/cs-aiml photos/Labpics/RDlab.jpg';
 
 const ProgramsSection = () => {
   const courses = [
