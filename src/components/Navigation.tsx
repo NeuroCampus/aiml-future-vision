@@ -287,7 +287,7 @@ const Navigation = () => {
                       className="h-10 w-10 object-contain"
                     />
                     <div>
-                      <h2 className="font-bold text-lg bg-gradient-to-r from-aiml-primary via-aiml-secondary to-aiml-tertiary bg-clip-text text-transparent">
+                      <h2 className="font-bold text-lg bg-gradient-to-r from-aiml-primary via-aiml-secondary to-aiml-tertiary bg-clip-text text-transparent leading">
                         AIML Academy
                       </h2>
                       <p className="text-xs text-muted-foreground">Shaping Tomorrow's Tech Leaders</p>

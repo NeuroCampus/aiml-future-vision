@@ -118,18 +118,10 @@ const HeroSection = () => {
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
-          
-          {/* Left Content */}
-          <motion.div 
-            className="text-center lg:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            {/* Institution Logos */}
-            <motion.div
-              className="flex items-center justify-center lg:justify-start space-x-6 mb-8"
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen pt-20 pb-20">
+          {/* Institution Logos */}
+          <motion.div
+              className="col-span-2 flex items-center justify-center space-x-6"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -138,16 +130,25 @@ const HeroSection = () => {
                 <img 
                   src="/cs-aiml photos/CSAI Logo.jpeg" 
                   alt="CSAI Logo" 
-                  className="h-12 w-auto object-contain"
+                  className="h-16 sm:h-20 w-auto object-contain rounded"
+                  
                 />
                 <div className="h-8 w-px bg-border opacity-50" />
                 <img 
                   src="/cs-aiml photos/AMC Logo.jpg" 
                   alt="AMC Logo" 
-                  className="h-10 w-auto object-contain rounded"
+                  className="h-16 sm:h-20 w-auto object-contain rounded"
                 />
               </div>
             </motion.div>
+          {/* Left Content */}
+          <motion.div 
+            className="text-center lg:text-left"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            
 
             {/* Badge */}
             <motion.div
