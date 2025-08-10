@@ -14,7 +14,7 @@ const EventsSection = () => {
       description: 'Annual hackathon organized by CSE-AIML department featuring AI/ML challenges and innovative solutions.',
       date: 'May 2024',
       category: 'hackathon',
-      mainImage: ['/cs-aiml photos/Eventspic/HACKTOPUS.jpg'],
+      mainImage: ['/cs-aiml-photos/Eventspic/HACKTOPUS.jpg'],
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const EventsSection = () => {
       description: 'Innovation competition encouraging students to present creative AI solutions for real-world problems.',
       date: 'March 2024',
       category: 'competition',
-      mainImage: ['/cs-aiml photos/Eventspic/IDEATHON.jpg'],
+      mainImage: ['/cs-aiml-photos/Eventspic/IDEATHON.jpg'],
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const EventsSection = () => {
       description: 'Workshop on startup funding, angel investment, and entrepreneurship in the tech industry.',
       date: 'February 2024',
       category: 'workshop',
-      mainImage: ['/cs-aiml photos/Eventspic/AngelInvestment.jpg'],
+      mainImage: ['/cs-aiml-photos/Eventspic/AngelInvestment.jpg'],
     },
     {
       id: 4,
@@ -38,7 +38,7 @@ const EventsSection = () => {
       description: 'Comprehensive workshop on cybersecurity threats, prevention strategies, and ethical hacking.',
       date: 'January 2024',
       category: 'workshop',
-      mainImage: ['/cs-aiml photos/Eventspic/Cybersecurity.jpg'],
+      mainImage: ['/cs-aiml-photos/Eventspic/Cybersecurity.jpg'],
     },
     {
       id: 5,
@@ -46,7 +46,7 @@ const EventsSection = () => {
       description: 'Knowledge sharing sessions focusing on emerging technologies and industry trends.',
       date: 'Ongoing',
       category: 'session',
-      mainImage: ['/cs-aiml photos/Eventspic/KGTTI1.jpg'],
+      mainImage: ['/cs-aiml-photos/Eventspic/KGTTI1.jpg'],
     },
     {
       id: 6,
@@ -54,7 +54,7 @@ const EventsSection = () => {
       description: 'International debate competition featuring AI ethics, technology impact, and future innovations.',
       date: 'December 2023',
       category: 'competition',
-      mainImage: ['/cs-aiml photos/Eventspic/World-Debate.jpg'],
+      mainImage: ['/cs-aiml-photos/Eventspic/World-Debate.jpg'],
     },
     {
       id: 7,
@@ -62,7 +62,7 @@ const EventsSection = () => {
       description: 'Students participated in a national-level hackathon at IIT Bombay, showcasing their innovative AI/ML solutions.',
       date: 'November 2023',
       category: 'hackathon',
-      mainImage: ['/cs-aiml photos/Studentscertficate/Hackathon at IIT Bombay.jpg'],
+      mainImage: ['/cs-aiml-photos/Studentscertficate/Hackathon at IIT Bombay.jpg'],
     },
   ];
 

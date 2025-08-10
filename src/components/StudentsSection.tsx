@@ -13,7 +13,7 @@ const StudentsSection = () => {
       name: 'Triosync Team',
       batch: '2024 Batch',
       company: 'IIT Bombay Hackathon',
-      image: '/cs-aiml photos/Studentscertficate/Hackathon at IIT Bombay.jpg',
+      image: '/cs-aiml-photos/Studentscertficate/Hackathon at IIT Bombay.jpg',
       quote: "Our team, Triosync, secured a top position at the national-level hackathon organized by IIT Bombay, a testament to our problem-solving skills and AI/ML expertise.",
     },
     {
@@ -21,7 +21,7 @@ const StudentsSection = () => {
       name: 'Harshavardhan',
       batch: '2024 Graduate',
       company: 'Tech Innovators',
-      image: '/cs-aiml photos/Studentscertficate/HACKTOPUS(Harshavardhan).jpg',
+      image: '/cs-aiml-photos/Studentscertficate/HACKTOPUS(Harshavardhan).jpg',
       quote: "Participating in HACKTOPUS hackathon was a game-changer. The practical experience and mentorship from faculty helped me secure my dream job.",
     },
     {
@@ -29,7 +29,7 @@ const StudentsSection = () => {
       name: 'Dhanushree',
       batch: '2023 Graduate',
       company: 'AI Solutions Ltd',
-      image: '/cs-aiml photos/Studentscertficate/AI Skills(Dhanushree).jpg',
+      image: '/cs-aiml-photos/Studentscertficate/AI Skills(Dhanushree).jpg',
       quote: "The AI Skills certification program gave me hands-on experience with cutting-edge technologies. The curriculum is perfectly aligned with industry needs.",
     },
     {
@@ -37,7 +37,7 @@ const StudentsSection = () => {
       name: 'Karthik',
       batch: '2024 Graduate',
       company: 'DataTech Corp',
-      image: '/cs-aiml photos/Studentscertficate/Joy of Computing (Karthik).png',
+      image: '/cs-aiml-photos/Studentscertficate/Joy of Computing (Karthik).png',
       quote: "The Joy of Computing course opened my eyes to the beauty of programming. The faculty's guidance helped me excel in competitive programming.",
     },
     {
@@ -45,7 +45,7 @@ const StudentsSection = () => {
       name: 'Sindhu',
       batch: '2023 Graduate',
       company: 'Research Labs',
-      image: '/cs-aiml photos/Studentscertficate/IJRAR(Sindhu).png',
+      image: '/cs-aiml-photos/Studentscertficate/IJRAR(Sindhu).png',
       quote: "Publishing research papers in IJRAR during my studies gave me a strong foundation in research methodology and technical writing.",
     },
   ];

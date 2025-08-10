@@ -12,7 +12,7 @@ const FacultySection = () => {
       education: 'PhD, M.Tech',
       specialization: 'Computer Vision, AI Applications',
       category: 'research',
-      image: '/cs-aiml photos/Facultycertificate/IJATEE Journal.jpg',
+              image: '/cs-aiml-photos/Facultycertificate/IJATEE Journal.jpg',
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const FacultySection = () => {
       education: 'PhD, M.Tech',
       specialization: 'Data Science, Deep Learning',
       category: 'faculty',
-      image: '/cs-aiml photos/Facultycertificate/IRJET by Swathi.jpg',
+              image: '/cs-aiml-photos/Facultycertificate/IRJET by Swathi.jpg',
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const FacultySection = () => {
       education: 'PhD, M.Tech',
       specialization: 'Machine Learning, IoT Systems',
       category: 'senior',
-      image: '/cs-aiml photos/Facultycertificate/Prof. Ambili K(Iot workshop).jpg',
+              image: '/cs-aiml-photos/Facultycertificate/Prof. Ambili K(Iot workshop).jpg',
     }
     
   ];

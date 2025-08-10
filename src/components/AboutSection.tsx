@@ -85,7 +85,7 @@ const AboutSection = () => {
               className="w-full h-auto object-contain rounded-lg"
             />
             <img
-              src="/cs-aiml photos/Labpics/Seminarhall.jpg"
+              src="/cs-aiml-photos/Labpics/Seminarhall.jpg"
               alt="Department Seminar Hall"
               className="w-full h-auto object-cover rounded-lg"
             />
@@ -95,7 +95,7 @@ const AboutSection = () => {
               className="w-full h-auto object-contain rounded-lg"
             />
              <img
-              src="/cs-aiml photos/Labpics/CASElab.jpg"
+              src="/cs-aiml-photos/Labpics/CASElab.jpg"
               alt="CASE Lab"
               className="w-full h-auto object-cover rounded-lg"
             />

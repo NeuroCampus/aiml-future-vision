@@ -26,7 +26,7 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
     >
       <div className="relative z-10 flex flex-col items-center justify-center">
         <motion.img
-          src="/cs-aiml photos/CSAI Logo.jpeg"
+          src="/cs-aiml-photos/CSAI Logo.jpeg"
           alt="CSAI Logo"
           className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40 object-contain mb-4"
           initial={{ opacity: 0, y: 20 }}

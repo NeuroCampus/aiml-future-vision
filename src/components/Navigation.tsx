@@ -36,7 +36,7 @@ const Navigation = () => {
               onClick={() => scrollToSection('#home')}
             >
               <img
-                src="/cs-aiml photos/CSAI Logo.jpeg"
+                src="/cs-aiml-photos/CSAI Logo.jpeg"
                 alt="CSAI Logo"
                 className="h-12 w-12 object-contain rounded-md"
               />
@@ -131,7 +131,7 @@ const Navigation = () => {
                   onClick={() => scrollToSection('#home')}
                 >
                   <img
-                    src="/cs-aiml photos/CSAI Logo.jpeg"
+                    src="/cs-aiml-photos/CSAI Logo.jpeg"
                     alt="CSAI Logo"
                     className="h-10 w-10 object-contain rounded-md"
                   />
