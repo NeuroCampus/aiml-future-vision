@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Briefcase, GraduationCap, ChevronDown, ChevronUp } from 'lucide-react';
+import { Award, BookOpen, Briefcase, GraduationCap, ChevronDown, ChevronUp, User } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -14,37 +14,36 @@ const FacultySection = () => {
       designation: 'Head of Department',
       education: 'PhD, M.Tech',
       specialization: 'Computer Vision, AI Applications, Wireless Sensor Networks',
-      image: '/cs-aiml-photos/Facultycertificate/IJATEE Journal.jpg',
       achievements: [
         {
+          year: 'Feb-24',
           title: 'ResNet50-deep affinity network for object detection and tracking in videos',
-          year: '2024',
-          journal: 'International Journal of Advanced Technology and Engineering Exploration',
-          type: 'Scopus Q3'
+          type: 'Scopus Q3',
+          journal: 'International Journal of Advanced Technology and Engineering Exploration'
         },
         {
-          title: 'Mathematical Modelling and Implementation of Multiscale Attention Feature Enhancement Network',
-          year: '2024',
-          journal: 'International Journal of Intelligent Systems and Applications in Engineering',
-          type: 'Scopus Q3'
+          year: 'Feb-24',
+          title: 'Mathematical Modelling and Implementation of Multiscale Attention Feature Enhancement Network algorithm for the clarity of SEM and TEM images',
+          type: 'Scopus Q3',
+          journal: 'International Journal of Intelligent Systems and Applications in Engineering'
         },
         {
+          year: 'Mar-24',
           title: 'A framework for brain tumor image analysis using convolution with RELU',
-          year: '2024',
-          journal: 'International Journal of Intelligent Systems and Applications in Engineering',
-          type: 'Scopus Q3'
+          type: 'Scopus Q3',
+          journal: 'International Journal of Intelligent Systems and Applications in Engineering'
         },
         {
+          year: 'Oct-23',
           title: 'Wireless Sensor Network Routing Protocols, Challenging Issues in Performance Comparison',
-          year: '2023',
-          journal: 'Journal of Theoritical and Applied Information Technology',
-          type: 'Scopus Q4'
+          type: 'Scopus Q4',
+          journal: 'Journal of Theoritical and Applied Information Technology'
         },
         {
-          title: 'A Smart Biomedical Healthcare system to detect stress using IoMT, ML and AI',
-          year: '2023',
-          journal: 'International Journal of Intelligent Systems and Applications in Engineering',
-          type: 'Scopus Q3'
+          year: 'Sep-23',
+          title: 'A Smart Biomedical Healthcare system to detect stress using internet of medical things, Machine Learning and Artificial Intelligence',
+          type: 'Scopus Q3',
+          journal: 'International Journal of Intelligent Systems and Applications in Engineering'
         }
       ]
     },
@@ -54,43 +53,54 @@ const FacultySection = () => {
       designation: 'Associate Professor',
       education: 'PhD, M.Tech',
       specialization: 'IoT Systems, 5G Networks, Deep Learning, Computer Architecture',
-      image: '/cs-aiml-photos/Facultycertificate/Iot workshop.jpg',
       achievements: [
         {
-          title: 'IOT based robotic device for seed dispersing and pesticide spraying',
-          year: '2024',
-          journal: 'Indian Patent',
-          type: 'Patent No. 41347-001'
+          year: 'Apr-24',
+          title: 'IOT based robotic device for seed dispersing and pesticide sparying',
+          type: 'Indian Patent',
+          journal: 'Design no-41347-001(Indian Patent)'
         },
         {
+          year: 'Dec-24',
           title: 'Management and deployment of 5G small cells and Hetnets using deep learning',
-          year: '2024',
-          journal: 'Routledge Taylor and Francis Group',
-          type: 'Book Chapter'
+          type: 'Book Chapter',
+          journal: 'Book chapter in Routeledge Taylor and Francis Group'
         },
         {
+          year: 'Apr-24',
           title: 'Graphical User Interface for a Computer Display device',
-          year: '2024',
-          journal: 'UK Patent',
-          type: 'Design No. 6390J11'
+          type: 'UK Patent',
+          journal: 'Design no- 6390J11(UK Patent)'
         },
         {
+          year: 'Sep-24',
           title: 'Computer Architecture',
-          year: '2024',
-          journal: 'Kalyani Publications',
-          type: 'Book Chapter'
+          type: 'Book Chapter',
+          journal: 'Book chapter in Kalyani Publications'
         },
         {
+          year: 'Sep-24',
           title: 'Object Oriented Programming using Java',
-          year: '2024',
-          journal: 'Kalyani Publications',
-          type: 'Book Chapter'
+          type: 'Book Chapter',
+          journal: 'Book chapter in Kalyani Publications'
         },
         {
+          year: 'Dec-24',
+          title: 'Revolutionizing Human Machine Conversations: Real time speech recognition and synthesis with GPT-2',
+          type: 'Conference Paper',
+          journal: 'Proceedings of the 3rd International Conferences on Optimization Techniques in the field of Engineering'
+        },
+        {
+          year: 'Dec-24',
+          title: 'The application of Machine Learning to NLP: Mordern Advances in the study of Human Language',
+          type: 'Conference Paper',
+          journal: '3rd International Conference on Sustainable Technologies and Advances in Automation, Aerospace and Robotics'
+        },
+        {
+          year: 'Dec-24',
           title: 'Securing Space Tourism Operations using Blockchain Technology',
-          year: '2024',
-          journal: 'Indian Patent Filed',
-          type: 'ID: 202441067348'
+          type: 'Patent Filed',
+          journal: 'ID: 202441067348(Indian Patent Filed)'
         }
       ]
     },
@@ -100,43 +110,60 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'AI Chatbots, Image Processing, GANs, Object Detection',
-      image: '/cs-aiml-photos/Facultycertificate/IRJET by Swathi.jpg',
       achievements: [
         {
-          title: 'VBOT: An AI Powered chatbot for streamlining college administration',
-          year: '2025',
-          journal: 'International Journal of Research and Analytical Reviews',
-          type: 'Research Paper'
+          year: 'Feb-25',
+          title: 'VBOT: An AI Powered chatbot for streamlining college administration and enhancing student engagement',
+          type: 'Research Paper',
+          journal: 'International Journal of Research and Analytical Reviews'
         },
         {
+          year: 'Apr-25',
           title: 'State of the art Review on Chatbot for College Enquiry',
-          year: '2025',
-          journal: 'International Journal of Scientific Research in Engineering and Management',
-          type: 'Research Paper'
+          type: 'Research Paper',
+          journal: 'International Journal of Scientific Research in Engineering and Management'
         },
         {
+          year: 'Jan-25',
           title: 'Real-time distress signal recognition: Acoustic monitoring for crime control',
-          year: '2025',
-          journal: 'International Research Journal of Engineering and Technology',
-          type: 'Research Paper'
+          type: 'Research Paper',
+          journal: 'International Research Journal of Engineering and Technology'
         },
         {
-          title: 'AI Based Goggles for Visually Impaired',
-          year: '2024',
-          journal: 'Government of India Patent Office',
-          type: 'Patent ID 410787-001'
+          year: 'Jan-25',
+          title: 'Object detection based on Python and Image Processing',
+          type: 'Research Paper',
+          journal: 'International Journal of Artificial Intelligence Research and Development'
         },
         {
+          year: 'Nov-24',
           title: 'State of the art review on image synthesis with generative adversarial networks',
-          year: '2024',
-          journal: 'International Research Journal of Engineering and Technology',
-          type: 'Research Paper'
+          type: 'Research Paper',
+          journal: 'International Research Journal of Engineering and Technology'
         },
         {
-          title: 'AI driven Social Media Platform Profanity-Free',
-          year: '2025',
-          journal: 'International Journal of Research and Analytical Reviews',
-          type: 'Research Paper'
+          year: 'Mar-24',
+          title: 'AI Based Goggles for Visually Impaired',
+          type: 'Patent',
+          journal: 'Patent ID 410787-001The Patent office, Government of India'
+        },
+        {
+          year: 'Jan-25',
+          title: 'Analysing and predicting the control of GHG emissions using Machine Learning Models',
+          type: 'Book Chapter',
+          journal: 'Artificial Intelligence and Software Engineering: Tools,Techniques and future trends, Bright Sky Publications'
+        },
+        {
+          year: 'Mar-25',
+          title: 'Digital Survival: Navigating Internet vulnerabilities in the modern era',
+          type: 'Research Paper',
+          journal: 'International Journal of Scientific Research in Engineering and Management'
+        },
+        {
+          year: 'Jan-25',
+          title: 'AI driven Social Media Platform Profanity- Free',
+          type: 'Research Paper',
+          journal: 'International Journal of Research and Analytical Reviews'
         }
       ]
     },
@@ -146,31 +173,30 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Ensemble Learning, Deep Learning, Cybersecurity, CNN Models',
-      image: '/cs-aiml-photos/Facultycertificate/IJRAR Journal.png',
       achievements: [
         {
+          year: 'Jan-25',
           title: 'Performance Evaluation of children at risk for schizophrenia using ensemble learning',
-          year: '2025',
-          journal: 'Smart Factories for Industry 5.0 Transformation',
-          type: 'Book Chapter'
+          type: 'Book Chapter',
+          journal: 'Book Chapter in Smart Factories for Industry 5.0 Transformation'
         },
         {
-          title: 'Boosting Deep Learning Models with Improved Artificial Gorilla Troops Algorithm',
-          year: '2025',
-          journal: 'SCI Journal',
-          type: 'SCI Paper'
+          year: 'Feb-25',
+          title: 'Boosting Deep Learning Models with Improved Artificial Gorilla Troops Algorithm for real time object detection and classification on self driving cars',
+          type: 'SCI Journal',
+          journal: 'SCI Journal'
         },
         {
+          year: 'Dec-24',
           title: 'Innovations in Cybersecurity and Data Science',
-          year: '2024',
-          journal: 'Proceedings of ICICDS - Springer',
-          type: 'Book Chapter'
+          type: 'Book Chapter',
+          journal: 'Proceedings of ICICDS Book chapter in Springer'
         },
         {
+          year: 'Sep-23',
           title: 'A review of Convolution Neural Networks(D-CNN) Models',
-          year: '2023',
-          journal: 'AETS Global',
-          type: 'Book Chapter'
+          type: 'Book Chapter',
+          journal: 'Book Chapter in AETS Global'
         }
       ]
     },
@@ -180,13 +206,12 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Machine Learning, IoT Systems, Object Detection, Image Processing',
-      image: '/cs-aiml-photos/Facultycertificate/Prof. Ambili K(Iot workshop).jpg',
       achievements: [
         {
+          year: 'Jan-25',
           title: 'Object detection based on Python and Image Processing',
-          year: '2025',
-          journal: 'International Journal of Artificial Intelligence Research and Development',
-          type: 'Research Paper'
+          type: 'Research Paper',
+          journal: 'International Journal of Artificial Intelligence Research and Development'
         }
       ]
     }
@@ -225,33 +250,29 @@ const FacultySection = () => {
               whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             >
               <Card className="overflow-hidden h-full">
-                <div className="relative">
-                  <img
-                    src={faculty.image}
-                    alt={faculty.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <Badge variant="secondary" className="bg-primary/90 text-primary-foreground">
-                      {faculty.designation}
-                    </Badge>
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
+                      <User className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl font-bold mb-1">
+                        {faculty.name}
+                      </CardTitle>
+                      <Badge variant="secondary" className="bg-primary/90 text-primary-foreground mb-2">
+                        {faculty.designation}
+                      </Badge>
+                      <div className="flex flex-wrap gap-2">
+                        <Badge variant="outline" className="text-xs">
+                          <Briefcase className="w-3 h-3 mr-1" />
+                          {faculty.education}
+                        </Badge>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-bold flex items-center gap-2">
-                    <GraduationCap className="w-5 h-5 text-primary" />
-                    {faculty.name}
-                  </CardTitle>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    <Badge variant="outline" className="text-xs">
-                      <Briefcase className="w-3 h-3 mr-1" />
-                      {faculty.education}
-                    </Badge>
-                  </div>
-                </CardHeader>
 
-                <CardContent className="pt-0">
+                <CardContent className="p-6">
                   <div className="mb-4">
                     <h4 className="font-semibold text-sm text-muted-foreground mb-2 flex items-center gap-2">
                       <BookOpen className="w-4 h-4" />
@@ -282,17 +303,17 @@ const FacultySection = () => {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="mt-4 space-y-3 max-h-64 overflow-y-auto"
+                        className="mt-4 space-y-3 max-h-80 overflow-y-auto"
                       >
                         {faculty.achievements.map((achievement, idx) => (
-                          <div key={idx} className="border-l-2 border-primary/20 pl-4 py-2">
-                            <div className="flex justify-between items-start mb-1">
-                              <Badge variant="outline" className="text-xs mb-2">
+                          <div key={idx} className="border-l-2 border-primary/20 pl-4 py-3 bg-muted/30 rounded-r-lg">
+                            <div className="flex justify-between items-start mb-2">
+                              <Badge variant="outline" className="text-xs">
                                 {achievement.type}
                               </Badge>
-                              <span className="text-xs text-muted-foreground">{achievement.year}</span>
+                              <span className="text-xs text-muted-foreground font-medium">{achievement.year}</span>
                             </div>
-                            <h5 className="font-medium text-sm leading-tight mb-1">
+                            <h5 className="font-medium text-sm leading-tight mb-2">
                               {achievement.title}
                             </h5>
                             <p className="text-xs text-muted-foreground italic">
