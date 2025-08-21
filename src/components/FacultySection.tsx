@@ -11,7 +11,7 @@ const FacultySection = () => {
     {
       id: 1,
       name: 'Dr. Nandeeshwar S B',
-      designation: 'Head of Department',
+      designation: 'HOD & Controller of Examinations',
       education: 'PhD, M.Tech',
       specialization: 'Computer Vision, AI Applications, Wireless Sensor Networks',
       achievements: [
@@ -49,8 +49,8 @@ const FacultySection = () => {
     },
     {
       id: 2,
-      name: 'Dr. Vijaykumar K',
-      designation: 'Associate Professor',
+      name: 'Dr. Vijaya Kumar',
+      designation: 'Professor',
       education: 'PhD, M.Tech',
       specialization: 'IoT Systems, 5G Networks, Deep Learning, Computer Architecture',
       achievements: [
@@ -106,7 +106,15 @@ const FacultySection = () => {
     },
     {
       id: 3,
-      name: 'Prof. Swathi S A',
+      name: 'Dr. Lokesh NS',
+      designation: 'Assistant Professor',
+      education: 'PhD, M.Tech',
+      specialization: 'Machine Learning, Data Science, Algorithms',
+      achievements: []
+    },
+    {
+      id: 4,
+      name: 'Mrs. Swathi S A',
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'AI Chatbots, Image Processing, GANs, Object Detection',
@@ -168,8 +176,8 @@ const FacultySection = () => {
       ]
     },
     {
-      id: 4,
-      name: 'Prof. Sreenivasaperumal',
+      id: 5,
+      name: 'Mr. Sreenivasaperumal',
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Ensemble Learning, Deep Learning, Cybersecurity, CNN Models',
@@ -201,8 +209,8 @@ const FacultySection = () => {
       ]
     },
     {
-      id: 5,
-      name: 'Prof. Ambili K',
+      id: 6,
+      name: 'Mrs. Ambili K',
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Machine Learning, IoT Systems, Object Detection, Image Processing',
@@ -214,6 +222,78 @@ const FacultySection = () => {
           journal: 'International Journal of Artificial Intelligence Research and Development'
         }
       ]
+    },
+    {
+      id: 7,
+      name: 'Mr. Anul Kumar',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Software Engineering, Programming Languages',
+      achievements: []
+    },
+    {
+      id: 8,
+      name: 'Mrs. Mackal Rajawat',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Data Structures, Algorithms',
+      achievements: []
+    },
+    {
+      id: 9,
+      name: 'Mrs. Vinaya S Kavalgi',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Database Systems, Web Technologies',
+      achievements: []
+    },
+    {
+      id: 10,
+      name: 'Mr. Ramakrishna R',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Computer Networks, Network Security',
+      achievements: []
+    },
+    {
+      id: 11,
+      name: 'Mrs. Kavya P',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Machine Learning, Data Analytics',
+      achievements: []
+    },
+    {
+      id: 12,
+      name: 'Mr. Roshan U',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Artificial Intelligence, Computer Vision',
+      achievements: []
+    },
+    {
+      id: 13,
+      name: 'Ms. Nagavarshini B R',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Software Development, Mobile Applications',
+      achievements: []
+    },
+    {
+      id: 14,
+      name: 'Mrs. Nallamilli Kavita',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Data Mining, Big Data Analytics',
+      achievements: []
+    },
+    {
+      id: 15,
+      name: 'Mrs. Bhagyashree',
+      designation: 'Assistant Professor',
+      education: 'M.Tech',
+      specialization: 'Cloud Computing, Distributed Systems',
+      achievements: []
     }
   ];
 
