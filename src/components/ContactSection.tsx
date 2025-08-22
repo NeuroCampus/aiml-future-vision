@@ -50,7 +50,7 @@ const ContactSection = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <p className="text-md sm:text-lg text-muted-foreground">CSE-AIML Department, AMC Engineering College, Bengaluru - 560083</p>
+                  <p className="text-md sm:text-lg text-muted-foreground">AMC Engineering College, 18th KM, Bannerghatta Road, Bengaluru, Karnataka, India</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-6 h-6 text-primary flex-shrink-0" />
@@ -58,7 +58,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-6 h-6 text-primary flex-shrink-0" />
-                  <p className="text-md sm:text-lg text-muted-foreground">aiml@amcec.edu.in</p>
+                  <p className="text-md sm:text-lg text-muted-foreground">cse.aiml@amceducation.in</p>
                 </div>
               </div>
             </div>

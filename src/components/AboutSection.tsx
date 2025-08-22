@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Users, Award, BookOpen, Target } from 'lucide-react';
+import { Target, BookOpen, Users, Award, Lightbulb, Rocket, Building } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const AboutSection = () => {
@@ -7,22 +7,22 @@ const AboutSection = () => {
     {
       icon: Target,
       title: 'Our Vision',
-      description: 'To provide progressive education and flourish student ingenuity for successful professionals impacting society for a smarter and ethical world.',
+      description: 'To become a nationally recognized center of excellence in AI and ML education, fostering innovation, research, and entrepreneurship to address real-world challenges.',
     },
     {
       icon: BookOpen,
-      title: 'Academic Excellence',
-      description: 'AICTE approved 4-year B.Tech program with comprehensive AI/ML curriculum and hands-on learning.',
+      title: 'Our Mission',
+      description: 'Provide dynamic curriculum blending theoretical foundations with practical applications, fostering holistic student development through hands-on projects and industry collaborations.',
     },
     {
       icon: Users,
       title: 'Expert Faculty',
-      description: 'Qualified faculty with PhDs and industry experience in AI, ML, and emerging technologies.',
+      description: 'Dedicated faculty with PhDs and industry experience, committed to mentoring students and fostering innovation in AI and ML technologies.',
     },
     {
       icon: Award,
-      title: 'Industry Recognition',
-      description: 'Strong industry partnerships and placement record with leading tech companies.',
+      title: 'Academic Excellence',
+      description: 'Students consistently securing top VTU ranks with Mohammad Ayyan achieving 7th rank (9.43 CGPA) - first rank holder from CSE-AIML branch.',
     },
   ];
 
@@ -49,7 +49,7 @@ const AboutSection = () => {
               Shaping Tomorrow's AI Leaders
             </h3>
             <p className="text-base sm:text-lg text-muted-foreground mb-8">
-              The Department of Computer Science and Engineering (AI & ML) at AMC Engineering College stands at the forefront of technological innovation. We nurture creativity, critical thinking, and problem-solving skills essential for the AI-driven future.
+              The Department of Computer Science and Engineering (AI & ML) at AMC Engineering College is a hub of academic excellence, innovation, and industry-aligned education. Established to meet the demands of the rapidly evolving technological landscape, we are committed to nurturing future-ready professionals equipped with strong technical skills, critical thinking, and a research-driven mindset.
             </p>
             <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-center space-x-3">
@@ -58,15 +58,23 @@ const AboutSection = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span>Industry-Ready Curriculum</span>
+                <span>Dynamic AI/ML Curriculum</span>
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span>Research Opportunities</span>
+                <span>Industry-Aligned Education</span>
               </li>
               <li className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span>Global Partnerships</span>
+                <span>Research & Innovation Focus</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <div className="w-2 h-2 bg-primary rounded-full" />
+                <span>Entrepreneurship Development</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <div className="w-2 h-2 bg-primary rounded-full" />
+                <span>Global Industry Partnerships</span>
               </li>
             </ul>
           </div>

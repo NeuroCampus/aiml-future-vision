@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 
 const FacultySection = () => {
   const [expandedFaculty, setExpandedFaculty] = useState<number | null>(null);
+  const [showAllFaculty, setShowAllFaculty] = useState(false);
 
   const facultyMembers = [
     {
@@ -297,6 +298,8 @@ const FacultySection = () => {
     }
   ];
 
+  const displayedFaculty = showAllFaculty ? facultyMembers : facultyMembers.slice(0, 4);
+
   const toggleExpanded = (id: number) => {
     setExpandedFaculty(expandedFaculty === id ? null : id);
   };
@@ -307,7 +310,7 @@ const FacultySection = () => {
   };
 
   return (
-    <section id="faculty" className="py-16 md:py-20 bg-background">
+    <section id="faculty" className="py-16 md:py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -318,8 +321,8 @@ const FacultySection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {facultyMembers.map((faculty, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {displayedFaculty.map((faculty, index) => (
             <motion.div
               key={faculty.id}
               initial="hidden"
@@ -409,6 +412,17 @@ const FacultySection = () => {
             </motion.div>
           ))}
         </div>
+
+        {!showAllFaculty && displayedFaculty.length < facultyMembers.length && (
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setShowAllFaculty(true)}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-md font-medium transition-colors"
+            >
+              Explore Faculty ({facultyMembers.length - displayedFaculty.length} more)
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
