@@ -159,7 +159,7 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+  @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
   }
   
   /* Custom scrollbar for modern feel */
@@ -349,6 +349,19 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   /* Smooth section transitions */
   .section-transition {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hide scrollbar utility */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *:not([data-allow-motion]) {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
   }
   
   /* Logo animation */

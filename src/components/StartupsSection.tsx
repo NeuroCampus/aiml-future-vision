@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 const StartupsSection = () => {
   const startups = [
     {
-      name: 'Stalight Technology Pvt. Ltd.',
+      name: 'Stalight Technology ',
       founder: 'Ritesh N (Batch 2026)',
       product: 'SentinelAI',
       description: 'AI-powered surveillance platform for public safety, registered with UDYAM and submitted to YUKTI.',
@@ -101,86 +101,74 @@ const StartupsSection = () => {
           </div>
         </div>
 
-        {/* Startup Ventures */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-          {/* Desktop illustration as first column */}
-          <div className="hidden lg:block">
-            <div className="sticky top-24 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 h-fit">
-              <img 
-                src="/cartoons/undraw_tree-swing_5010.svg"
-                alt="Innovation Growth"
-                className="w-full h-auto animate-float-slow"
-              />
-            </div>
-          </div>
-          
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {startups.map((startup, index) => {
-              const Icon = startup.icon;
-              return (
-                <motion.div
-                  key={index}
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={cardVariants}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className="group"
-                >
-                  <Card className="h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card/95 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10">
-                    <CardHeader className="text-center pb-4">
-                      <div className="flex justify-center mb-3">
-                        <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                          <Icon className="h-7 w-7 text-primary" />
-                        </div>
+        {/* Startup Ventures - Bento grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {startups.map((startup, index) => {
+            const Icon = startup.icon;
+            return (
+              <motion.div
+                key={index}
+                layout
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.04 }}
+                className="group col-span-1"
+              >
+                <Card className="h-full bg-gradient-to-br from-primary/5 to-accent/10 border border-border/30 rounded-2xl shadow-lg hover:shadow-primary/20 transition-all duration-500">
+                  <CardHeader className="text-center pb-4">
+                    <div className="flex justify-center mb-3">
+                      <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                        <Icon className="h-7 w-7 text-primary" />
                       </div>
-                      <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300">
-                        {startup.name}
-                      </CardTitle>
-                      <div className="space-y-2">
-                        <p className="text-sm font-semibold text-muted-foreground">{startup.founder}</p>
-                        <p className="text-sm text-primary font-medium">{startup.product}</p>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="text-center">
-                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                        {startup.description}
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-2 text-xs">
-                        <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
-                          {startup.status}
-                        </span>
-                        <span className="bg-secondary/50 px-3 py-1 rounded-full">
-                          {startup.focus}
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
+                    </div>
+                    <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300">
+                      {startup.name}
+                    </CardTitle>
+                    <div className="space-y-2">
+                      <p className="text-sm font-semibold text-muted-foreground">{startup.founder}</p>
+                      <p className="text-sm text-primary font-medium">{startup.product}</p>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                      {startup.description}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-2 text-xs justify-center">
+                      <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
+                        {startup.status}
+                      </span>
+                      <span className="bg-secondary/50 px-3 py-1 rounded-full">
+                        {startup.focus}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Achievement Highlights */}
+        {/* Achievement Highlights - visually distinct */}
         <div>
           <h3 className="text-2xl font-bold text-center mb-8">Entrepreneurial Achievements</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => {
               const Icon = achievement.icon;
               return (
                 <motion.div
                   key={index}
-                  custom={index}
+                  layout
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                   variants={cardVariants}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.06 }}
                 >
-                  <Card className="text-center hover:shadow-lg transition-shadow duration-300">
+                  <Card className="text-center bg-gradient-to-br from-primary/5 to-accent/10 border border-border/30 rounded-xl shadow-md hover:shadow-primary/10 transition-all duration-300">
                     <CardContent className="p-6">
                       <div className="flex justify-center mb-4">
                         <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
