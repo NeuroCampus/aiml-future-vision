@@ -310,7 +310,7 @@ const FacultySection = () => {
   };
 
   return (
-    <section id="faculty" className="py-16 md:py-20 bg-muted/30">
+    <section id="faculty" className="py-16 md:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -321,7 +321,7 @@ const FacultySection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {displayedFaculty.map((faculty, index) => (
             <motion.div
               key={faculty.id}
@@ -330,82 +330,75 @@ const FacultySection = () => {
               viewport={{ once: true, amount: 0.3 }}
               variants={cardVariants}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
             >
-              <Card className="overflow-hidden h-full">
-                <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                      <User className="w-8 h-8 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-bold mb-1">
-                        {faculty.name}
-                      </CardTitle>
-                      <Badge variant="secondary" className="bg-primary/90 text-primary-foreground mb-2">
-                        {faculty.designation}
+              <Card className="overflow-hidden h-full rounded-xl shadow border border-border/30 bg-gradient-to-br from-primary/5 to-background text-sm">
+                <div className="p-4 flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border border-primary/30">
+                    <User className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <CardTitle className="text-base font-bold mb-1">
+                      {faculty.name}
+                    </CardTitle>
+                    <Badge variant="secondary" className="bg-primary/90 text-primary-foreground mb-1 text-xs">
+                      {faculty.designation}
+                    </Badge>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="outline" className="text-xs">
+                        <Briefcase className="w-3 h-3 mr-1" />
+                        {faculty.education}
                       </Badge>
-                      <div className="flex flex-wrap gap-2">
-                        <Badge variant="outline" className="text-xs">
-                          <Briefcase className="w-3 h-3 mr-1" />
-                          {faculty.education}
-                        </Badge>
-                      </div>
                     </div>
                   </div>
                 </div>
-
-                <CardContent className="p-6">
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-sm text-muted-foreground mb-2 flex items-center gap-2">
-                      <BookOpen className="w-4 h-4" />
+                <CardContent className="p-4">
+                  <div className="mb-2">
+                    <h4 className="font-semibold text-xs text-muted-foreground mb-1 flex items-center gap-2">
+                      <BookOpen className="w-3 h-3" />
                       Specialization
                     </h4>
-                    <p className="text-sm">{faculty.specialization}</p>
+                    <p className="text-xs">{faculty.specialization}</p>
                   </div>
-
-                  <div className="border-t pt-4">
+                  <div className="border-t pt-3">
                     <button
                       onClick={() => toggleExpanded(faculty.id)}
-                      className="flex items-center justify-between w-full text-left font-semibold text-sm text-primary hover:text-primary/80 transition-colors"
+                      className="flex items-center justify-between w-full text-left font-semibold text-xs text-primary hover:text-primary/80 transition-colors py-1"
                     >
                       <span className="flex items-center gap-2">
-                        <Award className="w-4 h-4" />
-                        Research & Achievements ({faculty.achievements.length})
+                        <Award className="w-3 h-3" />
+                        {expandedFaculty === faculty.id ? 'Explore Less' : 'Explore More'}
+                        <span className="text-xs text-muted-foreground">({faculty.achievements.length})</span>
                       </span>
                       {expandedFaculty === faculty.id ? (
-                        <ChevronUp className="w-4 h-4" />
+                        <ChevronUp className="w-3 h-3" />
                       ) : (
-                        <ChevronDown className="w-4 h-4" />
+                        <ChevronDown className="w-3 h-3" />
                       )}
                     </button>
-
-                    {expandedFaculty === faculty.id && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 space-y-3 max-h-80 overflow-y-auto"
-                      >
-                        {faculty.achievements.map((achievement, idx) => (
-                          <div key={idx} className="border-l-2 border-primary/20 pl-4 py-3 bg-muted/30 rounded-r-lg">
-                            <div className="flex justify-between items-start mb-2">
-                              <Badge variant="outline" className="text-xs">
-                                {achievement.type}
-                              </Badge>
-                              <span className="text-xs text-muted-foreground font-medium">{achievement.year}</span>
-                            </div>
-                            <h5 className="font-medium text-sm leading-tight mb-2">
-                              {achievement.title}
-                            </h5>
-                            <p className="text-xs text-muted-foreground italic">
-                              {achievement.journal}
-                            </p>
+                    <motion.div
+                      initial={false}
+                      animate={expandedFaculty === faculty.id ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className={`overflow-hidden mt-2 space-y-2 ${expandedFaculty === faculty.id ? 'max-h-60' : 'max-h-0'}`}
+                    >
+                      {expandedFaculty === faculty.id && faculty.achievements.map((achievement, idx) => (
+                        <div key={idx} className="border-l-2 border-primary/20 pl-3 py-2 bg-muted/30 rounded-r-lg">
+                          <div className="flex justify-between items-start mb-1">
+                            <Badge variant="outline" className="text-xs">
+                              {achievement.type}
+                            </Badge>
+                            <span className="text-xs text-muted-foreground font-medium">{achievement.year}</span>
                           </div>
-                        ))}
-                      </motion.div>
-                    )}
+                          <h5 className="font-medium text-xs leading-tight mb-1">
+                            {achievement.title}
+                          </h5>
+                          <p className="text-xs text-muted-foreground italic">
+                            {achievement.journal}
+                          </p>
+                        </div>
+                      ))}
+                    </motion.div>
                   </div>
                 </CardContent>
               </Card>
@@ -413,16 +406,24 @@ const FacultySection = () => {
           ))}
         </div>
 
-        {!showAllFaculty && displayedFaculty.length < facultyMembers.length && (
-          <div className="text-center mt-12">
+        <div className="text-center mt-12">
+          {!showAllFaculty && displayedFaculty.length < facultyMembers.length && (
             <button
               onClick={() => setShowAllFaculty(true)}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-md font-medium transition-colors"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-md font-medium transition-colors shadow-md"
             >
-              Explore Faculty ({facultyMembers.length - displayedFaculty.length} more)
+              Explore More Faculty ({facultyMembers.length - displayedFaculty.length} more)
             </button>
-          </div>
-        )}
+          )}
+          {showAllFaculty && (
+            <button
+              onClick={() => { setShowAllFaculty(false); setExpandedFaculty(null); }}
+              className="bg-muted text-primary hover:bg-primary/10 px-8 py-3 rounded-md font-medium transition-colors shadow-md mt-4"
+            >
+              Explore Less
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );

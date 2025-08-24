@@ -71,122 +71,61 @@ const SportsAchievementsSection = () => {
 
   return (
     <section className="py-16 md:py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
+          
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Sports & <span className="text-primary">Cultural Excellence</span>
           </h2>
-          <p className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-            Celebrating our students' achievements beyond academics - from national-level sports competitions to cultural performances that showcase their diverse talents and holistic development.
+          <p className="text-md sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Celebrating our students' achievements beyond academics – from national-level sports competitions to cultural performances that showcase their diverse talents and holistic development.
           </p>
         </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Sports Achievements */}
-          <div>
-            <div className="flex items-center mb-8">
-              <Trophy className="h-8 w-8 text-primary mr-3" />
-              <h3 className="text-2xl font-bold">Sports Achievements</h3>
-            </div>
-            
-            <div className="space-y-6">
-              {sportsAchievements.map((achievement, index) => {
-                const Icon = achievement.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    custom={index}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={cardVariants}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <Card className="hover:shadow-lg transition-shadow duration-300">
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                              <Icon className="h-5 w-5 text-primary" />
-                            </div>
-                            <div>
-                              <CardTitle className="text-lg">{achievement.name}</CardTitle>
-                              <p className="text-sm text-muted-foreground">{achievement.batch}</p>
-                            </div>
-                          </div>
-                          <Badge variant="secondary" className="bg-primary/10 text-primary">
-                            {achievement.category}
-                          </Badge>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <h4 className="font-semibold text-sm mb-2">{achievement.achievement}</h4>
-                        <p className="text-sm text-muted-foreground mb-2">{achievement.result}</p>
-                        <p className="text-xs text-primary font-medium">{achievement.date}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Cultural Achievements */}
-          <div>
-            <div className="flex items-center mb-8">
-              <Star className="h-8 w-8 text-primary mr-3" />
-              <h3 className="text-2xl font-bold">Cultural Achievements</h3>
-            </div>
-            
-            <div className="space-y-6">
-              {culturalAchievements.map((achievement, index) => {
-                const Icon = achievement.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    custom={index}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={cardVariants}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <Card className="hover:shadow-lg transition-shadow duration-300">
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                              <Icon className="h-5 w-5 text-primary" />
-                            </div>
-                            <div>
-                              <CardTitle className="text-lg">{achievement.name}</CardTitle>
-                              <p className="text-sm text-muted-foreground">{achievement.batch}</p>
-                            </div>
-                          </div>
-                          <Badge variant="secondary" className="bg-secondary/50">
-                            {achievement.category}
-                          </Badge>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <h4 className="font-semibold text-sm mb-2">{achievement.achievement}</h4>
-                        <p className="text-sm text-muted-foreground mb-2">{achievement.result}</p>
-                        <p className="text-xs text-primary font-medium">{achievement.date}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[...sportsAchievements, ...culturalAchievements].map((achievement, index) => {
+            const Icon = achievement.icon;
+            return (
+              <motion.div
+                key={index}
+                layout
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <Card className="bg-gradient-to-br from-primary/5 to-accent/10 border border-border/30 rounded-2xl shadow-lg hover:shadow-primary/10 transition-all duration-300">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start gap-3">
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg font-bold">{achievement.name}</CardTitle>
+                        <p className="text-sm text-muted-foreground">{achievement.batch}</p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary">
+                        {achievement.category}
+                      </Badge>
+                      <span className="bg-secondary/10 text-xs px-2 py-1 rounded-full text-muted-foreground">{achievement.date}</span>
+                    </div>
+                    <h4 className="font-semibold text-sm mb-2">{achievement.achievement}</h4>
+                    <p className="text-sm text-muted-foreground mb-2">{achievement.result}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
-
-        <div className="text-center mt-12">
-          <div className="bg-primary/5 rounded-lg p-6 max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold mb-2">Holistic Development</h3>
-            <p className="text-muted-foreground">
-              Our students excel not only in academics and technology but also in sports and cultural activities, demonstrating the well-rounded education and diverse opportunities available at our department.
-            </p>
+        <div className="text-center mt-14">
+          <div className="bg-primary/5 rounded-xl p-6 max-w-2xl mx-auto">
+            <h4 className="text-lg font-bold mb-2">Holistic Development</h4>
+            <p className="text-muted-foreground">Our students excel not only in academics and technology but also in sports and cultural activities, demonstrating the well-rounded education and diverse opportunities available at our department.</p>
           </div>
         </div>
       </div>

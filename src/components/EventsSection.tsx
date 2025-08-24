@@ -40,14 +40,8 @@ const EventsSection = () => {
       category: 'workshop',
       mainImage: ['/cs-aiml-photos/Eventspic/Cybersecurity.jpg'],
     },
-    {
-      id: 5,
-      title: 'KGTTI Technical Sessions',
-      description: 'Knowledge sharing sessions focusing on emerging technologies and industry trends.',
-      date: 'Ongoing',
-      category: 'session',
-      mainImage: ['/cs-aiml-photos/Eventspic/KGTTI1.jpg'],
-    },
+    
+    
     {
       id: 6,
       title: 'World Debate Championship',
@@ -71,7 +65,7 @@ const EventsSection = () => {
     { id: 'hackathon', label: 'Hackathons', icon: Code },
     { id: 'competition', label: 'Competitions', icon: Trophy },
     { id: 'workshop', label: 'Workshops', icon: Users },
-    { id: 'session', label: 'Tech Sessions', icon: Brain },
+    
   ];
 
   const filteredEvents = activeFilter === 'all' 

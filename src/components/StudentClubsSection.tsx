@@ -112,8 +112,8 @@ const StudentClubsSection = () => {
   ];
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, scale: 0.95, y: 40 },
+    visible: { opacity: 1, scale: 1, y: 0 },
   };
 
   const displayedClubs = showAll ? clubs : clubs.slice(0, 4);
@@ -130,28 +130,33 @@ const StudentClubsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {displayedClubs.map((club, index) => (
             <motion.div
               key={index}
-              custom={index}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={cardVariants}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+                delay: index * 0.08,
+              }}
+              whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(80,80,180,0.12)' }}
+              style={{ zIndex: displayedClubs.length - index }}
             >
-              <Card className="p-6 h-full bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300">
+              <Card className="p-6 h-full rounded-2xl shadow-lg bg-gradient-to-br from-primary/5 to-card border border-primary/20 hover:border-primary/40 transition-all duration-300">
                 <CardHeader className="text-center pb-4">
                   <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center border border-primary/30">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center border border-primary/30 shadow">
                       <club.icon className="h-8 w-8 text-primary" />
                     </div>
                   </div>
                   <CardTitle className="text-xl font-bold text-foreground">{club.title}</CardTitle>
                   <p className="text-muted-foreground text-sm mt-2">{club.description}</p>
                 </CardHeader>
-
                 <CardContent className="space-y-4">
                   {club.presidents.map((president, presIndex) => (
                     <div key={presIndex} className="bg-muted/30 rounded-lg p-4 border border-muted">
@@ -181,7 +186,7 @@ const StudentClubsSection = () => {
               onClick={() => setShowAll(!showAll)}
               variant="outline"
               size="lg"
-              className="bg-primary/10 border-primary/30 hover:bg-primary/20 text-primary hover:text-primary"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 border-none px-8 py-3 rounded-md font-medium transition-colors shadow-md"
             >
               {showAll ? (
                 <>

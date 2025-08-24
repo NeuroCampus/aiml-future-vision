@@ -29,41 +29,36 @@ const Navigation = () => {
     <>
       <FloatingNavbar>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-20 gap-3">
             {/* Logo Section */}
-            <div 
-              className="flex items-center space-x-2 cursor-pointer"
+            <button
               onClick={() => scrollToSection('#home')}
+              className="group flex items-center gap-3 focus:outline-none"
+              aria-label="Go to top / Home"
             >
-              <img
-                src="/cs-aiml-photos/CSAI Logo.jpeg"
-                alt="CSAI Logo"
-                className="h-12 w-12 object-contain rounded-md"
-              />
-              <span className="text-xl font-bold text-foreground">
-                CSE-AIML
-              </span>
-            </div>
+              <img src="/cs-aiml-photos/CSAI Logo.jpeg" alt="CSE-AIML Department Logo" className="h-10 sm:h-12 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]" loading="eager" decoding="sync" draggable={false} />
+              <span className="text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">CSE-AIML</span>
+            </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-2">
+    <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2" aria-label="Primary">
               {navItems.map((item) => (
                 <Button 
                   key={item.href}
                   variant="ghost"
                   onClick={() => scrollToSection(item.href)}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-4 py-2 rounded-md transition-colors"
+      className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 xl:px-4 py-2 rounded-md transition-colors"
                 >
                   {item.label}
                 </Button>
               ))}
-            </div>
+    </nav>
 
             {/* CTA Button */}
-            <div className="hidden lg:flex items-center">
+      <div className="hidden lg:flex items-center shrink-0">
               <Button 
                 onClick={() => scrollToSection('#contact')}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-3 font-semibold transition-transform transform hover:scale-105"
+        className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 xl:px-6 py-3 font-semibold transition-transform hover:scale-105"
               >
                 Get Started
               </Button>
@@ -126,19 +121,23 @@ const Navigation = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-8">
-                <div 
-                  className="flex items-center space-x-2 cursor-pointer"
+                <button
                   onClick={() => scrollToSection('#home')}
+                  className="flex items-center gap-3 focus:outline-none"
+                  aria-label="Go to top / Home"
                 >
                   <img
                     src="/cs-aiml-photos/CSAI Logo.jpeg"
-                    alt="CSAI Logo"
-                    className="h-10 w-10 object-contain rounded-md"
+                    alt="CSE-AIML Department Logo"
+                    className="h-10 w-auto object-contain select-none pointer-events-none"
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
                   />
-                  <span className="text-lg font-bold text-foreground">
+                  <span className="text-lg font-bold tracking-tight text-foreground">
                     CSE-AIML
                   </span>
-                </div>
+                </button>
                 <Button
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="ghost"
@@ -148,7 +147,7 @@ const Navigation = () => {
                   <X className="h-6 w-6" />
                 </Button>
               </div>
-              <div className="flex flex-col space-y-4">
+              <nav className="flex flex-col space-y-4" aria-label="Mobile">
                 {navItems.map((item) => (
                   <Button
                     key={item.href}
@@ -165,7 +164,7 @@ const Navigation = () => {
                 >
                   Get Started
                 </Button>
-              </div>
+              </nav>
             </motion.div>
           </motion.div>
         )}

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Users, Award, Sparkles, Brain } from 'lucide-react';
+import { ArrowRight, Users, Award, Sparkles, Brain, PlayCircle } from 'lucide-react';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
 
 const HeroSection = () => {
   const [currentWord, setCurrentWord] = useState(0);
 
-  const words = ['Intelligence', 'Innovation', 'Future', 'Excellence'];
+  const words = ['Intelligence', 'Innovation', 'Engineering', 'Excellence'];
   const colors = ['text-primary', 'text-primary', 'text-primary', 'text-primary'];
 
   useEffect(() => {
@@ -17,10 +17,7 @@ const HeroSection = () => {
   }, []);
 
   const stats = [
-    { number: '500+', label: 'Students Enrolled', icon: Users },
-    { number: '75%', label: 'Placement Rate', icon: Award },
-    { number: '7+', label: 'Industry Partners', icon: Sparkles },
-    { number: '15+', label: 'Research Projects', icon: Brain },
+   
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -31,9 +28,16 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative bg-background overflow-hidden py-16 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-80px)] pt-16 pb-12">
+    <section id="home" className="relative overflow-hidden py-20 md:py-28">
+      {/* Background layers */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.18),transparent_75%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,hsl(var(--accent,_260_90%_60%)/0.18),transparent_70%)]" />
+        <div className="absolute inset-0 backdrop-blur-2xl bg-background/85" />
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)] bg-[repeating-linear-gradient(60deg,hsl(var(--border)/0.18)_0_1px,transparent_1px_180px)] opacity-40" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-160px)]">
           {/* Left Content */}
           <motion.div 
             className="text-center lg:text-left"
@@ -44,65 +48,80 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 bg-primary/10 text-primary rounded-full px-3 py-1 text-sm mb-4 md:mb-6"
+              transition={{ delay: 0.15 }}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/15 via-primary/10 to-fuchsia-500/15 text-primary rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium tracking-wide backdrop-blur border border-primary/20 shadow-sm mb-6"
             >
-              <span className="font-semibold">
-                Welcome to the CSE-AIML Academy
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
+              Department of CSE – AI & ML
             </motion.div>
 
             {/* Main Heading */}
-            <div className="mb-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
-                <span className="text-foreground">Shaping the </span>
-                <br className="sm:hidden"/>
-                <div className="relative inline-block my-1 h-12 sm:h-16 lg:h-20 align-middle">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={currentWord}
-                      className={`${colors[currentWord]} font-extrabold`}
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -50 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
-                    >
-                      {words[currentWord]}
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
-                <span className="text-foreground">
-                  &nbsp;of Tomorrow
+            <div className="mb-8">
+              <h1 className="relative font-bold tracking-tight text-4xl sm:text-5xl lg:text-[3.4rem] xl:text-[3.9rem] leading-[1.07]">
+                <span className="block text-balance text-foreground">Shaping the Future of</span>
+                <span className="mt-4 block">
+                  <span
+                    className="relative inline-flex items-center h-12 sm:h-14 lg:h-[3.6rem] px-1"
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={currentWord}
+                        className="font-extrabold bg-gradient-to-r from-primary/95 via-primary to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
+                        initial={{ opacity: 0, y: 32 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -32 }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                      >
+                        {words[currentWord]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
                 </span>
+                <span className="mt-4 block text-sm sm:text-base font-medium tracking-wide text-muted-foreground/90">Applied AI & ML Excellence</span>
               </h1>
             </div>
 
             {/* Description */}
             <motion.p 
-              className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8"
+              className="text-[0.95rem] sm:text-lg text-muted-foreground/90 max-w-xl lg:max-w-lg mx-auto lg:mx-0 leading-relaxed mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              transition={{ delay: 0.35, duration: 0.75 }}
             >
-              Explore the frontiers of Artificial Intelligence and Machine Learning with our world-class faculty and state-of-the-art facilities.
+              A focused engineering ecosystem cultivating industry-ready professionals, innovators, and researchers in Artificial Intelligence & Machine Learning with strong fundamentals and ethical responsibility.
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10 md:mb-12"
+              className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
+              transition={{ delay: 0.55, duration: 0.7 }}
             >
               <EnhancedButton 
                 onClick={() => scrollToSection('#programs')}
                 size="lg" 
                 effect="glow"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/20 rounded-full px-6 py-3 sm:px-8 sm:py-4"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/30 rounded-full px-7 py-4 text-sm sm:text-base font-semibold"
               >
-                <span className="flex items-center space-x-2 text-base sm:text-lg font-semibold">
+                <span className="flex items-center gap-2">
                   <span>Explore Programs</span>
-                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </EnhancedButton>
+              <EnhancedButton
+                onClick={() => scrollToSection('#vision')}
+                size="lg"
+                effect="magnetic"
+                className="rounded-full px-7 py-4 text-sm sm:text-base font-semibold bg-background/70 border border-primary/30 text-primary hover:bg-primary/10"
+              >
+                <span className="flex items-center gap-2">
+                  <PlayCircle className="h-5 w-5" /> Vision & Impact
                 </span>
               </EnhancedButton>
             </motion.div>
@@ -112,54 +131,58 @@ const HeroSection = () => {
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-left"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
+              transition={{ delay: 0.75, duration: 0.8 }}
             >
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="p-2 sm:p-3 bg-primary/10 rounded-full">
-                      <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                    </div>
-                    <div>
-                      <div className="text-xl sm:text-2xl font-bold text-foreground">
-                        {stat.number}
+                  <div key={index} className="group relative p-4 rounded-xl border border-primary/25 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/55 overflow-hidden">
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/15 via-transparent to-fuchsia-500/10" />
+                    <div className="flex items-center gap-4 relative">
+                      <div className="p-2.5 rounded-lg bg-primary/10 ring-1 ring-primary/30">
+                        <Icon className="h-5 w-5 text-primary drop-shadow" />
                       </div>
-                      <div className="text-xs sm:text-sm text-muted-foreground">
-                        {stat.label}
+                      <div>
+                        <div className="text-lg sm:text-xl font-bold tracking-tight text-foreground">{stat.number}</div>
+                        <div className="text-[10px] sm:text-[11px] text-muted-foreground font-medium uppercase tracking-wide">{stat.label}</div>
                       </div>
                     </div>
+                    <span className="pointer-events-none absolute inset-0 rounded-xl ring-0 ring-primary/0 group-hover:ring-2 group-hover:ring-primary/50 transition-all duration-500" />
                   </div>
                 );
               })}
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Hero Visual */}
+          {/* Right Content - Abstract Visual */}
           <motion.div 
-            className="relative flex justify-center items-center mt-8 lg:mt-0"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mt-16 lg:mt-0"
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.25, duration: 0.9, ease: [0.22,1,0.36,1] }}
           >
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
-              {/* Floating elements for desktop */}
-              <div className="hidden lg:block absolute -top-8 -right-8 w-16 h-16 bg-primary/20 rounded-full animate-float-slow"></div>
-              <div className="hidden lg:block absolute -bottom-6 -left-6 w-12 h-12 bg-accent/20 rounded-full animate-float"></div>
-              
-              {/* Main illustration */}
-              <div className="relative bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-6 sm:p-8 lg:p-12">
-                <img 
-                  src="/cartoons/undraw_chat-with-ai_ir62.svg"
-                  alt="AI and Machine Learning Innovation"
-                  className="w-full h-auto object-contain animate-float-slow"
-                />
-                
-                {/* Decorative gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent rounded-3xl pointer-events-none"></div>
-                
-                {/* Glowing effect for larger screens */}
-                <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-xl -z-10"></div>
+            <div className="relative w-full max-w-lg mx-auto aspect-square">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/25 via-fuchsia-500/25 to-transparent blur-2xl opacity-70" />
+              <div className="absolute inset-0 rounded-full border border-primary/30 animate-pulse" />
+              <div className="absolute inset-6 rounded-full border border-primary/20" />
+              <div className="absolute inset-12 rounded-full border border-primary/10" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl bg-background/60 backdrop-blur-xl border border-primary/30 shadow-xl shadow-primary/10 flex flex-col items-center justify-center gap-3 text-center p-6">
+                  <div className="text-[11px] uppercase tracking-wider text-primary/80 font-medium">AI & ML Focus</div>
+                  <p className="text-lg sm:text-xl font-semibold text-foreground drop-shadow">
+                    Applied Intelligence
+                  </p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground leading-snug max-w-[10rem]">
+                    Research • Innovation • Industry • Impact
+                  </p>
+                  <div className="mt-1 grid grid-cols-2 gap-2 w-full">
+                    {['Research','Projects','Ranks','Innovation'].map(label => (
+                      <span key={label} className="text-[9px] sm:text-[10px] px-2 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary font-medium tracking-wide">
+                        {label}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
