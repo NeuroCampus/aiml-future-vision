@@ -62,55 +62,106 @@ const StartupsSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-20 bg-muted/30 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-10 w-32 h-32 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-40 h-40 bg-accent rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <motion.h2 
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             Startups & <span className="text-primary">Innovations</span>
-          </h2>
-          <p className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             Our entrepreneurial students are transforming innovative ideas into successful ventures, creating real-world impact through technology-driven solutions.
-          </p>
+          </motion.p>
+        </div>
+
+        {/* Mobile illustration */}
+        <div className="lg:hidden mb-12 flex justify-center">
+          <div className="w-full max-w-sm bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-6">
+            <img 
+              src="/cartoons/undraw_tree-swing_5010.svg"
+              alt="Innovation and Growth"
+              className="w-full h-auto object-contain animate-float"
+            />
+          </div>
         </div>
 
         {/* Startup Ventures */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-          {startups.map((startup, index) => {
-            const Icon = startup.icon;
-            return (
-              <motion.div
-                key={index}
-                custom={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader className="text-center pb-4">
-                    <div className="flex justify-center mb-3">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Icon className="h-6 w-6 text-primary" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+          {/* Desktop illustration as first column */}
+          <div className="hidden lg:block">
+            <div className="sticky top-24 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 h-fit">
+              <img 
+                src="/cartoons/undraw_tree-swing_5010.svg"
+                alt="Innovation Growth"
+                className="w-full h-auto animate-float-slow"
+              />
+            </div>
+          </div>
+          
+          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {startups.map((startup, index) => {
+              const Icon = startup.icon;
+              return (
+                <motion.div
+                  key={index}
+                  custom={index}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={cardVariants}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="group"
+                >
+                  <Card className="h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card/95 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10">
+                    <CardHeader className="text-center pb-4">
+                      <div className="flex justify-center mb-3">
+                        <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                          <Icon className="h-7 w-7 text-primary" />
+                        </div>
                       </div>
-                    </div>
-                    <CardTitle className="text-lg">{startup.name}</CardTitle>
-                    <div className="space-y-1">
-                      <p className="text-sm font-semibold">{startup.founder}</p>
-                      <p className="text-xs text-primary">{startup.product}</p>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-sm text-muted-foreground mb-4">{startup.description}</p>
-                    <div className="flex justify-between text-xs">
-                      <span className="bg-primary/10 text-primary px-2 py-1 rounded-full">{startup.status}</span>
-                      <span className="bg-secondary/50 px-2 py-1 rounded-full">{startup.focus}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
+                      <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300">
+                        {startup.name}
+                      </CardTitle>
+                      <div className="space-y-2">
+                        <p className="text-sm font-semibold text-muted-foreground">{startup.founder}</p>
+                        <p className="text-sm text-primary font-medium">{startup.product}</p>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                        {startup.description}
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-2 text-xs">
+                        <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
+                          {startup.status}
+                        </span>
+                        <span className="bg-secondary/50 px-3 py-1 rounded-full">
+                          {startup.focus}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Achievement Highlights */}

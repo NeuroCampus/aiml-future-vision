@@ -142,13 +142,25 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none h-auto aspect-square">
-              <img 
-                src="/cartoons/undraw_chat-with-ai_ir62.svg"
-                alt="AI and Machine Learning concept"
-                className="object-contain w-full h-full rounded-3xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent rounded-3xl"></div>
+            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
+              {/* Floating elements for desktop */}
+              <div className="hidden lg:block absolute -top-8 -right-8 w-16 h-16 bg-primary/20 rounded-full animate-float-slow"></div>
+              <div className="hidden lg:block absolute -bottom-6 -left-6 w-12 h-12 bg-accent/20 rounded-full animate-float"></div>
+              
+              {/* Main illustration */}
+              <div className="relative bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-6 sm:p-8 lg:p-12">
+                <img 
+                  src="/cartoons/undraw_chat-with-ai_ir62.svg"
+                  alt="AI and Machine Learning Innovation"
+                  className="w-full h-auto object-contain animate-float-slow"
+                />
+                
+                {/* Decorative gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent rounded-3xl pointer-events-none"></div>
+                
+                {/* Glowing effect for larger screens */}
+                <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl blur-xl -z-10"></div>
+              </div>
             </div>
           </motion.div>
         </div>

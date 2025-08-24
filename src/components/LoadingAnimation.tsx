@@ -25,13 +25,29 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
       animate={controls}
     >
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <motion.img
-          src="/cs-aiml-photos/CSAI Logo.jpeg"
-          alt="CSAI Logo"
-          className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40 object-contain mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.6 } }}
-        />
+        <motion.div
+          className="relative mb-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1, transition: { delay: 0.2, duration: 0.6 } }}
+        >
+          <img
+            src="/cs-aiml-photos/CSAI Logo.jpeg"
+            alt="CSAI Logo"
+            className="h-20 w-20 sm:h-24 sm:w-24 lg:h-32 lg:w-32 object-contain mx-auto rounded-xl"
+          />
+          <motion.div
+            className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20"
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.5, 0.8, 0.5]
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </motion.div>
         <motion.h1
           className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground"
           initial={{ opacity: 0, y: 20 }}
@@ -40,12 +56,36 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
           <span className="text-primary">CSE</span>-AIML
         </motion.h1>
         <motion.p
-          className="text-lg sm:text-xl text-muted-foreground mt-2"
+          className="text-base sm:text-lg text-muted-foreground mt-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0, transition: { delay: 0.6, duration: 0.6 } }}
         >
-          Loading Awesome Experience...
+          Loading Innovation...
         </motion.p>
+        
+        {/* Loading indicator */}
+        <motion.div
+          className="mt-6 flex justify-center space-x-1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.8, duration: 0.4 } }}
+        >
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              className="w-2 h-2 bg-primary rounded-full"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                delay: i * 0.2,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </motion.div>
       </div>
 
       {/* Simple background effect */}

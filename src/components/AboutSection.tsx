@@ -78,27 +78,66 @@ const AboutSection = () => {
               </li>
             </ul>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src="/cartoons/undraw_educator_6dgp.svg"
-              alt="Educator"
-              className="w-full h-auto object-contain rounded-lg"
-            />
-            <img
-              src="/cs-aiml-photos/Labpics/Seminarhall.jpg"
-              alt="Department Seminar Hall"
-              className="w-full h-auto object-cover rounded-lg"
-            />
-             <img
-              src="/cartoons/undraw_teaching_58yg.svg"
-              alt="Teaching"
-              className="w-full h-auto object-contain rounded-lg"
-            />
-             <img
-              src="/cs-aiml-photos/Labpics/CASElab.jpg"
-              alt="CASE Lab"
-              className="w-full h-auto object-cover rounded-lg"
-            />
+          <div className="relative">
+            {/* Mobile: Single illustration */}
+            <div className="lg:hidden flex justify-center">
+              <div className="w-full max-w-sm bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-6">
+                <img
+                  src="/cartoons/undraw_educator_6dgp.svg"
+                  alt="AI Education Excellence"
+                  className="w-full h-auto object-contain animate-float"
+                />
+              </div>
+            </div>
+            
+            {/* Desktop: Grid layout */}
+            <div className="hidden lg:grid grid-cols-2 gap-6">
+              <motion.div 
+                className="space-y-4"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-gradient-to-br from-primary/5 to-transparent rounded-xl p-4">
+                  <img
+                    src="/cartoons/undraw_educator_6dgp.svg"
+                    alt="Expert Educators"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img
+                    src="/cs-aiml-photos/Labpics/Seminarhall.jpg"
+                    alt="Modern Seminar Hall"
+                    className="w-full h-32 object-cover"
+                  />
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                className="space-y-4"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img
+                    src="/cs-aiml-photos/Labpics/CASElab.jpg"
+                    alt="Advanced CASE Laboratory"
+                    className="w-full h-32 object-cover"
+                  />
+                </div>
+                <div className="bg-gradient-to-br from-accent/5 to-transparent rounded-xl p-4">
+                  <img
+                    src="/cartoons/undraw_teaching_58yg.svg"
+                    alt="Interactive Learning"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
 

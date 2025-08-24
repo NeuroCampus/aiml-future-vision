@@ -317,6 +317,17 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
                   0 0 80px hsl(var(--accent) / 0.2); 
     }
   }
+
+  /* Responsive utilities */
+  @media (max-width: 640px) {
+    .hide-mobile { display: none !important; }
+    .show-mobile { display: block !important; }
+  }
+
+  @media (min-width: 641px) {
+    .hide-desktop { display: none !important; }
+    .show-desktop { display: block !important; }
+  }
   
   /* Shimmer effect for loading states */
   .shimmer {

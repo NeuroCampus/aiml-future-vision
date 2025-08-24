@@ -114,7 +114,7 @@ const EventsSection = () => {
           })}
         </div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           <AnimatePresence>
             {filteredEvents.map((event) => (
               <motion.div
@@ -124,23 +124,47 @@ const EventsSection = () => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.02,
+                  transition: { duration: 0.3 } 
+                }}
+                className="group"
               >
-                <Card className="overflow-hidden h-full">
-                  <img
-                src={event.mainImage[0]}
-                alt={event.title}
-                className="w-full h-48 object-cover"
-              />
+                <Card className="overflow-hidden h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card/95 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10">
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={event.mainImage[0]}
+                      alt={event.title}
+                      className="w-full h-48 md:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    <div className="absolute top-4 right-4">
+                      <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full backdrop-blur-sm">
+                        {event.category}
+                      </span>
+                    </div>
+                  </div>
+                  
                   <CardHeader className="p-4 sm:p-6">
-                    <CardTitle className="text-lg sm:text-xl">{event.title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl group-hover:text-primary transition-colors duration-300">
+                      {event.title}
+                    </CardTitle>
                   </CardHeader>
+                  
                   <CardContent className="p-4 sm:p-6 pt-0">
-                    <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">{event.description}</p>
-                    <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
-                      <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
-                      <span>{event.date}</span>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed line-clamp-3">
+                      {event.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
+                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-2 text-primary" />
+                        <span className="font-medium">{event.date}</span>
+                      </div>
+                      
+                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                     </div>
                   </CardContent>
                 </Card>
@@ -148,6 +172,22 @@ const EventsSection = () => {
             ))}
           </AnimatePresence>
         </motion.div>
+        
+        {/* Illustration for empty states or mobile enhancement */}
+        {filteredEvents.length === 0 && (
+          <motion.div 
+            className="text-center py-12"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
+            <img 
+              src="/cartoons/undraw_no-data_ig65.svg"
+              alt="No events found"
+              className="w-48 h-48 mx-auto mb-6 opacity-50"
+            />
+            <p className="text-muted-foreground">No events found for this category.</p>
+          </motion.div>
+        )}
       </div>
     </section>
   );
