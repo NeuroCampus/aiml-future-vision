@@ -31,8 +31,7 @@ const HeroSection = () => {
     <section id="home" className="relative overflow-hidden py-20 md:py-28">
       {/* Enhanced Background with Professional Academic Theme */}
       <div className="absolute inset-0 -z-10">
-        {/* Hero background image overlay */}
-        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Labpics/Seminarhall.jpg')] bg-cover bg-center bg-no-repeat opacity-[0.08]" />
+        {/* Colorful gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
         
         {/* Professional gradient overlays */}

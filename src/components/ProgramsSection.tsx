@@ -76,9 +76,8 @@ const ProgramsSection = () => {
     <section id="programs" className="relative py-24 md:py-32 overflow-hidden">
       {/* Academic Programs Background */}
       <div className="absolute inset-0 -z-10">
-        {/* Lab environment background */}
-        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Labpics/RDlab.jpg')] bg-cover bg-center opacity-[0.07]" />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/92 to-background/95" />
+        {/* Colorful gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
         
         {/* Tech-inspired gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,hsl(var(--tech-blue)/0.15),transparent_70%)]" />

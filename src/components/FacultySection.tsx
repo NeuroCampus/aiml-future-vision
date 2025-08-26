@@ -313,9 +313,8 @@ const FacultySection = () => {
     <section id="faculty" className="relative py-24 md:py-32 overflow-hidden">
       {/* Faculty Excellence Background */}
       <div className="absolute inset-0 -z-10">
-        {/* Professional academic environment */}
-        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Labpics/Facultyroom.jpg')] bg-cover bg-center opacity-[0.07]" />
-        <div className="absolute inset-0 bg-gradient-to-bl from-background/96 via-background/92 to-background/94" />
+        {/* Colorful gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-bl from-background via-background/95 to-background/90" />
         
         {/* Academic excellence gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--aiml-primary)/0.16),transparent_70%)]" />

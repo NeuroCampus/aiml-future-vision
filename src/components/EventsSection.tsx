@@ -82,9 +82,8 @@ const EventsSection = () => {
     <section id="events" className="relative py-24 md:py-32 overflow-hidden">
       {/* Events & Activities Background */}
       <div className="absolute inset-0 -z-10">
-        {/* Event atmosphere with student activities */}
-        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Eventspic/grouppic.jpg')] bg-cover bg-center opacity-[0.06]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/90 to-background/95" />
+        {/* Colorful gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/90" />
         
         {/* Dynamic event gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_30%,hsl(var(--tech-orange)/0.15),transparent_70%)]" />

@@ -50,9 +50,8 @@ const AboutSection = () => {
     >
       {/* Professional Academic Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* Background image with education theme */}
-        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Labpics/Lecturehall.jpg')] bg-cover bg-center opacity-[0.06]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+        {/* Colorful gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90" />
         
         {/* Elegant gradient overlays */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.18),transparent_70%)]" />

@@ -28,9 +28,8 @@ const Footer = () => {
     <footer className="relative py-20 overflow-hidden">
       {/* Footer Foundation Background */}
       <div className="absolute inset-0 -z-10">
-        {/* Campus foundation image */}
-        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/EduSkillsAMC.png')] bg-cover bg-center opacity-[0.03]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/97 to-background/90" />
+        {/* Colorful gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-background/90" />
         
         {/* Foundation gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,hsl(var(--primary)/0.18),transparent_70%)]" />

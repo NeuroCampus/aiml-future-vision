@@ -35,9 +35,8 @@ const ContactSection = () => {
     <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
       {/* Contact & Connection Background */}
       <div className="absolute inset-0 -z-10">
-        {/* Campus connectivity theme */}
-        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/AMC Logo.jpg')] bg-cover bg-center opacity-[0.04]" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-background/98 via-background/95 to-background/92" />
+        {/* Colorful gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-background via-background/95 to-background/90" />
         
         {/* Connection-themed gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,hsl(var(--aiml-tertiary)/0.15),transparent_70%)]" />
