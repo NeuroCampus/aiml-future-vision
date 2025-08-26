@@ -310,7 +310,20 @@ const FacultySection = () => {
   };
 
   return (
-    <section id="faculty" className="py-16 md:py-20 bg-background">
+    <section id="faculty" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Faculty Excellence Background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Professional academic environment */}
+        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Labpics/Facultyroom.jpg')] bg-cover bg-center opacity-[0.07]" />
+        <div className="absolute inset-0 bg-gradient-to-bl from-background/96 via-background/92 to-background/94" />
+        
+        {/* Academic excellence gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--aiml-primary)/0.16),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,hsl(var(--aiml-secondary)/0.14),transparent_65%)]" />
+        
+        {/* Knowledge sharing pattern */}
+        <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(60deg,hsl(var(--primary)/0.3)_1px,transparent_1px),linear-gradient(-60deg,hsl(var(--accent)/0.2)_1px,transparent_1px)] bg-[size:80px_80px]" />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">

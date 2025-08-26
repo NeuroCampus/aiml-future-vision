@@ -48,11 +48,18 @@ const AboutSection = () => {
       className="relative py-24 md:py-32 overflow-hidden"
       aria-labelledby="about-heading"
     >
-      {/* Clean abstract background (logo removed) */}
+      {/* Professional Academic Background */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 opacity-[0.10] bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.25),transparent_65%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,hsl(var(--background))_0%,hsl(var(--background))_55%,transparent_100%)]" />
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] bg-[repeating-linear-gradient(90deg,hsl(var(--border)/0.15)_0_1px,transparent_1px_140px)]" />
+        {/* Background image with education theme */}
+        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Labpics/Lecturehall.jpg')] bg-cover bg-center opacity-[0.06]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+        
+        {/* Elegant gradient overlays */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.18),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.15),transparent_65%)]" />
+        
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-20 bg-[linear-gradient(30deg,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(150deg,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

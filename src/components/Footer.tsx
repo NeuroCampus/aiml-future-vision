@@ -25,10 +25,28 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-card/70 border-t border-border/40 py-6 text-center">
-      <span className="text-base font-medium text-muted-foreground tracking-wide">
-        &copy; 2025 AMC Engineering College – CSE AIML Department
-      </span>
+    <footer className="relative py-20 overflow-hidden">
+      {/* Footer Foundation Background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Campus foundation image */}
+        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/EduSkillsAMC.png')] bg-cover bg-center opacity-[0.03]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/97 to-background/90" />
+        
+        {/* Foundation gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,hsl(var(--primary)/0.18),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,hsl(var(--accent)/0.15),transparent_60%)]" />
+        
+        {/* Institutional pattern */}
+        <div className="absolute inset-0 opacity-[0.05] bg-[repeating-linear-gradient(0deg,hsl(var(--primary)/0.3)_0_2px,transparent_2px_40px),repeating-linear-gradient(90deg,hsl(var(--accent)/0.2)_0_1px,transparent_1px_60px)]" />
+      </div>
+      
+      <div className="relative">
+        <div className="bg-card/70 border-t border-border/40 py-6 text-center">
+          <span className="text-base font-medium text-muted-foreground tracking-wide">
+            &copy; 2025 AMC Engineering College – CSE AIML Department
+          </span>
+        </div>
+      </div>
     </footer>
   );
 };

@@ -79,7 +79,20 @@ const EventsSection = () => {
   };
 
   return (
-    <section id="events" className="py-16 md:py-20 bg-background">
+    <section id="events" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Events & Activities Background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Event atmosphere with student activities */}
+        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Eventspic/grouppic.jpg')] bg-cover bg-center opacity-[0.06]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/90 to-background/95" />
+        
+        {/* Dynamic event gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_30%,hsl(var(--tech-orange)/0.15),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_70%,hsl(var(--tech-violet)/0.12),transparent_65%)]" />
+        
+        {/* Celebration pattern */}
+        <div className="absolute inset-0 opacity-[0.1] bg-[conic-gradient(from_0deg_at_50%_50%,hsl(var(--primary)/0.2),transparent_30%,hsl(var(--accent)/0.2),transparent_60%,hsl(var(--primary)/0.2))] bg-[size:200px_200px]" />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">

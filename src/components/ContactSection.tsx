@@ -32,7 +32,20 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20 bg-background">
+    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Contact & Connection Background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Campus connectivity theme */}
+        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/AMC Logo.jpg')] bg-cover bg-center opacity-[0.04]" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-background/98 via-background/95 to-background/92" />
+        
+        {/* Connection-themed gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,hsl(var(--aiml-tertiary)/0.15),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,hsl(var(--tech-emerald)/0.12),transparent_65%)]" />
+        
+        {/* Network connection pattern */}
+        <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(45deg,hsl(var(--primary)/0.4)_1px,transparent_1px,transparent_20px,hsl(var(--accent)/0.3)_21px,transparent_22px)] bg-[size:100px_100px]" />
+      </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">

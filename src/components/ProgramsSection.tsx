@@ -73,11 +73,19 @@ const ProgramsSection = () => {
   const visiblePrograms = showAll ? programs : programs.slice(0, 3);
 
   return (
-    <section id="programs" className="py-16 md:py-20 bg-muted/30 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent rounded-full blur-3xl"></div>
+    <section id="programs" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Academic Programs Background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Lab environment background */}
+        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Labpics/RDlab.jpg')] bg-cover bg-center opacity-[0.07]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/98 via-background/92 to-background/95" />
+        
+        {/* Tech-inspired gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_75%,hsl(var(--tech-blue)/0.15),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,hsl(var(--tech-cyan)/0.12),transparent_65%)]" />
+        
+        {/* Hexagonal pattern for tech feel */}
+        <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.3)_1px,transparent_1px)] bg-[size:40px_40px]" />
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

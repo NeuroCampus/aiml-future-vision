@@ -29,12 +29,22 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative overflow-hidden py-20 md:py-28">
-      {/* Background layers */}
+      {/* Enhanced Background with Professional Academic Theme */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.18),transparent_75%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,hsl(var(--accent,_260_90%_60%)/0.18),transparent_70%)]" />
-        <div className="absolute inset-0 backdrop-blur-2xl bg-background/85" />
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)] bg-[repeating-linear-gradient(60deg,hsl(var(--border)/0.18)_0_1px,transparent_1px_180px)] opacity-40" />
+        {/* Hero background image overlay */}
+        <div className="absolute inset-0 bg-[url('/cs-aiml-photos/Labpics/Seminarhall.jpg')] bg-cover bg-center bg-no-repeat opacity-[0.08]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
+        
+        {/* Professional gradient overlays */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.25),transparent_75%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,hsl(var(--accent)/0.22),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,hsl(var(--tech-purple)/0.15),transparent_60%)]" />
+        
+        {/* Grid pattern for tech feel */}
+        <div className="absolute inset-0 opacity-30 bg-[linear-gradient(90deg,hsl(var(--border)/0.5)_1px,transparent_1px),linear-gradient(hsl(var(--border)/0.5)_1px,transparent_1px)] bg-[size:100px_100px]" />
+        
+        {/* Circuit pattern overlay */}
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] bg-[repeating-linear-gradient(45deg,hsl(var(--primary)/0.08)_0_2px,transparent_2px_20px)]" />
       </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-160px)]">
