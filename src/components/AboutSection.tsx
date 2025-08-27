@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
 import { Target, BookOpen, Users, Award, Cpu, BarChart3, Network, Star } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { useScrollReveal, useStaggerReveal } from '@/hooks/useScrollReveal';
 
 const AboutSection = () => {
+  const titleReveal = useScrollReveal({ delay: 0.1, duration: 0.8 });
+  const contentReveal = useScrollReveal({ delay: 0.3, duration: 0.8 });
+  const cardsStagger = useStaggerReveal(4, { delay: 0.5 });
   const highlights = [
     {
       icon: Target,
@@ -62,22 +66,26 @@ const AboutSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-12">
+        <motion.div 
+          ref={titleReveal.ref}
+          initial={titleReveal.initial}
+          animate={titleReveal.animate}
+          className="text-center mb-12"
+        >
           <h2 id="about-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-5 tracking-tight">
             About <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">CSE-AIML</span>
           </h2>
           <p className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
             Pioneering the future of artificial intelligence and machine learning education through innovative curriculum, cutting-edge research, and industry collaboration.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
           {/* Narrative */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6 }}
+            ref={contentReveal.ref}
+            initial={contentReveal.initial}
+            animate={contentReveal.animate}
             className="relative"
           >
             <div className="absolute -top-8 -left-10 w-56 h-56 bg-primary/15 blur-3xl rounded-full" />
@@ -112,10 +120,10 @@ const AboutSection = () => {
 
           {/* Highlights grid (cards) */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            ref={cardsStagger.ref}
+            initial="hidden"
+            animate={cardsStagger.animate}
+            variants={cardsStagger.staggerVariants}
             className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative"
           >
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_30%,hsl(var(--primary)/0.12),transparent_70%)]" />
@@ -124,11 +132,12 @@ const AboutSection = () => {
               return (
                 <motion.div
                   key={highlight.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  variants={cardsStagger.itemVariants}
                   className="relative group"
+                  whileHover={{ 
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
                 >
                   <Card className="h-full p-6 flex flex-col justify-start bg-gradient-to-br from-background/80 to-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/60 border border-primary/25 overflow-hidden">
                     <div className="absolute inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_30%,hsl(var(--primary)/0.22),transparent_70%)]" />

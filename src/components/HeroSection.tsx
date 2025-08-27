@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Users, Award, Sparkles, Brain, PlayCircle } from 'lucide-react';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const HeroSection = () => {
   const [currentWord, setCurrentWord] = useState(0);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, -150]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  
+  const titleReveal = useScrollReveal({ delay: 0.2, duration: 0.8 });
+  const descriptionReveal = useScrollReveal({ delay: 0.4, duration: 0.8 });
+  const buttonsReveal = useScrollReveal({ delay: 0.6, duration: 0.8 });
+  const visualReveal = useScrollReveal({ delay: 0.3, duration: 1, direction: 'right' });
 
   const words = ['Intelligence', 'Innovation', 'Engineering', 'Excellence'];
   const colors = ['text-primary', 'text-primary', 'text-primary', 'text-primary'];
@@ -17,7 +26,10 @@ const HeroSection = () => {
   }, []);
 
   const stats = [
-   
+    { number: '500+', label: 'Students', icon: Users },
+    { number: '95%', label: 'Placement', icon: Award },
+    { number: '50+', label: 'Projects', icon: Brain },
+    { number: '25+', label: 'Achievements', icon: Sparkles }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -40,19 +52,17 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,hsl(var(--tech-purple)/0.15),transparent_60%)]" />
         
       </div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div 
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        style={{ y, opacity }}
+      >
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-160px)]">
           {/* Left Content */}
-          <motion.div 
-            className="text-center lg:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+          <div className="text-center lg:text-left">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 }}
+              ref={titleReveal.ref}
+              initial={titleReveal.initial}
+              animate={titleReveal.animate}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/15 via-primary/10 to-fuchsia-500/15 text-primary rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium tracking-wide backdrop-blur border border-primary/20 shadow-sm mb-6"
             >
               <span className="relative flex h-2 w-2">
@@ -156,7 +166,7 @@ const HeroSection = () => {
                 );
               })}
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Right Content - Abstract Visual */}
           <motion.div 
@@ -191,7 +201,7 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
