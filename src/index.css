@@ -372,4 +372,14 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   .logo-animate:hover {
     transform: scale(1.1) rotate(5deg);
   }
+
+  /* Excellence Ribbon infinite scroll animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50%));
+    }
+  }
 }

@@ -124,23 +124,20 @@ const AcademicExcellenceSection = () => {
           </div>
         </div>
 
-        {/* Horizontal scroll ribbon */}
+        {/* Infinite scroll ribbon */}
         <div className="mt-20">
           <h3 className="text-sm font-semibold tracking-wider uppercase text-primary/90 mb-4 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-primary animate-pulse" /> Excellence Ribbon</h3>
-          <div className="relative group">
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
-            <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory no-scrollbar" aria-label="More rank holders" role="list">
+          <div className="relative overflow-hidden">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+            <div className="flex gap-6 animate-[scroll_30s_linear_infinite] hover:[animation-play-state:paused]" aria-label="Excellence ribbon" role="list">
+              {/* First set of items */}
               {others.slice(3).map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <motion.div
-                    key={s.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                    className="snap-start shrink-0 min-w-[240px]"
+                  <div
+                    key={`first-${s.name}`}
+                    className="shrink-0 min-w-[240px]"
                   >
                     <Card className="h-full p-5 flex flex-col gap-3 bg-gradient-to-br from-background/90 to-background/60 border-border/60 hover:border-primary/40 transition-colors">
                       <div className="flex items-center gap-3">
@@ -155,12 +152,37 @@ const AcademicExcellenceSection = () => {
                       <p className="text-[11px] leading-snug text-primary/90 font-medium line-clamp-3">{s.achievement}</p>
                       <p className="text-[11px] text-muted-foreground line-clamp-2">{s.description}</p>
                     </Card>
-                  </motion.div>
+                  </div>
+                );
+              })}
+              {/* Duplicate set for seamless infinite scroll */}
+              {others.slice(3).map((s, i) => {
+                const Icon = s.icon;
+                return (
+                  <div
+                    key={`second-${s.name}`}
+                    className="shrink-0 min-w-[240px]"
+                  >
+                    <Card className="h-full p-5 flex flex-col gap-3 bg-gradient-to-br from-background/90 to-background/60 border-border/60 hover:border-primary/40 transition-colors">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium truncate">{s.name}</p>
+                          <p className="text-[10px] text-muted-foreground">{s.batch}</p>
+                        </div>
+                      </div>
+                      <p className="text-[11px] leading-snug text-primary/90 font-medium line-clamp-3">{s.achievement}</p>
+                      <p className="text-[11px] text-muted-foreground line-clamp-2">{s.description}</p>
+                    </Card>
+                  </div>
                 );
               })}
             </div>
           </div>
         </div>
+
 
         {/* Milestone ribbon area */}
         <div className="mt-24 relative">
