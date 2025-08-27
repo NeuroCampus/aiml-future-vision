@@ -39,11 +39,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,hsl(var(--accent)/0.22),transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,hsl(var(--tech-purple)/0.15),transparent_60%)]" />
         
-        {/* Grid pattern for tech feel */}
-        <div className="absolute inset-0 opacity-30 bg-[linear-gradient(90deg,hsl(var(--border)/0.5)_1px,transparent_1px),linear-gradient(hsl(var(--border)/0.5)_1px,transparent_1px)] bg-[size:100px_100px]" />
-        
-        {/* Circuit pattern overlay */}
-        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] bg-[repeating-linear-gradient(45deg,hsl(var(--primary)/0.08)_0_2px,transparent_2px_20px)]" />
       </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-160px)]">
