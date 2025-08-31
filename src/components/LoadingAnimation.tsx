@@ -69,8 +69,8 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
                 animate={{ opacity: [0.4, 0.85, 0.4], scale: [1, 1.08, 1] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
               />
-              {/* Progress Ring */}
-              <svg className="absolute inset-0" viewBox="0 0 80 80" aria-hidden="true">
+              {/* Progress Ring - Removed */}
+              {/* <svg className="absolute inset-0" viewBox="0 0 80 80" aria-hidden="true">
                 <circle
                   cx="40"
                   cy="40"
@@ -90,7 +90,7 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
                   animate={{ strokeDashoffset: spinnerDash }}
                   transition={{ ease: 'linear' }}
                 />
-              </svg>
+              </svg> */}
               {/* Transparent logo (no card) */}
               <img
                 src="/cs-aiml-photos/CSAI Logo.jpeg"
