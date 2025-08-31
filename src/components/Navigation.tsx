@@ -42,21 +42,15 @@ const Navigation = () => {
 
             {/* Desktop Navigation */}
     <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2" aria-label="Primary">
-              {navItems.map((item, index) => (
-                <motion.div
+              {navItems.map((item) => (
+                <Button 
                   key={item.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  variant="ghost"
+                  onClick={() => scrollToSection(item.href)}
+      className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 xl:px-4 py-2 rounded-md transition-colors"
                 >
-                  <Button 
-                    variant="ghost"
-                    onClick={() => scrollToSection(item.href)}
-                    className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 xl:px-4 py-2 rounded-md transition-all duration-300 hover:scale-105"
-                  >
-                    {item.label}
-                  </Button>
-                </motion.div>
+                  {item.label}
+                </Button>
               ))}
     </nav>
 
@@ -154,34 +148,22 @@ const Navigation = () => {
                 </Button>
               </div>
               <nav className="flex flex-col space-y-4" aria-label="Mobile">
-                {navItems.map((item, index) => (
-                  <motion.div
+                {navItems.map((item) => (
+                  <Button
                     key={item.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                    variant="ghost"
+                    onClick={() => scrollToSection(item.href)}
+                    className="w-full justify-start text-lg font-medium text-muted-foreground hover:text-foreground py-4"
                   >
-                    <Button
-                      variant="ghost"
-                      onClick={() => scrollToSection(item.href)}
-                      className="w-full justify-start text-lg font-medium text-muted-foreground hover:text-foreground py-4 transition-all duration-300 hover:scale-105 hover:bg-primary/5"
-                    >
-                      {item.label}
-                    </Button>
-                  </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7, duration: 0.4 }}
-                >
-                  <Button 
-                    onClick={() => scrollToSection('#contact')}
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-4 text-lg font-semibold mt-4 transition-all duration-300 hover:scale-105"
-                  >
-                    Get Started
+                    {item.label}
                   </Button>
-                </motion.div>
+                ))}
+                <Button 
+                  onClick={() => scrollToSection('#contact')}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-4 text-lg font-semibold mt-4"
+                >
+                  Get Started
+                </Button>
               </nav>
             </motion.div>
           </motion.div>

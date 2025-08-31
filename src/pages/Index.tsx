@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
@@ -18,50 +17,37 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import LoadingAnimation from '@/components/LoadingAnimation';
 import VortexBackground from '@/components/animations/VortexBackground';
-import ScrollProgress from '@/components/ScrollProgress';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <AnimatePresence mode="wait">
-      {isLoading ? (
+    <>
+      {isLoading && (
         <LoadingAnimation onComplete={() => setIsLoading(false)} />
-      ) : (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="min-h-screen"
-        >
-          <ScrollProgress />
-          <VortexBackground>
-            <Navigation />
-            <motion.main
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <HeroSection />
-              <AboutSection />
-              <LeadershipSection />
-              <AcademicExcellenceSection />
-              <ProgramsSection />
-              <InnovationResearchSection />
-              <StartupsSection />
-              <EventsSection />
-              <StudentClubsSection />
-              <FacultySection />
-              <StudentsSection />
-              <SportsAchievementsSection />
-              <AlumniReflectionsSection />
-              <ContactSection />
-            </motion.main>
-            <Footer />
-          </VortexBackground>
-        </motion.div>
       )}
-    </AnimatePresence>
+      
+      <div className={`transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <VortexBackground>
+          <Navigation />
+          <HeroSection />
+          <AboutSection />
+          <LeadershipSection />
+          <AcademicExcellenceSection />
+          <ProgramsSection />
+          <InnovationResearchSection />
+          <StartupsSection />
+          <EventsSection />
+          <StudentClubsSection />
+          <FacultySection />
+          <StudentsSection />
+          <SportsAchievementsSection />
+          <AlumniReflectionsSection />
+          <ContactSection />
+          <Footer />
+        </VortexBackground>
+      </div>
+    </>
   );
 };
 
