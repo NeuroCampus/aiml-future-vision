@@ -11,6 +11,7 @@ const LeadershipSection = () => {
       name: 'Dr. K.R. Paramahamsa',
       position: 'Chairman, AMC Institutions',
       quote: 'The CSE AIML department is playing a pivotal role in preparing the next generation of innovators. I am proud of its academic excellence, industry-aligned skill development, and the remarkable achievements of our students in securing university ranks, publishing research, and launching innovative projects.',
+      image: '/Magazine/paramahamsa.png',
     },
     {
       name: 'Smt. Geetha Paramahamsa',
@@ -87,17 +88,17 @@ const LeadershipSection = () => {
         <div className="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-gradient-to-tl from-fuchsia-500/10 via-background to-transparent blur-3xl" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-14">
-          <h2 className="text-balance font-bold tracking-tight text-3xl sm:text-4xl lg:text-5xl mb-4">
+        <div className="text-center mb-10 sm:mb-14">
+          <h2 className="text-balance font-bold tracking-tight text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-3 sm:mb-4">
             Leadership <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Messages</span>
           </h2>
-          <p className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
             Voices that shape our direction, culture, and innovation mindset in AI & ML.
           </p>
         </div>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-6 auto-rows-[1fr] gap-6"
+          className="grid grid-cols-1 md:grid-cols-6 auto-rows-[1fr] gap-4 sm:gap-6"
           aria-label="Leadership messages grid"
         >
           {leaders.map((leader, index) => {
@@ -122,13 +123,22 @@ const LeadershipSection = () => {
                   {/* gradient accent */}
                   <div
                     className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${accent}`} />
-                  <CardContent className="p-6 md:p-8 flex flex-col grow">
-                    <Quote className="h-7 w-7 text-primary mb-4 drop-shadow-sm" />
-                    <blockquote className="quote text-sm md:text-sm text-muted-foreground leading-relaxed mb-6 relative">
+                                    <CardContent className="p-4 sm:p-6 md:p-8 flex flex-col grow">
+                    <Quote className="h-5 w-5 sm:h-7 sm:w-7 text-primary mb-3 sm:mb-4 drop-shadow-sm" />
+                    <blockquote className="quote text-sm md:text-sm text-muted-foreground leading-relaxed mb-4 sm:mb-6 relative">
                       <span className="sr-only">Quote:</span>
-                      “{leader.quote}”
+                      "{leader.quote}"
                     </blockquote>
-                    <div className="mt-auto pt-4 border-t border-border/60 flex flex-col">
+                    {leader.image && (
+                      <div className="flex justify-center mb-4 sm:mb-6">
+                        <img
+                          src={leader.image}
+                          alt={leader.name}
+                          className="w-32 h-32 sm:w-48 sm:h-48 object-cover border-2 border-primary/20 shadow-md"
+                        />
+                      </div>
+                    )}
+                    <div className="mt-auto pt-3 sm:pt-4 border-t border-border/60 flex flex-col">
                       <h3 className="font-semibold text-sm sm:text-base tracking-tight">{leader.name}</h3>
                       <p className="text-[11px] sm:text-xs text-muted-foreground font-medium">{leader.position}</p>
                     </div>

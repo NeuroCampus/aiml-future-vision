@@ -1,12 +1,8 @@
 import { motion } from 'framer-motion';
-import { Users, Code, Lightbulb, Rocket, Trophy, ChevronDown, ChevronUp } from 'lucide-react';
+import { Users, Code, Lightbulb, Rocket, Trophy } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { useState } from 'react';
 
 const StudentClubsSection = () => {
-  const [showAll, setShowAll] = useState(false);
-  
   const clubs = [
     {
       icon: Users,
@@ -116,22 +112,20 @@ const StudentClubsSection = () => {
     visible: { opacity: 1, scale: 1, y: 0 },
   };
 
-  const displayedClubs = showAll ? clubs : clubs.slice(0, 4);
-
   return (
     <section id="student-clubs" className="py-16 md:py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Our <span className="text-primary">Student Clubs</span>
+            Our <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Student Clubs</span>
           </h2>
           <p className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
             Engage with vibrant student clubs that foster technical skills, innovation, and community building.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {displayedClubs.map((club, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {clubs.map((club, index) => (
             <motion.div
               key={index}
               initial="hidden"
@@ -145,7 +139,8 @@ const StudentClubsSection = () => {
                 delay: index * 0.08,
               }}
               whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(80,80,180,0.12)' }}
-              style={{ zIndex: displayedClubs.length - index }}
+              className={`${index === 0 ? 'lg:col-span-2' : ''}`}
+              style={{ zIndex: clubs.length - index }}
             >
               <Card className="p-6 h-full rounded-2xl shadow-lg bg-gradient-to-br from-primary/5 to-card border border-primary/20 hover:border-primary/40 transition-all duration-300">
                 <CardHeader className="text-center pb-4">
@@ -158,7 +153,7 @@ const StudentClubsSection = () => {
                   <p className="text-muted-foreground text-sm mt-2">{club.description}</p>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  {club.presidents.map((president, presIndex) => (
+                  {club.presidents.slice(0, 1).map((president, presIndex) => (
                     <div key={presIndex} className="bg-muted/30 rounded-lg p-4 border border-muted">
                       <div className="flex flex-col space-y-2">
                         <div className="flex justify-between items-start">
@@ -179,27 +174,6 @@ const StudentClubsSection = () => {
             </motion.div>
           ))}
         </div>
-
-        {clubs.length > 4 && (
-          <div className="text-center mt-12">
-            <Button
-              onClick={() => setShowAll(!showAll)}
-              variant="outline"
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 border-none px-8 py-3 rounded-md font-medium transition-colors shadow-md"
-            >
-              {showAll ? (
-                <>
-                  Show Less <ChevronUp className="ml-2 h-4 w-4" />
-                </>
-              ) : (
-                <>
-                  Explore More Clubs <ChevronDown className="ml-2 h-4 w-4" />
-                </>
-              )}
-            </Button>
-          </div>
-        )}
       </div>
     </section>
   );

@@ -93,16 +93,16 @@ const EventsSection = () => {
         <div className="absolute inset-0 opacity-[0.1] bg-[conic-gradient(from_0deg_at_50%_50%,hsl(var(--primary)/0.2),transparent_30%,hsl(var(--accent)/0.2),transparent_60%,hsl(var(--primary)/0.2))] bg-[size:200px_200px]" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Events & <span className="text-primary">Activities</span>
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4">
+            Events & <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Activities</span>
           </h2>
-          <p className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
             Discover the vibrant ecosystem of hackathons, competitions, workshops, and technical sessions that foster innovation and learning in our AI/ML community.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-8 sm:mb-10">
           {eventCategories.map((category) => {
             const Icon = category.icon;
             return (
@@ -111,9 +111,9 @@ const EventsSection = () => {
                 onClick={() => setActiveFilter(category.id)}
                 variant={activeFilter === category.id ? "default" : "outline"}
                 effect="magnetic"
-                className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-base"
+                className="px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm lg:text-base min-h-[44px] flex-1 sm:flex-none"
               >
-                <Icon className="h-4 w-4 mr-2" />
+                <Icon className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                 {category.label}
               </EnhancedButton>
             );
@@ -143,30 +143,30 @@ const EventsSection = () => {
                     <img
                       src={event.mainImage[0]}
                       alt={event.title}
-                      className="w-full h-48 md:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full backdrop-blur-sm">
+                    <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                      <span className="px-2 sm:px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full backdrop-blur-sm">
                         {event.category}
                       </span>
                     </div>
                   </div>
                   
-                  <CardHeader className="p-4 sm:p-6">
-                    <CardTitle className="text-lg sm:text-xl group-hover:text-primary transition-colors duration-300">
+                  <CardHeader className="p-3 sm:p-4 md:p-6">
+                    <CardTitle className="text-base sm:text-lg md:text-xl group-hover:text-primary transition-colors duration-300">
                       {event.title}
                     </CardTitle>
                   </CardHeader>
                   
-                  <CardContent className="p-4 sm:p-6 pt-0">
-                    <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed line-clamp-3">
+                  <CardContent className="p-3 sm:p-4 md:p-6 pt-0">
+                    <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed line-clamp-3">
                       {event.description}
                     </p>
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
-                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-2 text-primary" />
+                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-primary" />
                         <span className="font-medium">{event.date}</span>
                       </div>
                       

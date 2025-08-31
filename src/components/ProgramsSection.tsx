@@ -95,7 +95,7 @@ const ProgramsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Our <span className="text-primary">Academic Programs</span>
+            Our <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Academic Programs</span>
           </motion.h2>
           <motion.p 
             className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto"

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Lightbulb, Zap, Code, Rocket, Trophy, Star, Award } from 'lucide-react';
+import { Lightbulb, Zap, Code, Rocket, Trophy, Star, Award, Target } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const InnovationResearchSection = () => {
@@ -35,6 +35,8 @@ const InnovationResearchSection = () => {
     'Hacktopus 2025',
   ];
 
+  const hackathonIcons = [Trophy, Star, Award, Zap, Target];
+
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
@@ -50,7 +52,7 @@ const InnovationResearchSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Innovation & <span className="text-primary">Research</span>
+            Innovation & <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Research</span>
           </motion.h2>
           <motion.p 
             className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto"
@@ -70,6 +72,7 @@ const InnovationResearchSection = () => {
                 <Lightbulb className="h-8 w-8 text-primary mr-3" />
                 <h3 className="text-2xl font-bold">ThinkUp – Ideathon 2025</h3>
               </div>
+              <img src="/Magazine/ideathon.jpg" alt="ThinkUp – Ideathon 2025" className="w-full max-h-64 object-contain rounded-lg mb-6 shadow-md" />
               <p className="text-muted-foreground mb-6">
                 63 teams showcased innovative ideas in AI, IoT, sustainability, and healthcare, demonstrating exceptional creativity and problem-solving skills.
               </p>
@@ -99,7 +102,7 @@ const InnovationResearchSection = () => {
           <motion.div className="md:col-span-1 bg-card/80 rounded-2xl shadow-lg p-6 flex flex-col justify-between" layout initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={cardVariants} transition={{ duration: 0.5, delay: 0.2 }}>
             <div>
               <div className="flex items-center mb-6">
-                <Code className="h-8 w-8 text-primary mr-3" />
+                <Trophy className="h-8 w-8 text-primary mr-3" />
                 <h3 className="text-2xl font-bold">National Hackathon Excellence</h3>
               </div>
               <p className="text-muted-foreground mb-6">
@@ -107,19 +110,27 @@ const InnovationResearchSection = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 gap-4 mt-4">
-              {hackathons.map((hackathon, index) => (
-                <Card key={index} className="bg-card/90 border border-border/30 rounded-xl">
-                  <CardContent className="p-4">
-                    <div className="flex items-center space-x-3">
-                      <Rocket className="h-5 w-5 text-primary" />
-                      <h4 className="font-semibold text-sm">{hackathon}</h4>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+              {hackathons.map((hackathon, index) => {
+                const IconComponent = hackathonIcons[index] || Code;
+                return (
+                  <motion.div key={index} whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+                    <Card className="bg-card/90 border border-border/30 rounded-xl hover:bg-primary/5 transition-colors">
+                      <CardContent className="p-4">
+                        <div className="flex items-center space-x-3">
+                          <IconComponent className="h-5 w-5 text-primary" />
+                          <h4 className="font-semibold text-sm">{hackathon}</h4>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
             </div>
             <motion.div className="mt-6 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-6 backdrop-blur-sm" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} viewport={{ once: true }}>
-              <h4 className="font-bold text-base mb-3 text-primary">Recognition Highlights</h4>
+              <div className="flex items-center mb-3">
+                <Award className="h-5 w-5 text-primary mr-2" />
+                <h4 className="font-bold text-base text-primary">Recognition Highlights</h4>
+              </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Students have secured top positions in multiple hackathons including IIT Bombay events, showcasing exceptional technical skills and innovation in AI/ML applications.
               </p>
