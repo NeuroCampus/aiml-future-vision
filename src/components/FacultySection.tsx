@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Briefcase, GraduationCap, ChevronDown, ChevronUp, User } from 'lucide-react';
+import { Award, BookOpen, Briefcase, User, GraduationCap, Star } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import { useNavigate } from 'react-router-dom';
 
 const FacultySection = () => {
+  const navigate = useNavigate();
   const [expandedFaculty, setExpandedFaculty] = useState<number | null>(null);
-  const [showAllFaculty, setShowAllFaculty] = useState(false);
 
   const facultyMembers = [
     {
@@ -15,6 +18,9 @@ const FacultySection = () => {
       designation: 'HOD & Controller of Examinations',
       education: 'PhD, M.Tech',
       specialization: 'Computer Vision, AI Applications, Wireless Sensor Networks',
+      image: '/Magazine/nandeeshwar.png',
+      experience: '8+ Years',
+      bio: 'Leading researcher in AI and Computer Vision with extensive experience in developing innovative solutions for real-world applications. Committed to advancing AI education and research excellence.',
       achievements: [
         {
           year: 'Feb-24',
@@ -54,6 +60,7 @@ const FacultySection = () => {
       designation: 'Professor',
       education: 'PhD, M.Tech',
       specialization: 'IoT Systems, 5G Networks, Deep Learning, Computer Architecture',
+      image: null,
       achievements: [
         {
           year: 'Apr-24',
@@ -111,6 +118,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Machine Learning, Data Science, Algorithms',
+      image: null,
       achievements: []
     },
     {
@@ -119,6 +127,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'AI Chatbots, Image Processing, GANs, Object Detection',
+      image: '/Magazine/swathi.jpg',
       achievements: [
         {
           year: 'Feb-25',
@@ -182,6 +191,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Ensemble Learning, Deep Learning, Cybersecurity, CNN Models',
+      image: null,
       achievements: [
         {
           year: 'Jan-25',
@@ -215,6 +225,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Machine Learning, IoT Systems, Object Detection, Image Processing',
+      image: '/Magazine/ambili k.jpg',
       achievements: [
         {
           year: 'Jan-25',
@@ -230,6 +241,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Software Engineering, Programming Languages',
+      image: null,
       achievements: []
     },
     {
@@ -238,6 +250,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Data Structures, Algorithms',
+      image: '/Magazine/mackal rajawat.jpg',
       achievements: []
     },
     {
@@ -246,6 +259,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Database Systems, Web Technologies',
+      image: '/Magazine/vinaya s.jpg',
       achievements: []
     },
     {
@@ -254,6 +268,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Computer Networks, Network Security',
+      image: '/Magazine/ramkrishna d.jpg',
       achievements: []
     },
     {
@@ -262,6 +277,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Machine Learning, Data Analytics',
+      image: '/Magazine/kavya p.jpg',
       achievements: []
     },
     {
@@ -270,6 +286,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Artificial Intelligence, Computer Vision',
+      image: '/Magazine/roshan.jpg',
       achievements: []
     },
     {
@@ -278,6 +295,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Software Development, Mobile Applications',
+      image: null,
       achievements: []
     },
     {
@@ -286,6 +304,7 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Data Mining, Big Data Analytics',
+      image: '/Magazine/nallamilli kavita.png',
       achievements: []
     },
     {
@@ -294,15 +313,13 @@ const FacultySection = () => {
       designation: 'Assistant Professor',
       education: 'M.Tech',
       specialization: 'Cloud Computing, Distributed Systems',
+      image: null,
       achievements: []
     }
   ];
 
-  const displayedFaculty = showAllFaculty ? facultyMembers : facultyMembers.slice(0, 4);
-
-  const toggleExpanded = (id: number) => {
-    setExpandedFaculty(expandedFaculty === id ? null : id);
-  };
+  const hod = facultyMembers.find(f => f.id === 1);
+  const otherFaculty = facultyMembers.filter(f => f.id !== 1);
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -324,120 +341,190 @@ const FacultySection = () => {
         <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(60deg,hsl(var(--primary)/0.3)_1px,transparent_1px),linear-gradient(-60deg,hsl(var(--accent)/0.2)_1px,transparent_1px)] bg-[size:80px_80px]" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Our <span className="text-primary">Expert Faculty</span>
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4">
+            Our <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Expert Faculty</span>
           </h2>
-          <p className="text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
             Meet our distinguished faculty members who bring years of academic excellence, industry experience, and cutting-edge research to shape future AI/ML professionals.
           </p>
         </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {displayedFaculty.map((faculty, index) => (
-            <motion.div
-              key={faculty.id}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={cardVariants}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-            >
-              <Card className="overflow-hidden h-full rounded-xl shadow border border-border/30 bg-gradient-to-br from-primary/5 to-background text-sm">
-                <div className="p-4 flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border border-primary/30">
-                    <User className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <CardTitle className="text-base font-bold mb-1">
-                      {faculty.name}
-                    </CardTitle>
-                    <Badge variant="secondary" className="bg-primary/90 text-primary-foreground mb-1 text-xs">
-                      {faculty.designation}
-                    </Badge>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className="text-xs">
-                        <Briefcase className="w-3 h-3 mr-1" />
-                        {faculty.education}
-                      </Badge>
+        {/* HOD Main Card */}
+        {hod && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+            className="mb-16 flex justify-center"
+          >
+            <Card className="overflow-hidden rounded-2xl shadow-2xl border border-border/30 bg-gradient-to-br from-primary/15 via-background to-primary/10 max-w-4xl w-full">
+              <div className="relative">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -translate-y-16 translate-x-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-secondary/10 rounded-full translate-y-12 -translate-x-12"></div>
+                
+                <div className="p-8 md:p-12">
+                  <div className="flex flex-col md:flex-row items-center gap-8">
+                    {/* Profile Image */}
+                    <div className="relative">
+                      {hod.image ? (
+                        <div className="relative">
+                          <img
+                            src={hod.image}
+                            alt={hod.name}
+                            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/30 shadow-xl"
+                          />
+                          <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <Award className="w-4 h-4 text-primary-foreground" />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border-4 border-primary/30 shadow-xl">
+                          <User className="w-16 h-16 md:w-20 md:h-20 text-primary" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 text-center md:text-left">
+                      <div className="mb-4">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                          {hod.name}
+                        </h3>
+                        <Badge variant="secondary" className="bg-primary/90 text-primary-foreground px-4 py-1 text-sm font-medium">
+                          {hod.designation}
+                        </Badge>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div className="flex items-center gap-2 justify-center md:justify-start">
+                          <Briefcase className="w-4 h-4 text-primary" />
+                          <span className="text-sm font-medium">{hod.education}</span>
+                        </div>
+                        <div className="flex items-center gap-2 justify-center md:justify-start">
+                          <BookOpen className="w-4 h-4 text-primary" />
+                          <span className="text-sm font-medium">{hod.experience} Teaching Experience</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-6">
+                        <h4 className="font-semibold text-sm text-muted-foreground mb-2 uppercase tracking-wide">Research Expertise</h4>
+                        <p className="text-muted-foreground leading-relaxed">{hod.specialization}</p>
+                        <p className="text-sm text-muted-foreground mt-2 italic">{hod.bio}</p>
+                      </div>
+
+                      {/* Key Highlights */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                        <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-6 text-center border border-primary/20 shadow-sm">
+                          <div className="text-3xl font-bold text-primary mb-2">{hod.experience.split('+')[0]}</div>
+                          <div className="text-sm text-muted-foreground font-medium">Years Experience</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl p-6 text-center border border-secondary/20 shadow-sm">
+                          <div className="text-3xl font-bold text-primary mb-2">{hod.achievements.length}</div>
+                          <div className="text-sm text-muted-foreground font-medium">Research Papers</div>
+                        </div>
+                        <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl p-6 text-center border border-accent/20 shadow-sm">
+                          <div className="text-3xl font-bold text-primary mb-2">PhD</div>
+                          <div className="text-sm text-muted-foreground font-medium">Qualified</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <CardContent className="p-4">
-                  <div className="mb-2">
-                    <h4 className="font-semibold text-xs text-muted-foreground mb-1 flex items-center gap-2">
-                      <BookOpen className="w-3 h-3" />
-                      Specialization
-                    </h4>
-                    <p className="text-xs">{faculty.specialization}</p>
+              </div>
+            </Card>
+          </motion.div>
+        )}
+      {/* Faculty Carousel */}
+      <Carousel
+        opts={{
+          align: 'start',
+          loop: true,
+        }}
+        plugins={[Autoplay({ delay: 4000 })]}
+        className="w-full max-w-6xl mx-auto"
+      >
+        <CarouselContent>
+          {otherFaculty.map((faculty, index) => (
+            <CarouselItem key={faculty.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                className="h-full"
+              >
+                <Card className="overflow-hidden h-full rounded-xl shadow border border-border/30 bg-gradient-to-br from-primary/5 to-background">
+                  <div className="p-4 flex items-center gap-3">
+                    {faculty.image ? (
+                      <img
+                        src={faculty.image}
+                        alt={faculty.name}
+                        className="w-12 h-12 rounded-full object-cover border border-primary/30"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border border-primary/30">
+                        <User className="w-6 h-6 text-primary" />
+                      </div>
+                    )}
+                    <div className="flex-1">
+                      <CardTitle className="text-sm font-bold mb-1">
+                        {faculty.name}
+                      </CardTitle>
+                      <Badge variant="secondary" className="bg-primary/90 text-primary-foreground mb-1 text-xs">
+                        {faculty.designation}
+                      </Badge>
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="outline" className="text-xs">
+                          <Briefcase className="w-3 h-3 mr-1" />
+                          {faculty.education}
+                        </Badge>
+                      </div>
+                    </div>
                   </div>
-                  <div className="border-t pt-3">
-                    <button
-                      onClick={() => toggleExpanded(faculty.id)}
-                      className="flex items-center justify-between w-full text-left font-semibold text-xs text-primary hover:text-primary/80 transition-colors py-1"
-                    >
-                      <span className="flex items-center gap-2">
-                        <Award className="w-3 h-3" />
-                        {expandedFaculty === faculty.id ? 'Explore Less' : 'Explore More'}
-                        <span className="text-xs text-muted-foreground">({faculty.achievements.length})</span>
-                      </span>
-                      {expandedFaculty === faculty.id ? (
-                        <ChevronUp className="w-3 h-3" />
-                      ) : (
-                        <ChevronDown className="w-3 h-3" />
-                      )}
-                    </button>
-                    <motion.div
-                      initial={false}
-                      animate={expandedFaculty === faculty.id ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className={`overflow-hidden mt-2 space-y-2 ${expandedFaculty === faculty.id ? 'max-h-60' : 'max-h-0'}`}
-                    >
-                      {expandedFaculty === faculty.id && faculty.achievements.map((achievement, idx) => (
-                        <div key={idx} className="border-l-2 border-primary/20 pl-3 py-2 bg-muted/30 rounded-r-lg">
-                          <div className="flex justify-between items-start mb-1">
-                            <Badge variant="outline" className="text-xs">
-                              {achievement.type}
-                            </Badge>
-                            <span className="text-xs text-muted-foreground font-medium">{achievement.year}</span>
-                          </div>
-                          <h5 className="font-medium text-xs leading-tight mb-1">
-                            {achievement.title}
-                          </h5>
-                          <p className="text-xs text-muted-foreground italic">
-                            {achievement.journal}
-                          </p>
-                        </div>
-                      ))}
-                    </motion.div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                  <CardContent className="p-4 pt-0 flex-1">
+                    <div className="mb-2">
+                      <h4 className="font-semibold text-xs text-muted-foreground mb-1 flex items-center gap-2">
+                        <BookOpen className="w-3 h-3" />
+                        Specialization
+                      </h4>
+                      <p className="text-xs">{faculty.specialization}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </CarouselItem>
           ))}
-        </div>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
 
-        <div className="text-center mt-12">
-          {!showAllFaculty && displayedFaculty.length < facultyMembers.length && (
-            <button
-              onClick={() => setShowAllFaculty(true)}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-md font-medium transition-colors shadow-md"
-            >
-              Explore More Faculty ({facultyMembers.length - displayedFaculty.length} more)
-            </button>
-          )}
-          {showAllFaculty && (
-            <button
-              onClick={() => { setShowAllFaculty(false); setExpandedFaculty(null); }}
-              className="bg-muted text-primary hover:bg-primary/10 px-8 py-3 rounded-md font-medium transition-colors shadow-md mt-4"
-            >
-              Explore Less
-            </button>
-          )}
+      <div className="text-center mt-8">
+        <button
+          onClick={() => navigate('/faculty-achievements')}
+          className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-md font-medium transition-colors shadow-md"
+        >
+          See Our Faculty Achievements
+        </button>
+      </div>
+
+      <div className="text-center mt-12">
+        <div className="bg-primary/5 rounded-lg p-6 max-w-4xl mx-auto">
+          <h3 className="text-xl font-bold mb-2">Faculty Excellence</h3>
+          <p className="text-muted-foreground">
+            Our faculty members are dedicated to providing exceptional education and mentorship, combining academic rigor with practical industry insights to prepare students for successful careers in AI and ML.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 

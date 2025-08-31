@@ -10,10 +10,9 @@ const Navigation = () => {
 
   const navItems = [
     { href: '#about', label: 'About' },
-    { href: '#programs', label: 'Programs' },
-    { href: '#events', label: 'Events' },
+    { href: '#events', label: 'Programs' },
     { href: '#faculty', label: 'Faculty' },
-    { href: '#students', label: 'Students' },
+    { href: '#student-clubs', label: 'Clubs' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -65,12 +64,12 @@ const Navigation = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="lg:hidden">
+            <div className="lg:hidden relative z-10">
               <Button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 variant="ghost"
                 size="icon"
-                className="text-muted-foreground"
+                className="text-muted-foreground hover:bg-muted/50"
               >
                 <AnimatePresence mode="wait">
                   {isMobileMenuOpen ? (
@@ -117,7 +116,7 @@ const Navigation = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-background p-6"
+              className="fixed top-20 right-0 bottom-0 w-full max-w-xs bg-background p-6 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-8">

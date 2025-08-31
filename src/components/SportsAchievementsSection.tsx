@@ -75,7 +75,7 @@ const SportsAchievementsSection = () => {
         <div className="text-center mb-12">
           
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Sports & <span className="text-primary">Cultural Excellence</span>
+            Sports & <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Cultural Excellence</span>
           </h2>
           <p className="text-md sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Celebrating our students' achievements beyond academics – from national-level sports competitions to cultural performances that showcase their diverse talents and holistic development.

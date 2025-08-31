@@ -6,14 +6,14 @@ import { Card } from '@/components/ui/card';
 const AcademicExcellenceSection = () => {
   const rankHolders = [
     // Ordered by best VTU performance (1st place, then 2nd, 3rd, etc.)
-    { name: 'Rehmat Bee', batch: 'Batch 2025', achievement: '1st Place – VTU (7th Sem)', cgpa: '—', description: 'Led senior semester results with exemplary distinction.', icon: Trophy },
-    { name: 'C. Srinivas Gowda', batch: 'Batch 2026', achievement: '1st Place – VTU (6th Sem) • 11th Rank (4th Sem)', cgpa: '—', description: 'Consistent top-tier outcomes across consecutive semesters.', icon: Trophy },
-    { name: 'Mehraj Fathima Ansari', batch: 'Batch 2026', achievement: '1st Place – VTU (4th Sem)', cgpa: '—', description: 'Outstanding early-semester academic foundation.', icon: Trophy },
-    { name: 'Ritesh N', batch: 'Batch 2026', achievement: '2nd Place – VTU (5th Sem) • 18th Place (4th Sem)', cgpa: '—', description: 'Rapid academic ascent with strong improvement trajectory.', icon: Star },
+    { name: 'Mohammad Ayyan', batch: 'Batch 2025', achievement: '1st Place – VTU (7th Sem)', cgpa: '9.43 CGPA', description: 'Led senior semester results with exemplary distinction.', icon: Trophy, image: '/Magazine/mohammed ayaan.jpg' },
+    { name: 'C. Srinivas Gowda', batch: 'Batch 2026', achievement: '1st Place – VTU (6th Sem) • 11th Rank (4th Sem)', cgpa: '9', description: 'Consistent top-tier outcomes across consecutive semesters.', icon: Trophy, image: '/Magazine/srinivas.jpeg' },
+    { name: 'Mehraj Fathima Ansari', batch: 'Batch 2026', achievement: '1st Place – VTU (4th Sem)', cgpa: '9.1', description: 'Outstanding early-semester academic foundation.', icon: Trophy },
+    { name: 'Ritesh N', batch: 'Batch 2026', achievement: '2nd Place – VTU (5th Sem) • 18th Place (4th Sem)', cgpa: '9.2', description: 'Rapid academic ascent with strong improvement trajectory.', icon: Star, image: '/Magazine/ritesh.jpeg' },
     { name: 'Kulsum', batch: 'Batch 2026', achievement: '3rd Rank – VTU (6th Sem)', cgpa: '—', description: 'High merit performance demonstrating depth and consistency.', icon: Award },
     { name: 'Deeksha G', batch: 'Batch 2026', achievement: '4th Place – VTU (4th Sem)', cgpa: '—', description: 'Early-semester excellence & strong analytical grounding.', icon: Star },
-    { name: 'Jayasri G', batch: 'Batch 2025', achievement: '5th Place – VTU (6th Sem)', cgpa: '—', description: 'Sustained academic rigor in advanced semester.', icon: Award },
-    { name: 'Mohammad Ayyan', batch: 'Batch 2025', achievement: '7th Rank – VTU (Branch Milestone)', cgpa: '9.43 CGPA', description: 'First-ever VTU rank holder emerging from CSE–AIML.', icon: Trophy },
+    { name: 'Jayasri G', batch: 'Batch 2025', achievement: '5th Place – VTU (6th Sem)', cgpa: '—', description: 'Sustained academic rigor in advanced semester.', icon: Award, image: '/Magazine/jayasri.jpg' },
+    { name: 'Mohammad Ayyan', batch: 'Batch 2025', achievement: '7th Rank – VTU (Branch Milestone)', cgpa: '9.43 CGPA', description: 'First-ever VTU rank holder emerging from CSE–AIML.', icon: Trophy, image: '/Magazine/mohammed ayaan.jpg' },
     { name: 'Sai Mridula YVB', batch: 'Batch 2025', achievement: '14th Place – VTU (5th Sem)', cgpa: '—', description: 'Consistent momentum with solid performance.', icon: Star },
     { name: 'Madhusudan', batch: 'Batch 2026', achievement: '14th Place – VTU (4th Sem)', cgpa: '—', description: 'Strong mid-semester grasp in core subjects.', icon: Star },
   ];
@@ -56,9 +56,15 @@ const AcademicExcellenceSection = () => {
                 <div className="p-8 sm:p-10 flex flex-col h-full">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="relative">
-                      <div className="w-16 h-16 rounded-xl bg-primary/15 flex items-center justify-center ring-2 ring-primary/30 shadow-inner">
-                        <hero.icon className="w-8 h-8 text-primary" />
-                      </div>
+                      {hero.image ? (
+                        <div className="w-16 h-16 rounded-xl overflow-hidden ring-2 ring-primary/30 shadow-inner">
+                          <img src={hero.image} alt={hero.name} className="w-full h-full object-cover" />
+                        </div>
+                      ) : (
+                        <div className="w-16 h-16 rounded-xl bg-primary/15 flex items-center justify-center ring-2 ring-primary/30 shadow-inner">
+                          <hero.icon className="w-8 h-8 text-primary" />
+                        </div>
+                      )}
                       
                     </div>
                     <div>
@@ -104,9 +110,15 @@ const AcademicExcellenceSection = () => {
                   className="relative group"
                 >
                   <Card className="overflow-hidden flex items-center gap-5 p-5 pr-6 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-border/60 hover:border-primary/40 transition-colors">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
+                    {s.image ? (
+                      <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0">
+                        <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                    )}
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-semibold tracking-tight leading-tight truncate">{s.name}</p>
                       <p className="text-[11px] text-muted-foreground mb-1">{s.batch}</p>
@@ -141,9 +153,15 @@ const AcademicExcellenceSection = () => {
                   >
                     <Card className="h-full p-5 flex flex-col gap-3 bg-gradient-to-br from-background/90 to-background/60 border-border/60 hover:border-primary/40 transition-colors">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-primary" />
-                        </div>
+                        {s.image ? (
+                          <div className="w-10 h-10 rounded-lg overflow-hidden">
+                            <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                          </div>
+                        ) : (
+                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <Icon className="w-5 h-5 text-primary" />
+                          </div>
+                        )}
                         <div className="min-w-0">
                           <p className="text-sm font-medium truncate">{s.name}</p>
                           <p className="text-[10px] text-muted-foreground">{s.batch}</p>
@@ -165,9 +183,15 @@ const AcademicExcellenceSection = () => {
                   >
                     <Card className="h-full p-5 flex flex-col gap-3 bg-gradient-to-br from-background/90 to-background/60 border-border/60 hover:border-primary/40 transition-colors">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-primary" />
-                        </div>
+                        {s.image ? (
+                          <div className="w-10 h-10 rounded-lg overflow-hidden">
+                            <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                          </div>
+                        ) : (
+                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                            <Icon className="w-5 h-5 text-primary" />
+                          </div>
+                        )}
                         <div className="min-w-0">
                           <p className="text-sm font-medium truncate">{s.name}</p>
                           <p className="text-[10px] text-muted-foreground">{s.batch}</p>
