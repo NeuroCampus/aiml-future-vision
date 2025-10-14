@@ -161,6 +161,10 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
+        <div className="mt-6 text-center text-sm text-muted-foreground">
+          <p>College: AMC Engineering College (Autonomous)</p>
+          <p>Accreditation: NAAC A+, NBA Accredited.</p>
+        </div>
     </section>
   );
 };

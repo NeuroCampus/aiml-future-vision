@@ -54,7 +54,7 @@ const SportsAchievementsSection = () => {
       category: 'Literature',
     },
     {
-      name: 'V. Nageshwar & Preethiba D',
+      name: 'Nageshwar & Preethiba',
       batch: 'Batch 2027',
       achievement: 'Traditional Dance Performance',
       result: 'Kannada Rajyotsava Celebration',

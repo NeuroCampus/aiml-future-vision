@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Briefcase, User, GraduationCap, Star } from 'lucide-react';
+import { Award, BookOpen, Briefcase, User, GraduationCap, Star, Quote } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -8,316 +8,180 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useNavigate } from 'react-router-dom';
 
 const FacultySection = () => {
-  const navigate = useNavigate();
-  const [expandedFaculty, setExpandedFaculty] = useState<number | null>(null);
-
   const facultyMembers = [
     {
       id: 1,
-      name: 'Dr. Nandeeshwar S B',
-      designation: 'HOD & Controller of Examinations',
-      education: 'PhD, M.Tech',
-      specialization: 'Computer Vision, AI Applications, Wireless Sensor Networks',
+      name: 'Dr. Nandeeswar S B',
+      designation: 'COE, HOD (CSE-AIML)',
+      education: 'M.Tech',
+      specialization: 'Computer Science & Engineering',
       image: '/Magazine/nandeeshwar.png',
-      experience: '8+ Years',
-      bio: 'Leading researcher in AI and Computer Vision with extensive experience in developing innovative solutions for real-world applications. Committed to advancing AI education and research excellence.',
-      achievements: [
-        {
-          year: 'Feb-24',
-          title: 'ResNet50-deep affinity network for object detection and tracking in videos',
-          type: 'Scopus Q3',
-          journal: 'International Journal of Advanced Technology and Engineering Exploration'
-        },
-        {
-          year: 'Feb-24',
-          title: 'Mathematical Modelling and Implementation of Multiscale Attention Feature Enhancement Network algorithm for the clarity of SEM and TEM images',
-          type: 'Scopus Q3',
-          journal: 'International Journal of Intelligent Systems and Applications in Engineering'
-        },
-        {
-          year: 'Mar-24',
-          title: 'A framework for brain tumor image analysis using convolution with RELU',
-          type: 'Scopus Q3',
-          journal: 'International Journal of Intelligent Systems and Applications in Engineering'
-        },
-        {
-          year: 'Oct-23',
-          title: 'Wireless Sensor Network Routing Protocols, Challenging Issues in Performance Comparison',
-          type: 'Scopus Q4',
-          journal: 'Journal of Theoritical and Applied Information Technology'
-        },
-        {
-          year: 'Sep-23',
-          title: 'A Smart Biomedical Healthcare system to detect stress using internet of medical things, Machine Learning and Artificial Intelligence',
-          type: 'Scopus Q3',
-          journal: 'International Journal of Intelligent Systems and Applications in Engineering'
-        }
-      ]
+      experience: '23 Years',
+      bio: '',
+      message: 'As the Head of Department, I am committed to fostering innovation and excellence in AI and ML education, guiding our students towards successful careers in this transformative field.',
+      achievements: []
     },
     {
       id: 2,
-      name: 'Dr. Vijaya Kumar',
+      name: 'Dr. K. Vijayakumar',
       designation: 'Professor',
-      education: 'PhD, M.Tech',
-      specialization: 'IoT Systems, 5G Networks, Deep Learning, Computer Architecture',
+      education: 'M.Tech',
+      specialization: 'Computer Science & Engineering',
       image: null,
-      achievements: [
-        {
-          year: 'Apr-24',
-          title: 'IOT based robotic device for seed dispersing and pesticide sparying',
-          type: 'Indian Patent',
-          journal: 'Design no-41347-001(Indian Patent)'
-        },
-        {
-          year: 'Dec-24',
-          title: 'Management and deployment of 5G small cells and Hetnets using deep learning',
-          type: 'Book Chapter',
-          journal: 'Book chapter in Routeledge Taylor and Francis Group'
-        },
-        {
-          year: 'Apr-24',
-          title: 'Graphical User Interface for a Computer Display device',
-          type: 'UK Patent',
-          journal: 'Design no- 6390J11(UK Patent)'
-        },
-        {
-          year: 'Sep-24',
-          title: 'Computer Architecture',
-          type: 'Book Chapter',
-          journal: 'Book chapter in Kalyani Publications'
-        },
-        {
-          year: 'Sep-24',
-          title: 'Object Oriented Programming using Java',
-          type: 'Book Chapter',
-          journal: 'Book chapter in Kalyani Publications'
-        },
-        {
-          year: 'Dec-24',
-          title: 'Revolutionizing Human Machine Conversations: Real time speech recognition and synthesis with GPT-2',
-          type: 'Conference Paper',
-          journal: 'Proceedings of the 3rd International Conferences on Optimization Techniques in the field of Engineering'
-        },
-        {
-          year: 'Dec-24',
-          title: 'The application of Machine Learning to NLP: Mordern Advances in the study of Human Language',
-          type: 'Conference Paper',
-          journal: '3rd International Conference on Sustainable Technologies and Advances in Automation, Aerospace and Robotics'
-        },
-        {
-          year: 'Dec-24',
-          title: 'Securing Space Tourism Operations using Blockchain Technology',
-          type: 'Patent Filed',
-          journal: 'ID: 202441067348(Indian Patent Filed)'
-        }
-      ]
+      experience: '23 Years',
+      achievements: []
     },
     {
       id: 3,
-      name: 'Dr. Lokesh NS',
-      designation: 'Assistant Professor',
-      education: 'PhD, M.Tech',
-      specialization: 'Machine Learning, Data Science, Algorithms',
+      name: 'Dr. Lokesh N S',
+      designation: 'Professor',
+      education: 'M.Tech',
+      specialization: 'Computer Science & Engineering',
       image: null,
+      experience: 'Not specified',
       achievements: []
     },
     {
       id: 4,
-      name: 'Mrs. Swathi S A',
+      name: 'Prof. Swathi Srikanth Achanur',
       designation: 'Assistant Professor',
-      education: 'PhD, M.Tech',
-      specialization: 'AI Chatbots, Image Processing, GANs, Object Detection',
+      education: 'M.Tech',
+      specialization: 'Computer Science & Engineering',
       image: '/Magazine/swathi.jpg',
-      achievements: [
-        {
-          year: 'Feb-25',
-          title: 'VBOT: An AI Powered chatbot for streamlining college administration and enhancing student engagement',
-          type: 'Research Paper',
-          journal: 'International Journal of Research and Analytical Reviews'
-        },
-        {
-          year: 'Apr-25',
-          title: 'State of the art Review on Chatbot for College Enquiry',
-          type: 'Research Paper',
-          journal: 'International Journal of Scientific Research in Engineering and Management'
-        },
-        {
-          year: 'Jan-25',
-          title: 'Real-time distress signal recognition: Acoustic monitoring for crime control',
-          type: 'Research Paper',
-          journal: 'International Research Journal of Engineering and Technology'
-        },
-        {
-          year: 'Jan-25',
-          title: 'Object detection based on Python and Image Processing',
-          type: 'Research Paper',
-          journal: 'International Journal of Artificial Intelligence Research and Development'
-        },
-        {
-          year: 'Nov-24',
-          title: 'State of the art review on image synthesis with generative adversarial networks',
-          type: 'Research Paper',
-          journal: 'International Research Journal of Engineering and Technology'
-        },
-        {
-          year: 'Mar-24',
-          title: 'AI Based Goggles for Visually Impaired',
-          type: 'Patent',
-          journal: 'Patent ID 410787-001The Patent office, Government of India'
-        },
-        {
-          year: 'Jan-25',
-          title: 'Analysing and predicting the control of GHG emissions using Machine Learning Models',
-          type: 'Book Chapter',
-          journal: 'Artificial Intelligence and Software Engineering: Tools,Techniques and future trends, Bright Sky Publications'
-        },
-        {
-          year: 'Mar-25',
-          title: 'Digital Survival: Navigating Internet vulnerabilities in the modern era',
-          type: 'Research Paper',
-          journal: 'International Journal of Scientific Research in Engineering and Management'
-        },
-        {
-          year: 'Jan-25',
-          title: 'AI driven Social Media Platform Profanity- Free',
-          type: 'Research Paper',
-          journal: 'International Journal of Research and Analytical Reviews'
-        }
-      ]
+      experience: '10.3 Years',
+      achievements: []
     },
     {
       id: 5,
-      name: 'Mr. Sreenivasaperumal',
+      name: 'Prof. Ambili K',
       designation: 'Assistant Professor',
-      education: 'PhD, M.Tech',
-      specialization: 'Ensemble Learning, Deep Learning, Cybersecurity, CNN Models',
-      image: null,
-      achievements: [
-        {
-          year: 'Jan-25',
-          title: 'Performance Evaluation of children at risk for schizophrenia using ensemble learning',
-          type: 'Book Chapter',
-          journal: 'Book Chapter in Smart Factories for Industry 5.0 Transformation'
-        },
-        {
-          year: 'Feb-25',
-          title: 'Boosting Deep Learning Models with Improved Artificial Gorilla Troops Algorithm for real time object detection and classification on self driving cars',
-          type: 'SCI Journal',
-          journal: 'SCI Journal'
-        },
-        {
-          year: 'Dec-24',
-          title: 'Innovations in Cybersecurity and Data Science',
-          type: 'Book Chapter',
-          journal: 'Proceedings of ICICDS Book chapter in Springer'
-        },
-        {
-          year: 'Sep-23',
-          title: 'A review of Convolution Neural Networks(D-CNN) Models',
-          type: 'Book Chapter',
-          journal: 'Book Chapter in AETS Global'
-        }
-      ]
+      education: 'M.Tech',
+      specialization: 'Computer Science & Engineering',
+      image: '/Magazine/ambili k.jpg',
+      experience: '5 Years',
+      achievements: []
     },
     {
       id: 6,
-      name: 'Mrs. Ambili K',
+      name: 'Prof. Vinaya S Kavalgi',
       designation: 'Assistant Professor',
-      education: 'PhD, M.Tech',
-      specialization: 'Machine Learning, IoT Systems, Object Detection, Image Processing',
-      image: '/Magazine/ambili k.jpg',
-      achievements: [
-        {
-          year: 'Jan-25',
-          title: 'Object detection based on Python and Image Processing',
-          type: 'Research Paper',
-          journal: 'International Journal of Artificial Intelligence Research and Development'
-        }
-      ]
+      education: 'M.Tech',
+      specialization: 'Computer Science & Engineering',
+      image: '/Magazine/vinaya s.jpg',
+      experience: '3 Years',
+      achievements: []
     },
     {
       id: 7,
-      name: 'Mr. Anul Kumar',
+      name: 'Prof. Kavya P',
       designation: 'Assistant Professor',
       education: 'M.Tech',
-      specialization: 'Software Engineering, Programming Languages',
-      image: null,
+      specialization: 'Electronics and Communication Engineering (UG), Computer Science & Engineering (PG)',
+      image: '/Magazine/kavya p.jpg',
+      experience: '2.7 Years',
       achievements: []
     },
     {
       id: 8,
-      name: 'Mrs. Mackal Rajawat',
+      name: 'Prof. Mackal Rajawat',
       designation: 'Assistant Professor',
       education: 'M.Tech',
-      specialization: 'Data Structures, Algorithms',
+      specialization: 'Computer Science & Engineering',
       image: '/Magazine/mackal rajawat.jpg',
+      experience: '1 Year',
       achievements: []
     },
     {
       id: 9,
-      name: 'Mrs. Vinaya S Kavalgi',
-      designation: 'Assistant Professor',
+      name: 'Prof. Ramakrishna Reddy',
+      designation: 'Professor',
       education: 'M.Tech',
-      specialization: 'Database Systems, Web Technologies',
-      image: '/Magazine/vinaya s.jpg',
+      specialization: 'Computer Science & Engineering',
+      image: '/Magazine/ramkrishna d.jpg',
+      experience: 'Not specified',
       achievements: []
     },
     {
       id: 10,
-      name: 'Mr. Ramakrishna R',
+      name: 'Prof. Anulkumar C',
       designation: 'Assistant Professor',
       education: 'M.Tech',
-      specialization: 'Computer Networks, Network Security',
-      image: '/Magazine/ramkrishna d.jpg',
+      specialization: 'Computer Science & Engineering',
+      image: null,
+      experience: '2 Years 4 Months',
       achievements: []
     },
     {
       id: 11,
-      name: 'Mrs. Kavya P',
+      name: 'Prof. Kavita Reddy',
       designation: 'Assistant Professor',
       education: 'M.Tech',
-      specialization: 'Machine Learning, Data Analytics',
-      image: '/Magazine/kavya p.jpg',
+      specialization: 'Electronics & Communication / VLSI',
+      image: null,
+      experience: '6 Months',
       achievements: []
     },
     {
       id: 12,
-      name: 'Mr. Roshan U',
+      name: 'Prof. Nagavarshini B R',
       designation: 'Assistant Professor',
       education: 'M.Tech',
-      specialization: 'Artificial Intelligence, Computer Vision',
-      image: '/Magazine/roshan.jpg',
+      specialization: 'Computer Application',
+      image: null,
+      experience: '1 Year',
       achievements: []
     },
     {
       id: 13,
-      name: 'Ms. Nagavarshini B R',
+      name: 'Prof. Pamela Bera',
       designation: 'Assistant Professor',
       education: 'M.Tech',
-      specialization: 'Software Development, Mobile Applications',
+      specialization: 'Computer Science & Engineering',
       image: null,
+      experience: 'Fresher',
       achievements: []
     },
     {
       id: 14,
-      name: 'Mrs. Nallamilli Kavita',
+      name: 'Prof. Roshan U',
       designation: 'Assistant Professor',
       education: 'M.Tech',
-      specialization: 'Data Mining, Big Data Analytics',
-      image: '/Magazine/nallamilli kavita.png',
+      specialization: 'Mechanical Engineering / Computational Science',
+      image: '/Magazine/roshan.jpg',
+      experience: '4 Months',
+      achievements: []
+    },
+    // Additional faculty requested to be added
+    {
+      id: 15,
+      name: 'Dr. Ramani',
+      designation: 'Associate Professor',
+      education: 'M.Tech',
+      specialization: 'Computer Science & Engineering',
+      image: null,
+      experience: 'Not specified',
       achievements: []
     },
     {
-      id: 15,
-      name: 'Mrs. Bhagyashree',
+      id: 16,
+      name: 'Prof. Veena',
       designation: 'Assistant Professor',
       education: 'M.Tech',
-      specialization: 'Cloud Computing, Distributed Systems',
+      specialization: 'Computer Science & Engineering',
       image: null,
+      experience: 'Not specified',
       achievements: []
     }
   ];
 
+  const labInstructors = [
+    'Mr. Yasar Beg',
+    'Mr. Piyush',
+    'Mrs. Shwetha'
+  ];
+
+
+  const navigate = useNavigate();
   const hod = facultyMembers.find(f => f.id === 1);
   const otherFaculty = facultyMembers.filter(f => f.id !== 1);
 
@@ -417,16 +281,20 @@ const FacultySection = () => {
                         <p className="text-sm text-muted-foreground mt-2 italic">{hod.bio}</p>
                       </div>
 
+                      {hod.message && (
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-sm text-muted-foreground mb-2 uppercase tracking-wide">Message from HOD</h4>
+                          <p className="text-muted-foreground leading-relaxed italic">"{hod.message}"</p>
+                        </div>
+                      )}
+
                       {/* Key Highlights */}
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                         <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-6 text-center border border-primary/20 shadow-sm">
                           <div className="text-3xl font-bold text-primary mb-2">{hod.experience.split('+')[0]}</div>
                           <div className="text-sm text-muted-foreground font-medium">Years Experience</div>
                         </div>
-                        <div className="bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl p-6 text-center border border-secondary/20 shadow-sm">
-                          <div className="text-3xl font-bold text-primary mb-2">{hod.achievements.length}</div>
-                          <div className="text-sm text-muted-foreground font-medium">Research Papers</div>
-                        </div>
+                        
                         <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl p-6 text-center border border-accent/20 shadow-sm">
                           <div className="text-3xl font-bold text-primary mb-2">PhD</div>
                           <div className="text-sm text-muted-foreground font-medium">Qualified</div>
@@ -514,6 +382,8 @@ const FacultySection = () => {
           See Our Faculty Achievements
         </button>
       </div>
+
+      
 
       <div className="text-center mt-12">
         <div className="bg-primary/5 rounded-lg p-6 max-w-4xl mx-auto">
