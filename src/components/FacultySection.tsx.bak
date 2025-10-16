@@ -1,0 +1,223 @@
+  return (
+    <section id="faculty" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Faculty Excellence Background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Colorful gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-bl from-background via-background/95 to-background/90" />
+        
+        {/* Academic excellence gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--aiml-primary)/0.16),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,hsl(var(--aiml-secondary)/0.14),transparent_65%)]" />
+        
+        {/* Knowledge sharing pattern */}
+        <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(60deg,hsl(var(--primary)/0.3)_1px,transparent_1px),linear-gradient(-60deg,hsl(var(--accent)/0.2)_1px,transparent_1px)] bg-[size:80px_80px]" />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
+            Our <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Expert Faculty</span>
+          </h2>
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
+            Meet our distinguished faculty members who bring years of academic excellence, industry experience, and cutting-edge research to shape future AI/ML professionals.
+          </p>
+        </div>
+
+        {/* HOD Main Card */}
+        {hod && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+            className="mb-20 flex justify-center"
+          >
+            <Card className="overflow-hidden rounded-3xl shadow-2xl border border-border/40 bg-gradient-to-br from-primary/15 via-background to-primary/10 max-w-5xl w-full transform transition-all duration-300 hover:shadow-primary/20">
+              <div className="relative">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full -translate-y-20 translate-x-20"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/10 rounded-full translate-y-16 -translate-x-16"></div>
+                
+                <div className="p-8 md:p-12">
+                  <div className="flex flex-col md:flex-row items-center gap-10">
+                    {/* Profile Image */}
+                    <div className="relative">
+                      {hod.image ? (
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-full blur-md opacity-70 animate-pulse"></div>
+                          <img
+                            src={hod.image}
+                            alt={hod.name}
+                            className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary/40 shadow-2xl relative z-10"
+                          />
+                          <div className="absolute -bottom-3 -right-3 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg z-10">
+                            <Award className="w-6 h-6 text-primary-foreground" />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/30 to-primary/50 border-4 border-primary/40 shadow-2xl">
+                          <User className="w-20 h-20 md:w-24 md:h-24 text-primary" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 text-center md:text-left">
+                      <div className="mb-6">
+                        <h3 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                          {hod.name}
+                        </h3>
+                        <Badge variant="secondary" className="bg-gradient-to-r from-primary to-secondary text-primary-foreground px-6 py-2 text-base font-medium rounded-full shadow-md">
+                          {hod.designation}
+                        </Badge>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div className="flex items-center gap-3 justify-center md:justify-start bg-primary/5 p-4 rounded-xl">
+                          <Briefcase className="w-5 h-5 text-primary flex-shrink-0" />
+                          <span className="text-base font-medium">{hod.education}</span>
+                        </div>
+                        <div className="flex items-center gap-3 justify-center md:justify-start bg-secondary/5 p-4 rounded-xl">
+                          <BookOpen className="w-5 h-5 text-secondary flex-shrink-0" />
+                          <span className="text-base font-medium">{hod.experience} Teaching Experience</span>
+                        </div>
+                      </div>
+
+                      <div className="mb-8">
+                        <h4 className="font-semibold text-base text-muted-foreground mb-3 uppercase tracking-wide">Department</h4>
+                        <p className="text-muted-foreground leading-relaxed text-lg">{hod.specialization}</p>
+                        <p className="text-base text-muted-foreground mt-3 italic">{hod.bio}</p>
+                      </div>
+
+                      {hod.message && (
+                        <div className="mb-8 p-6 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl border border-primary/20">
+                          <h4 className="font-semibold text-base text-muted-foreground mb-3 uppercase tracking-wide flex items-center gap-2">
+                            <Quote className="w-5 h-5 text-primary" />
+                            Message from HOD
+                          </h4>
+                          <p className="text-muted-foreground leading-relaxed italic text-lg">"{hod.message}"</p>
+                        </div>
+                      )}
+
+                      {/* Key Highlights */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                        <div className="bg-gradient-to-br from-primary/15 to-primary/5 rounded-2xl p-6 text-center border border-primary/30 shadow-md hover:shadow-lg transition-shadow duration-300">
+                          <div className="text-4xl font-bold text-primary mb-3">{hod.experience.split(' ')[0]}</div>
+                          <div className="text-base text-muted-foreground font-medium">Years Experience</div>
+                        </div>
+                        
+                        <div className="bg-gradient-to-br from-accent/15 to-accent/5 rounded-2xl p-6 text-center border border-accent/30 shadow-md hover:shadow-lg transition-shadow duration-300">
+                          <div className="text-4xl font-bold text-primary mb-3">PhD</div>
+                          <div className="text-base text-muted-foreground font-medium">Qualified</div>
+                        </div>
+                        
+                        <div className="bg-gradient-to-br from-secondary/15 to-secondary/5 rounded-2xl p-6 text-center border border-secondary/30 shadow-md hover:shadow-lg transition-shadow duration-300">
+                          <div className="text-4xl font-bold text-secondary mb-3">100+</div>
+                          <div className="text-base text-muted-foreground font-medium">Students Mentored</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        )}
+
+        {/* Faculty Categories */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Meet Our Faculty</h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+          </div>
+
+          {/* Professors Section */}
+          <div className="mb-16">
+            <div className="flex items-center gap-4 mb-8">
+              <h4 className="text-xl font-bold text-primary">Professors</h4>
+              <div className="flex-1 h-px bg-gradient-to-r from-primary/50 to-transparent"></div>
+              <Badge variant="secondary" className="bg-primary/10 text-primary px-4 py-1">
+                2
+              </Badge>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {otherFaculty.filter(f => f.designation.includes('Professor') && !f.designation.includes('Assistant')).map((faculty, index) => (
+                <motion.div
+                  key={faculty.id}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={cardVariants}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  className="h-full"
+                >
+                  <Card className="overflow-hidden h-full rounded-2xl shadow-lg border border-border/40 bg-gradient-to-br from-background to-primary/5 transform transition-all duration-300 hover:shadow-xl">
+                    <div className="p-6">
+                      <div className="flex items-start gap-4">
+                        {faculty.image ? (
+                          <img
+                            src={faculty.image}
+                            alt={faculty.name}
+                            className="w-16 h-16 rounded-full object-cover border-2 border-primary/30 shadow-md"
+                          />
+                        ) : (
+                          <div className="w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border-2 border-primary/30 shadow-md">
+                            <User className="w-8 h-8 text-primary" />
+                          </div>
+                        )}
+                        <div className="flex-1">
+                          <CardTitle className="text-lg font-bold mb-1">
+                            {faculty.name}
+                          </CardTitle>
+                          <Badge variant="secondary" className="bg-primary/90 text-primary-foreground mb-2 text-xs">
+                            {faculty.designation}
+                          </Badge>
+                        </div>
+                      </div>
+                      <div className="mt-4">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                          <Briefcase className="w-4 h-4 text-primary" />
+                          <span>{faculty.education.split(',')[0]}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <BookOpen className="w-4 h-4 text-primary" />
+                          <span>{faculty.experience}</span>
+                        </div>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-border/30">
+                        <h5 className="text-xs font-semibold text-muted-foreground mb-1">DEPARTMENT</h5>
+                        <p className="text-sm">{faculty.specialization}</p>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center mt-8">
+          <button
+            onClick={() => navigate('/faculty-achievements')}
+            className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:from-primary/90 hover:to-secondary/90 px-8 py-4 rounded-full font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            See Our Faculty Achievements
+          </button>
+        </div>
+
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 max-w-4xl mx-auto border border-primary/20">
+            <h3 className="text-2xl font-bold mb-4">Faculty Excellence</h3>
+            <p className="text-muted-foreground text-lg">
+              Our faculty members are dedicated to providing exceptional education and mentorship, combining academic rigor with practical industry insights to prepare students for successful careers in AI and ML.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default FacultySection;
