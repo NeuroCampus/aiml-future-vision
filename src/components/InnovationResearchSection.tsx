@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import { Lightbulb, Zap, Code, Rocket, Trophy, Star, Award, Target, TrendingUp, Users, Calendar, Sparkles } from 'lucide-react';
+import { Lightbulb, Zap, Code, Rocket, Trophy, Star, Award, Target, TrendingUp, Users, Calendar, Sparkles, Brain, FileText, Microscope, Globe, Eye, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
 
 const InnovationResearchSection = () => {
-  const [counters, setCounters] = useState({ teams: 0, hackathons: 0, projects: 0 });
+  const [counters, setCounters] = useState({ teams: 0, hackathons: 0, projects: 0, papers: 0 });
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -45,36 +45,32 @@ const InnovationResearchSection = () => {
     { name: 'Hacktopus 2025', year: '2025', status: 'Upcoming' },
   ];
 
+  const researchAreas = [
+    { name: 'Artificial Intelligence', icon: Brain, color: 'from-blue-500 to-cyan-400' },
+    { name: 'Machine Learning', icon: Zap, color: 'from-purple-500 to-fuchsia-400' },
+    { name: 'Data Science', icon: TrendingUp, color: 'from-green-500 to-emerald-400' },
+    { name: 'IoT & Embedded Systems', icon: Globe, color: 'from-orange-500 to-amber-400' },
+    { name: 'Computer Vision', icon: Eye, color: 'from-pink-500 to-rose-400' },
+    { name: 'Natural Language Processing', icon: MessageCircle, color: 'from-indigo-500 to-violet-400' },
+  ];
+
   const stats = [
     { label: 'Teams Participated', value: 63, icon: Users, color: 'text-blue-500' },
     { label: 'Hackathons', value: 15, icon: Trophy, color: 'text-purple-500' },
     { label: 'Projects Completed', value: 120, icon: Code, color: 'text-green-500' },
-    { label: 'Research Papers', value: 25, icon: TrendingUp, color: 'text-orange-500' },
+    { label: 'Research Papers', value: 25, icon: FileText, color: 'text-orange-500' },
   ];
 
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
-      // Animate counters
-      const animateCounter = (target: number, setValue: (value: number) => void) => {
-        let current = 0;
-        const increment = target / 50;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            setValue(target);
-            clearInterval(timer);
-          } else {
-            setValue(Math.floor(current));
-          }
-        }, 30);
-      };
-
-      setTimeout(() => {
-        animateCounter(63, (val) => setCounters(prev => ({ ...prev, teams: val })));
-        animateCounter(15, (val) => setCounters(prev => ({ ...prev, hackathons: val })));
-        animateCounter(120, (val) => setCounters(prev => ({ ...prev, projects: val })));
-      }, 500);
+      // Set counters directly without animation
+      setCounters({
+        teams: 63,
+        hackathons: 15,
+        projects: 120,
+        papers: 25
+      });
     }
   }, [isInView, controls]);
 
@@ -177,7 +173,10 @@ const InnovationResearchSection = () => {
                     </div>
                     <div>
                       <div className="text-2xl sm:text-3xl font-bold text-foreground">
-                        {counters.teams || counters.hackathons || counters.projects || stat.value}
+                        {index === 0 ? counters.teams : 
+                        index === 1 ? counters.hackathons : 
+                        index === 2 ? counters.projects : 
+                        counters.papers || stat.value}
                       </div>
                       <div className="text-sm text-muted-foreground font-medium">
                         {stat.label}
@@ -190,6 +189,8 @@ const InnovationResearchSection = () => {
             })}
           </motion.div>
         </motion.div>
+
+        
 
         {/* Main Content Grid */}
         <motion.div
@@ -237,7 +238,7 @@ const InnovationResearchSection = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src="/Magazine/ideathon.jpg"
+                    src="/ideathon.jpg"
                     alt="ThinkUp – Ideathon 2025"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -305,14 +306,7 @@ const InnovationResearchSection = () => {
             <Card className="bg-gradient-to-br from-card/80 to-card/60 border border-primary/20 shadow-xl shadow-primary/5 backdrop-blur h-full">
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-3">
-                  <motion.div
-                    className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30"
-                    variants={floatingVariants}
-                    animate="animate"
-                    transition={{ duration: 4, repeat: Infinity, ease: [0.42, 0, 0.58, 1] }}
-                  >
-                    <Trophy className="h-8 w-8 text-purple-500" />
-                  </motion.div>
+                  
                   <div>
                     <CardTitle className="text-2xl font-bold">National Hackathon Excellence</CardTitle>
                     <p className="text-sm text-muted-foreground">Prestigious Competitions</p>
@@ -397,29 +391,9 @@ const InnovationResearchSection = () => {
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                     Students have secured top positions in multiple hackathons including IIT Bombay events, showcasing exceptional technical skills and innovation in AI/ML applications.
                   </p>
-                  <EnhancedButton
-                    effect="glow"
-                    className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/30"
-                  >
-                    <span className="flex items-center gap-2">
-                      <TrendingUp className="h-5 w-5" />
-                      View Achievements
-                    </span>
-                  </EnhancedButton>
+                  
                 </div>
-                <div className="flex-shrink-0">
-                  <motion.div
-                    className="relative w-32 h-32 lg:w-40 lg:h-40 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 flex items-center justify-center"
-                    whileHover={{ scale: 1.05, rotate: 2 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="text-center">
-                      <Trophy className="h-12 w-12 lg:h-16 lg:w-16 text-primary mx-auto mb-2" />
-                      <p className="text-xs lg:text-sm font-semibold text-primary">Top Performers</p>
-                      <p className="text-xs text-muted-foreground">National Level</p>
-                    </div>
-                  </motion.div>
-                </div>
+               
               </div>
             </CardContent>
           </Card>

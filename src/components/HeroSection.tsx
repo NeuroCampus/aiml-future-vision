@@ -9,6 +9,26 @@ const HeroSection = () => {
   const words = ['Intelligence', 'Innovation', 'Engineering', 'Excellence'];
   const colors = ['text-primary', 'text-primary', 'text-primary', 'text-primary'];
 
+  // Get list of image files from public directory
+  const imageFiles = [
+    'DSC_0779_Original.JPG',
+    'DSC_9842_Original.JPG',
+    'IMG_0480.jpg',
+    'IMG_0484.jpg',
+    'IMG_2446.jpeg',
+    'IMG_2461.jpeg',
+    'IMG_2796.jpeg',
+    'IMG_6321.CR2.jpg',
+    'IMG_8492.jpg',
+    'IMG_8962.jpg',
+    'accd3d75-7df7-42b0-9235-1e95050237b6.jpg',
+    'b171ef6b-d574-4b32-93cb-1654536489d2.jpg',
+    'culture.jpeg',
+    'ideathon.jpg',
+    'simp.jpg',
+    'simp1.jpg'
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
@@ -28,13 +48,14 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative overflow-hidden py-20 md:py-28">
+    <section id="home" className="relative overflow-hidden py-8 md:py-12">
       {/* Professional Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-background" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.08),transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.05),transparent_65%)]" />
       </div>
+      
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-160px)]">
           {/* Left Content */}
@@ -182,6 +203,47 @@ const HeroSection = () => {
               </div>
             </div>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Enhanced Carousels - Placed below main content */}
+      <div className="pt-8">
+        {/* Top Carousel - Left to Right */}
+        <div className="overflow-hidden py-6 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 backdrop-blur-sm border-y border-primary/10 mb-1">
+          <div className="flex animate-scroll-left whitespace-nowrap">
+            {[...imageFiles, ...imageFiles].map((image, index) => (
+              <div key={index} className="mx-3 inline-block">
+                <div className="relative group">
+                  <img 
+                    src={`/${image}`} 
+                    alt={`Department photo ${index + 1}`}
+                    className="h-32 w-48 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-all duration-500 brightness-90 group-hover:brightness-100"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Carousel - Right to Left */}
+        <div className="overflow-hidden py-6 bg-gradient-to-r from-accent/5 via-primary/5 to-accent/5 backdrop-blur-sm border-y border-primary/10">
+          <div className="flex animate-scroll-right whitespace-nowrap">
+            {[...imageFiles, ...imageFiles].map((image, index) => (
+              <div key={index} className="mx-3 inline-block">
+                <div className="relative group">
+                  <img 
+                    src={`/${image}`} 
+                    alt={`Department photo ${index + 1}`}
+                    className="h-32 w-48 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-all duration-500 brightness-90 group-hover:brightness-100"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,9 +1,9 @@
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import FloatingNavbar from '@/components/animations/FloatingNavbar';
+import { ThemeToggle } from '@/components/ThemeProvider';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,31 +40,33 @@ const Navigation = () => {
             </button>
 
             {/* Desktop Navigation */}
-    <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2" aria-label="Primary">
+            <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2" aria-label="Primary">
               {navItems.map((item) => (
                 <Button 
                   key={item.href}
                   variant="ghost"
                   onClick={() => scrollToSection(item.href)}
-      className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 xl:px-4 py-2 rounded-md transition-colors"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 xl:px-4 py-2 rounded-md transition-colors"
                 >
                   {item.label}
                 </Button>
               ))}
-    </nav>
+            </nav>
 
-            {/* CTA Button */}
-      <div className="hidden lg:flex items-center shrink-0">
+            {/* CTA Button and Theme Toggle */}
+            <div className="hidden lg:flex items-center shrink-0 gap-2">
+              <ThemeToggle />
               <Button 
                 onClick={() => scrollToSection('#contact')}
-        className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 xl:px-6 py-3 font-semibold transition-transform hover:scale-105"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 xl:px-6 py-3 font-semibold transition-transform hover:scale-105"
               >
                 Get Started
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="lg:hidden relative z-10">
+            <div className="lg:hidden relative z-10 flex items-center gap-2">
+              <ThemeToggle />
               <Button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 variant="ghost"

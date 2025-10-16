@@ -11,7 +11,7 @@ const EventsSection = () => {
     {
       id: 1,
       title: 'HACKTOPUS 2024',
-      description: 'Annual hackathon organized by CSE-AIML department featuring AI/ML challenges and innovative solutions.',
+      description: 'Annual hackathon organized by CSE-DS department featuring AI/ML challenges and innovative solutions.',
       date: 'May 2024',
       category: 'hackathon',
       mainImage: ['/cs-aiml-photos/Eventspic/HACKTOPUS.jpg'],
