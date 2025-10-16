@@ -190,6 +190,8 @@ const EventsSection = () => {
               src="/cartoons/undraw_no-data_ig65.svg"
               alt="No events found"
               className="w-48 h-48 mx-auto mb-6 opacity-50"
+              loading="lazy"
+              decoding="async"
             />
             <p className="text-muted-foreground">No events found for this category.</p>
           </motion.div>

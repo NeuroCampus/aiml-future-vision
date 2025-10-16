@@ -35,7 +35,7 @@ const Navigation = () => {
               className="group flex items-center gap-3 focus:outline-none"
               aria-label="Go to top / Home"
             >
-              <img src="/cs-aiml-photos/CSAI Logo.jpeg" alt="CSE-AIML Department Logo" className="h-10 sm:h-12 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]" loading="eager" decoding="sync" draggable={false} />
+              <img src="/cs-aiml-photos/CSAI Logo.jpeg" alt="CSE-AIML Department Logo" className="h-10 sm:h-12 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]" loading="eager" decoding="async" draggable={false} />
               <span className="text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">CSE-AIML</span>
             </button>
 

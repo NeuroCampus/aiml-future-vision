@@ -234,6 +234,8 @@ const FacultySection = () => {
                             src={hod.image}
                             alt={hod.name}
                             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/40 shadow-2xl relative z-10"
+                            loading="lazy"
+                            decoding="async"
                           />
                           <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg z-10">
                             <Award className="w-4 h-4 text-primary-foreground" />
@@ -344,6 +346,8 @@ const FacultySection = () => {
                               src={faculty.image}
                               alt={faculty.name}
                               className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 shadow-md"
+                              loading="lazy"
+                              decoding="async"
                             />
                           ) : (
                             <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border-2 border-primary/30 shadow-md">
