@@ -58,7 +58,7 @@ const AcademicExcellenceSection = () => {
                     <div className="relative">
                       {hero.image ? (
                         <div className="w-16 h-16 rounded-xl overflow-hidden ring-2 ring-primary/30 shadow-inner">
-                          <img src={hero.image} alt={hero.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                          <img src={hero.image} alt={hero.name} className="w-full h-full object-cover" />
                         </div>
                       ) : (
                         <div className="w-16 h-16 rounded-xl bg-primary/15 flex items-center justify-center ring-2 ring-primary/30 shadow-inner">
@@ -112,7 +112,7 @@ const AcademicExcellenceSection = () => {
                   <Card className="overflow-hidden flex items-center gap-5 p-5 pr-6 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-border/60 hover:border-primary/40 transition-colors">
                     {s.image ? (
                       <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0">
-                        <img src={s.image} alt={s.name} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                        <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
                       </div>
                     ) : (
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">

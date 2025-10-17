@@ -1,6 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import logoImg from '@/assets/CSAI Logo.jpeg';
 
 interface LoadingAnimationProps {
   onComplete: () => void;
@@ -94,12 +93,10 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
               </svg> */}
               {/* Transparent logo (no card) */}
               <img
-                src={logoImg}
+                src="/cs-aiml-photos/CSAI Logo.jpeg"
                 alt="CSE-AIML Department Logo"
                 className="absolute inset-0 m-auto w-20 h-20 sm:w-24 sm:h-24 object-contain select-none bg-transparent"
                 draggable={false}
-                loading="eager"
-                decoding="async"
               />
             </div>
           </div>

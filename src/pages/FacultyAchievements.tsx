@@ -278,8 +278,6 @@ const FacultyAchievements = () => {
                         src={faculty.image}
                         alt={faculty.name}
                         className="w-16 h-16 rounded-full object-cover border-2 border-primary/30"
-                        loading="lazy"
-                        decoding="async"
                       />
                     ) : (
                       <div className="w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border border-primary/30">

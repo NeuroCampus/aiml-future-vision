@@ -139,8 +139,6 @@ const ProgramsSection = () => {
                         src={program.image}
                         alt={program.title}
                         className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
-                        loading="lazy"
-                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card/20 to-transparent"></div>
                     </div>

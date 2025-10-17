@@ -20,8 +20,6 @@ const DepartmentLogo: React.FC<DepartmentLogoProps> = ({ size = 48, outline = fa
         height={size}
         className={`object-contain block select-none ${className}`}
         draggable={false}
-        loading="lazy"
-        decoding="async"
       />
     );
   }

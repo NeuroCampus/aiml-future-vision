@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
   return (
     <NextThemesProvider 
-      defaultTheme="light" 
+      defaultTheme="dark" 
       enableSystem={false}
       themes={['light', 'dark']}
       {...props}
@@ -20,7 +20,7 @@ const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
-  // Ensure theme is applied on initial load
+  // Ensure dark theme is applied on initial load
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");

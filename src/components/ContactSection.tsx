@@ -92,7 +92,7 @@ const ContactSection = () => {
             </div>
           </div>
           <div className="flex flex-col items-center gap-4 sm:gap-6">
-            <img src="/cartoons/undraw_quick-chat_3gj8.svg" alt="Contact" className="w-48 h-48 sm:w-64 sm:h-auto object-contain mb-2 sm:mb-4" loading="lazy" decoding="async" />
+            <img src="/cartoons/undraw_quick-chat_3gj8.svg" alt="Contact" className="w-48 h-48 sm:w-64 sm:h-auto object-contain mb-2 sm:mb-4" />
             <div className="bg-primary/5 rounded-xl p-4 sm:p-6 text-center">
               <h4 className="text-base sm:text-lg font-bold mb-2">We're here to help!</h4>
               <p className="text-sm sm:text-base text-muted-foreground">Reach out for any queries about our department, programs, or events. Connect with us for updates and opportunities.</p>
