@@ -26,7 +26,11 @@ const HeroSection = () => {
     'culture.jpeg',
     'ideathon.jpg',
     'simp.jpg',
-    'simp1.jpg'
+    'simp1.jpg',
+    'hi.jpeg',
+    'hi11.jpeg',
+    'hi111.jpeg'
+    
   ];
 
   useEffect(() => {
