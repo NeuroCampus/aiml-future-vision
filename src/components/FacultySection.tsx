@@ -13,10 +13,10 @@ const FacultySection = () => {
       id: 1,
       name: 'Dr. Nandeeswar S B',
       designation: 'COE, HOD (CSE-AIML)',
-      education: 'UG – Computer Science & Engineering, PG – Computer Science & Engineering',
-      specialization: 'Department of Electronics and Communication Engineering',
+      education: 'UG – Computer Science & Engineering, PG – Computer Science & Technology',
+      specialization: 'Department of CSE-AIML',
       image: '/Magazine/nandeeshwar.png',
-      experience: '23 Years',
+      experience: '2 years 4 Months',
       bio: '',
       message: 'As the Head of Department, I am committed to fostering innovation and excellence in AI and ML education, guiding our students towards successful careers in this transformative field.',
       achievements: []
@@ -26,7 +26,7 @@ const FacultySection = () => {
       name: 'Dr. K. Vijayakumar',
       designation: 'Professor',
       education: 'UG – Computer Science & Engineering, PG – Computer Science & Engineering',
-      specialization: 'Department of Electronics and Communication Engineering',
+      specialization: 'Department of CSE-AIML',
       image: '/cs-aiml-photos/Dr K Vijayakumar.png',
       experience: '23 Years',
       achievements: []
