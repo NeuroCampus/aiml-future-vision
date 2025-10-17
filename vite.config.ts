@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     ViteImageOptimizer({
       test: /\.(jpe?g|png|gif|tiff|webp|avif)$/i,
-      exclude: undefined,
+      exclude: ['public/cs-aiml-photos/CSAI Logo.jpeg'],
       include: undefined,
       includePublic: true,
       logStats: true,

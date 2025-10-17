@@ -10,7 +10,7 @@ interface DepartmentLogoProps {
 
 // Renders the department logo either as the raw image (default) or an outline style using CSS mask.
 // Outline mode uses the PNG as a mask so the shape is filled with currentColor; apply a ring + glow for visual clarity.
-const DepartmentLogo: React.FC<DepartmentLogoProps> = ({ size = 48, outline = true, className = '', title = 'CSE-AIML Logo' }) => {
+const DepartmentLogo: React.FC<DepartmentLogoProps> = ({ size = 48, outline = false, className = '', title = 'CSE-AIML Logo' }) => {
   if (!outline) {
     return (
       <img
