@@ -29,13 +29,33 @@ const Navigation = () => {
       <FloatingNavbar>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 gap-3">
-            {/* Logo Section */}
+            {/* Logo Section - Showing both College and Department logos */}
             <button
               onClick={() => scrollToSection('#home')}
               className="group flex items-center gap-3 focus:outline-none"
               aria-label="Go to top / Home"
             >
-              <img src="/cs-aiml-photos/CSAI Logo.jpeg" alt="CSE-AIML Department Logo" className="h-10 sm:h-12 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]" loading="eager" decoding="sync" draggable={false} />
+              <div className="flex items-center gap-2">
+                {/* College Logo */}
+                <img 
+                  src="/cs-aiml-photos/AMC Logo.jpg" 
+                  alt="AMC College Logo" 
+                  className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]" 
+                  loading="eager" 
+                  decoding="sync" 
+                  draggable={false} 
+                />
+                <span className="text-muted-foreground">|</span>
+                {/* Department Logo */}
+                <img 
+                  src="/cs-aiml-photos/CSAI Logo.jpeg" 
+                  alt="CSE-AIML Department Logo" 
+                  className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]" 
+                  loading="eager" 
+                  decoding="sync" 
+                  draggable={false} 
+                />
+              </div>
               <span className="text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">CSE-AIML</span>
             </button>
 
@@ -118,7 +138,7 @@ const Navigation = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-20 right-0 bottom-0 w-full max-w-xs bg-background p-6 shadow-2xl"
+              className="fixed top-20 right-0 bottom-0 w-full max-w-xs bg-background p-6 shadow-2xl pb-24" // Added pb-24 for bottom padding
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-8">
@@ -127,14 +147,27 @@ const Navigation = () => {
                   className="flex items-center gap-3 focus:outline-none"
                   aria-label="Go to top / Home"
                 >
-                  <img
-                    src="/cs-aiml-photos/CSAI Logo.jpeg"
-                    alt="CSE-AIML Department Logo"
-                    className="h-10 w-auto object-contain select-none pointer-events-none"
-                    loading="lazy"
-                    decoding="async"
-                    draggable={false}
-                  />
+                  <div className="flex items-center gap-2">
+                    {/* College Logo */}
+                    <img 
+                      src="/cs-aiml-photos/AMC Logo.jpg" 
+                      alt="AMC College Logo" 
+                      className="h-8 w-auto object-contain select-none pointer-events-none" 
+                      loading="lazy" 
+                      decoding="async" 
+                      draggable={false} 
+                    />
+                    <span className="text-muted-foreground">|</span>
+                    {/* Department Logo */}
+                    <img 
+                      src="/cs-aiml-photos/CSAI Logo.jpeg" 
+                      alt="CSE-AIML Department Logo" 
+                      className="h-8 w-auto object-contain select-none pointer-events-none" 
+                      loading="lazy" 
+                      decoding="async" 
+                      draggable={false} 
+                    />
+                  </div>
                   <span className="text-lg font-bold tracking-tight text-foreground">
                     CSE-AIML
                   </span>

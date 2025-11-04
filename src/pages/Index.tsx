@@ -28,19 +28,22 @@ const Index = () => {
       <div className={`transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <VortexBackground>
           <Navigation />
-          <HeroSection />
-          <AboutSection />
-          <LeadershipSection />
-          <AcademicExcellenceSection />
-          <InnovationResearchSection />
-          <StartupsSection />
-          <EventsSection />
-          <StudentClubsSection />
-          <FacultySection />
-          <SportsAchievementsSection />
-          <AlumniReflectionsSection />
-          <ContactSection />
-          <Footer />
+          {/* Added pt-20 to ensure content doesn't overlap with fixed navbar on small screens */}
+          <div className="pt-20">
+            <HeroSection />
+            <AboutSection />
+            <LeadershipSection />
+            <AcademicExcellenceSection />
+            <InnovationResearchSection />
+            <StartupsSection />
+            <EventsSection />
+            <StudentClubsSection />
+            <FacultySection />
+            <SportsAchievementsSection />
+            <AlumniReflectionsSection />
+            <ContactSection />
+            <Footer />
+          </div>
         </VortexBackground>
       </div>
     </>

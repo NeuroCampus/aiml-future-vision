@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 
 interface LoadingAnimationProps {
   onComplete: () => void;
@@ -9,6 +9,7 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
   const controls = useAnimation();
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
+  const [showAMCLogo, setShowAMCLogo] = useState(true); // Track which logo to show
 
   // Simulated incremental loader (can later tie to real resource preloads)
   useEffect(() => {
@@ -29,6 +30,11 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
   useEffect(() => {
     const sequence = async () => {
       await controls.start({ opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeOut' } });
+      
+      // Show AMC logo for 1.5 seconds before transitioning
+      await new Promise(r => setTimeout(r, 1500));
+      setShowAMCLogo(false); // Switch to CSE-AIML logo
+      
       // Wait until simulated progress completes
       while (!done) {
         await new Promise(r => setTimeout(r, 120));
@@ -91,13 +97,34 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
                   transition={{ ease: 'linear' }}
                 />
               </svg> */}
-              {/* Transparent logo (no card) */}
-              <img
-                src="/cs-aiml-photos/CSAI Logo.jpeg"
-                alt="CSE-AIML Department Logo"
-                className="absolute inset-0 m-auto w-20 h-20 sm:w-24 sm:h-24 object-contain select-none bg-transparent"
-                draggable={false}
-              />
+              {/* Logos with fade transition */}
+              <AnimatePresence mode="wait">
+                {showAMCLogo ? (
+                  <motion.img
+                    key="amc-logo"
+                    src="/cs-aiml-photos/AMC Logo.jpg"
+                    alt="AMC College Logo"
+                    className="absolute inset-0 m-auto w-20 h-20 sm:w-24 sm:h-24 object-contain select-none bg-transparent"
+                    draggable={false}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                ) : (
+                  <motion.img
+                    key="cs-aiml-logo"
+                    src="/cs-aiml-photos/CSAI Logo.jpeg"
+                    alt="CSE-AIML Department Logo"
+                    className="absolute inset-0 m-auto w-20 h-20 sm:w-24 sm:h-24 object-contain select-none bg-transparent"
+                    draggable={false}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
@@ -107,14 +134,16 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0, transition: { delay: 0.3, duration: 0.6 } }}
           >
-            <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">CSE-AIML</span>
+            <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">
+              {showAMCLogo ? 'AMC Engineering College' : 'CSE-AIML'}
+            </span>
           </motion.h1>
           <motion.p
             className="text-sm sm:text-base text-muted-foreground/90 font-medium"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0, transition: { delay: 0.45, duration: 0.6 } }}
           >
-            Initializing Intelligence Layer… {Math.round(progress)}%
+            {showAMCLogo ? 'Establishing Excellence...' : 'Initializing Intelligence Layer…'} {Math.round(progress)}%
           </motion.p>
           {/* Tagline ticker */}
           <motion.div
@@ -132,7 +161,8 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
             >
               {!done && (
                 <span className="inline-flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Optimizing modules…
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> 
+                  {showAMCLogo ? 'Loading campus...' : 'Optimizing modules…'}
                 </span>
               )}
               {done && (
