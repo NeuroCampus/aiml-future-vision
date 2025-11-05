@@ -11,8 +11,8 @@ const FacultyAchievements = () => {
   const facultyMembers = [
     {
       id: 1,
-      name: 'Dr. Nandeeshwar S B',
-      designation: 'HOD & Controller of Examinations',
+      name: 'Dr. Nandeeswar S. B',
+      designation: 'COE, HOD (CSE-AIML)',
       education: 'PhD, M.Tech',
       specialization: 'Computer Vision, AI Applications, Wireless Sensor Networks',
       image: '/Magazine/nandeeshwar.png',
@@ -51,11 +51,11 @@ const FacultyAchievements = () => {
     },
     {
       id: 2,
-      name: 'Dr. Vijaya Kumar',
+      name: 'Dr. K. Vijayakumar',
       designation: 'Professor',
       education: 'PhD, M.Tech',
       specialization: 'IoT Systems, 5G Networks, Deep Learning, Computer Architecture',
-      image: null,
+      image: '/cs-aiml-photos/Dr K Vijayakumar.png',
       achievements: [
         {
           year: 'Apr-24',
@@ -109,7 +109,7 @@ const FacultyAchievements = () => {
     },
     {
       id: 4,
-      name: 'Mrs. Swathi S A',
+      name: 'Prof. Swathi Srikanth Achanur',
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'AI Chatbots, Image Processing, GANs, Object Detection',
@@ -172,42 +172,8 @@ const FacultyAchievements = () => {
       ]
     },
     {
-      id: 5,
-      name: 'Mr. Sreenivasaperumal',
-      designation: 'Assistant Professor',
-      education: 'PhD, M.Tech',
-      specialization: 'Ensemble Learning, Deep Learning, Cybersecurity, CNN Models',
-      image: null,
-      achievements: [
-        {
-          year: 'Jan-25',
-          title: 'Performance Evaluation of children at risk for schizophrenia using ensemble learning',
-          type: 'Book Chapter',
-          journal: 'Book Chapter in Smart Factories for Industry 5.0 Transformation'
-        },
-        {
-          year: 'Feb-25',
-          title: 'Boosting Deep Learning Models with Improved Artificial Gorilla Troops Algorithm for real time object detection and classification on self driving cars',
-          type: 'SCI Journal',
-          journal: 'SCI Journal'
-        },
-        {
-          year: 'Dec-24',
-          title: 'Innovations in Cybersecurity and Data Science',
-          type: 'Book Chapter',
-          journal: 'Proceedings of ICICDS Book chapter in Springer'
-        },
-        {
-          year: 'Sep-23',
-          title: 'A review of Convolution Neural Networks(D-CNN) Models',
-          type: 'Book Chapter',
-          journal: 'Book Chapter in AETS Global'
-        }
-      ]
-    },
-    {
       id: 6,
-      name: 'Mrs. Ambili K',
+      name: 'Prof. Ambili K',
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Machine Learning, IoT Systems, Object Detection, Image Processing',

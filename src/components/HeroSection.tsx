@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Users, Award, Sparkles, Brain, PlayCircle } from 'lucide-react';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
   const [currentWord, setCurrentWord] = useState(0);
+  const navigate = useNavigate();
 
   const words = ['Intelligence', 'Innovation', 'Engineering', 'Excellence'];
   const colors = ['text-primary', 'text-primary', 'text-primary', 'text-primary'];
@@ -43,13 +45,6 @@ const HeroSection = () => {
   const stats = [
    
   ];
-
-  const scrollToSection = (sectionId: string) => {
-    const section = document.querySelector(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="home" className="relative overflow-hidden py-8 md:py-12">
@@ -128,7 +123,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.55, duration: 0.7 }}
               >
                 <EnhancedButton 
-                  onClick={() => scrollToSection('#events')}
+                  onClick={() => navigate('/events')}
                   size="lg" 
                   effect="glow"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/30 rounded-full px-6 sm:px-7 py-3 sm:py-4 text-sm sm:text-base font-semibold min-h-[48px] w-full sm:w-auto"
@@ -139,7 +134,7 @@ const HeroSection = () => {
                   </span>
                 </EnhancedButton>
                 <EnhancedButton
-                  onClick={() => scrollToSection('#vision')}
+                  onClick={() => navigate('/about')}
                   size="lg"
                   effect="magnetic"
                   className="rounded-full px-6 sm:px-7 py-3 sm:py-4 text-sm sm:text-base font-semibold bg-background/70 border border-primary/30 text-primary hover:bg-primary/10 min-h-[48px] w-full sm:w-auto"

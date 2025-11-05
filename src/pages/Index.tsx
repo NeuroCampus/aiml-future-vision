@@ -1,15 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import LeadershipSection from '@/components/LeadershipSection';
 import AcademicExcellenceSection from '@/components/AcademicExcellenceSection';
-import InnovationResearchSection from '@/components/InnovationResearchSection';
-import StartupsSection from '@/components/StartupsSection';
 import EventsSection from '@/components/EventsSection';
-import StudentClubsSection from '@/components/StudentClubsSection';
 import FacultySection from '@/components/FacultySection';
-import SportsAchievementsSection from '@/components/SportsAchievementsSection';
 import AlumniReflectionsSection from '@/components/AlumniReflectionsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -18,6 +15,20 @@ import VortexBackground from '@/components/animations/VortexBackground';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle hash scrolling after navigation
+    if (location.hash) {
+      const element = document.getElementById(location.hash.replace('#', ''));
+      if (element) {
+        // Small delay to ensure the page has rendered
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   return (
     <>
@@ -29,17 +40,13 @@ const Index = () => {
         <VortexBackground>
           <Navigation />
           {/* Added pt-20 to ensure content doesn't overlap with fixed navbar on small screens */}
-          <div className="pt-20">
+                    <div className="pt-20">
             <HeroSection />
             <AboutSection />
             <LeadershipSection />
             <AcademicExcellenceSection />
-            <InnovationResearchSection />
-            <StartupsSection />
             <EventsSection />
-            <StudentClubsSection />
             <FacultySection />
-            <SportsAchievementsSection />
             <AlumniReflectionsSection />
             <ContactSection />
             <Footer />

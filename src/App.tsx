@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import FacultyAchievements from "./pages/FacultyAchievements";
+import StartupsPage from "./pages/StartupsPage";
+import StudentClubsPage from "./pages/StudentClubsPage";
+import SportsAchievementsPage from "./pages/SportsAchievementsPage";
+import InnovationResearchPage from "./pages/InnovationResearchPage";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useTheme } from "@/components/ThemeProvider";
@@ -32,6 +36,10 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/faculty-achievements" element={<FacultyAchievements />} />
+          <Route path="/startups" element={<StartupsPage />} />
+          <Route path="/student-clubs" element={<StudentClubsPage />} />
+          <Route path="/sports-achievements" element={<SportsAchievementsPage />} />
+          <Route path="/innovation-research" element={<InnovationResearchPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

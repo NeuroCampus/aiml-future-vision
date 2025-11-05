@@ -4,24 +4,27 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import FloatingNavbar from '@/components/animations/FloatingNavbar';
 import { ThemeToggle } from '@/components/ThemeProvider';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#events', label: 'Programs' },
-    { href: '#faculty', label: 'Faculty' },
-    { href: '#student-clubs', label: 'Clubs' },
-    { href: '#contact', label: 'Contact' },
+    { to: '/#about', label: 'About' },
+    { to: '/#events', label: 'Activities' },
+    { to: '/innovation-research', label: 'Research' },
+    { to: '/startups', label: 'Startups' },
+    { to: '/student-clubs', label: 'Clubs' },
+    { to: '/sports-achievements', label: 'Sports' },
   ];
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+  const isHashActive = (to: string) => {
+    if (to.startsWith('/#')) {
+      const hash = to.split('#')[1];
+      return location.hash === `#${hash}`;
     }
+    return location.pathname === to;
   };
 
   return (
@@ -30,10 +33,10 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 gap-3">
             {/* Logo Section - Showing both College and Department logos */}
-            <button
-              onClick={() => scrollToSection('#home')}
+            <NavLink
+              to="/"
               className="group flex items-center gap-3 focus:outline-none"
-              aria-label="Go to top / Home"
+              aria-label="Go to home"
             >
               <div className="flex items-center gap-2">
                 {/* College Logo */}
@@ -57,31 +60,36 @@ const Navigation = () => {
                 />
               </div>
               <span className="text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">CSE-AIML</span>
-            </button>
+            </NavLink>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2" aria-label="Primary">
               {navItems.map((item) => (
-                <Button 
-                  key={item.href}
-                  variant="ghost"
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 px-3 xl:px-4 py-2 rounded-md transition-colors"
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `text-sm font-medium px-3 xl:px-4 py-2 rounded-md transition-colors ${
+                      isHashActive(item.to)
+                        ? 'text-primary bg-primary/10'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                    }`
+                  }
                 >
                   {item.label}
-                </Button>
+                </NavLink>
               ))}
             </nav>
 
             {/* CTA Button and Theme Toggle */}
             <div className="hidden lg:flex items-center shrink-0 gap-2">
               <ThemeToggle />
-              <Button 
-                onClick={() => scrollToSection('#contact')}
+              <NavLink 
+                to="/contact"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 xl:px-6 py-3 font-semibold transition-transform hover:scale-105"
               >
                 Get Started
-              </Button>
+              </NavLink>
             </div>
 
             {/* Mobile Menu Button */}
@@ -142,10 +150,11 @@ const Navigation = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-8">
-                <button
-                  onClick={() => scrollToSection('#home')}
+                <NavLink
+                  to="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="flex items-center gap-3 focus:outline-none"
-                  aria-label="Go to top / Home"
+                  aria-label="Go to home"
                 >
                   <div className="flex items-center gap-2">
                     {/* College Logo */}
@@ -171,7 +180,7 @@ const Navigation = () => {
                   <span className="text-lg font-bold tracking-tight text-foreground">
                     CSE-AIML
                   </span>
-                </button>
+                </NavLink>
                 <Button
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="ghost"
@@ -183,21 +192,28 @@ const Navigation = () => {
               </div>
               <nav className="flex flex-col space-y-4" aria-label="Mobile">
                 {navItems.map((item) => (
-                  <Button
-                    key={item.href}
-                    variant="ghost"
-                    onClick={() => scrollToSection(item.href)}
-                    className="w-full justify-start text-lg font-medium text-muted-foreground hover:text-foreground py-4"
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `w-full justify-start text-lg font-medium py-4 rounded-md transition-colors ${
+                        isHashActive(item.to)
+                          ? 'text-primary bg-primary/10'
+                          : 'text-muted-foreground hover:text-foreground'
+                      }`
+                    }
                   >
                     {item.label}
-                  </Button>
+                  </NavLink>
                 ))}
-                <Button 
-                  onClick={() => scrollToSection('#contact')}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-4 text-lg font-semibold mt-4"
+                <NavLink 
+                  to="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-4 text-lg font-semibold mt-4 text-center"
                 >
                   Get Started
-                </Button>
+                </NavLink>
               </nav>
             </motion.div>
           </motion.div>
