@@ -10,14 +10,14 @@ const StudentClubsSection = () => {
       description: 'Central body that coordinates, promotes, and provides a unified vision for four other clubs within our department.',
       presidents: [
         {
-          name: 'Jayasri',
-          rollNo: '1AM21CI019',
+          name: 'ADITHYA K',
+          rollNo: '1AM22CI004',
           quote: '"My time as President of the AI Innovations Forum has been an incredible journey of growth and collaboration. Leading our four sub-clubs—Neuron Net, AI Echelon, Fusion Fiesta, and Quantum Quicks—has shown me how student creativity and teamwork can turn ambitious ideas into reality."',
           role: 'Editor of TIMES.AI Volume I, President of CSE-AIML Innovation Forum'
         },
         {
-          name: 'Ausaf',
-          rollNo: '1AM21CI044',
+          name: 'DIYA S SINGH',
+          rollNo: '1AM22CI024',
           quote: '"Serving as the first President of the CSE-AIML Innovation Forum was a transformative experience. With the support of our faculty and HOD, we organized various events that fostered creativity and community."',
           role: 'President of CSE-AIML Innovation Forum'
         },

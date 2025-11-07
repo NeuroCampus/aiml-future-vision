@@ -11,8 +11,7 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { to: '/#about', label: 'About' },
-    { to: '/#events', label: 'Activities' },
+    { to: '/', label: 'Home' },
     { to: '/innovation-research', label: 'Research' },
     { to: '/startups', label: 'Startups' },
     { to: '/student-clubs', label: 'Clubs' },

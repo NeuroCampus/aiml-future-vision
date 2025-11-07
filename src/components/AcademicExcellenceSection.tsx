@@ -142,7 +142,7 @@ const AcademicExcellenceSection = () => {
           <div className="relative overflow-hidden">
             <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
-            <div className="flex gap-6 animate-[scroll_30s_linear_infinite] hover:[animation-play-state:paused]" aria-label="Excellence ribbon" role="list">
+            <div className="flex gap-6 animate-[scroll_10s_linear_infinite] hover:[animation-play-state:paused]" aria-label="Excellence ribbon" role="list">
               {/* First set of items */}
               {others.slice(3).map((s, i) => {
                 const Icon = s.icon;

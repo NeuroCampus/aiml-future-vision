@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import FacultyAchievements from "./pages/FacultyAchievements";
@@ -15,6 +15,34 @@ import { useEffect } from "react";
 import { useTheme } from "@/components/ThemeProvider";
 
 const queryClient = new QueryClient();
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
+const AppRoutes = () => {
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/faculty-achievements" element={<FacultyAchievements />} />
+        <Route path="/startups" element={<StartupsPage />} />
+        <Route path="/student-clubs" element={<StudentClubsPage />} />
+        <Route path="/sports-achievements" element={<SportsAchievementsPage />} />
+        <Route path="/innovation-research" element={<InnovationResearchPage />} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+};
 
 const AppContent = () => {
   const { theme } = useTheme();
@@ -33,16 +61,7 @@ const AppContent = () => {
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/faculty-achievements" element={<FacultyAchievements />} />
-          <Route path="/startups" element={<StartupsPage />} />
-          <Route path="/student-clubs" element={<StudentClubsPage />} />
-          <Route path="/sports-achievements" element={<SportsAchievementsPage />} />
-          <Route path="/innovation-research" element={<InnovationResearchPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
   );

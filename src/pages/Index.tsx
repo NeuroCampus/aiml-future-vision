@@ -14,7 +14,14 @@ import LoadingAnimation from '@/components/LoadingAnimation';
 import VortexBackground from '@/components/animations/VortexBackground';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    // Check if it's a page refresh/reload
+    const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+    const isReload = navigation?.type === 'reload' || performance.navigation?.type === 1;
+    
+    // Show loading on first visit or on refresh
+    return !sessionStorage.getItem('loadingCompleted') || isReload;
+  });
   const location = useLocation();
 
   useEffect(() => {
@@ -30,10 +37,15 @@ const Index = () => {
     }
   }, [location]);
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    sessionStorage.setItem('loadingCompleted', 'true');
+  };
+
   return (
     <>
       {isLoading && (
-        <LoadingAnimation onComplete={() => setIsLoading(false)} />
+        <LoadingAnimation onComplete={handleLoadingComplete} />
       )}
       
       <div className={`transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>

@@ -1,16 +1,15 @@
 import Navigation from '@/components/Navigation';
 import SportsAchievementsSection from '@/components/SportsAchievementsSection';
 import Footer from '@/components/Footer';
-import VortexBackground from '@/components/animations/VortexBackground';
 
 const SportsAchievementsPage = () => {
   return (
-    <VortexBackground>
+    <div>
       <Navigation />
       <div className="pt-20">
         <SportsAchievementsSection />
         <Footer />
       </div>
-    </VortexBackground>
+    </div>
   );
 };export default SportsAchievementsPage;
