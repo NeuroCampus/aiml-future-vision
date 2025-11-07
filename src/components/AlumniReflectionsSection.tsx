@@ -70,7 +70,7 @@ const AlumniReflectionsSection = () => {
             align: 'start',
             loop: true,
           }}
-          plugins={[Autoplay({ delay: 4000 })]}
+          plugins={[Autoplay({ delay: 2500 })]}
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent>
@@ -82,7 +82,7 @@ const AlumniReflectionsSection = () => {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                   variants={cardVariants}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                 >
                   <Card className="h-full hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-3 sm:p-4">

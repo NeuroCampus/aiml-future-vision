@@ -113,7 +113,7 @@ const FacultySection = () => {
     },
     {
       id: 11,
-      name: 'Prof. Nagavarshini B. R',
+      name: 'Prof. Nagavarshini ',
       designation: 'Assistant Professor',
       education: 'UG: Computer Application, PG: Computer Application',
       specialization: 'Department of CSE with AIML',
@@ -156,15 +156,8 @@ const FacultySection = () => {
     <section id="faculty" className="relative py-24 md:py-32 overflow-hidden">
       {/* Faculty Excellence Background */}
       <div className="absolute inset-0 -z-10">
-        {/* Colorful gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-bl from-background via-background/95 to-background/90" />
-        
-        {/* Academic excellence gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--aiml-primary)/0.16),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,hsl(var(--aiml-secondary)/0.14),transparent_65%)]" />
-        
-        {/* Knowledge sharing pattern */}
-        <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(60deg,hsl(var(--primary)/0.3)_1px,transparent_1px),linear-gradient(-60deg,hsl(var(--accent)/0.2)_1px,transparent_1px)] bg-[size:80px_80px]" />
+        {/* Solid background */}
+        <div className="absolute inset-0 bg-background" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
@@ -186,182 +179,85 @@ const FacultySection = () => {
             transition={{ duration: 0.5 }}
             className="mb-16"
           >
-            <Card className="overflow-hidden shadow-2xl border-0 bg-gradient-to-br from-background via-background/95 to-primary/5 relative">
+            <Card className="overflow-hidden shadow-2xl border-0 bg-background relative">
               {/* Decorative background elements */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/10 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-secondary/8 to-transparent rounded-full translate-y-24 -translate-x-24"></div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full"></div>
 
-              <div className="relative p-8 md:p-12">
-                <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div className="relative p-6 md:p-8">
+                <div className="grid md:grid-cols-3 gap-6 items-center">
                   {/* Profile Section */}
-                  <div className="lg:col-span-4 flex flex-col items-center lg:items-start">
-                    <div className="relative mb-6">
+                  <div className="md:col-span-1 flex flex-col items-center">
+                    <div className="relative mb-4">
                       {hod.image ? (
                         <div className="relative">
-                          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl opacity-75"></div>
                           <img
                             src={hod.image}
                             alt={hod.name}
-                            className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary/30 shadow-2xl"
+                            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/30 shadow-xl"
                           />
-                          <div className="absolute -bottom-3 -right-3 w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-xl border-4 border-background">
-                            <Award className="w-6 h-6 text-white" />
+                          <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-background">
+                            <Award className="w-5 h-5 text-white" />
                           </div>
                         </div>
                       ) : (
-                        <div className="w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border-4 border-primary/30 shadow-2xl">
-                          <User className="w-20 h-20 text-primary" />
+                        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center bg-primary/20 border-4 border-primary/30 shadow-xl">
+                          <User className="w-16 h-16 text-primary" />
                         </div>
                       )}
-                    </div>
-
-                    {/* Quick Stats */}
-                    <div className="grid grid-cols-3 gap-4 w-full max-w-xs">
-                      <div className="text-center p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20">
-                        <div className="text-2xl font-bold text-primary">{hod.experience.split(' ')[0]}</div>
-                        <div className="text-xs text-muted-foreground font-medium">Years</div>
-                      </div>
-                      <div className="text-center p-3 bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl border border-accent/20">
-                        <div className="text-2xl font-bold text-accent">PhD</div>
-                        <div className="text-xs text-muted-foreground font-medium">Degree</div>
-                      </div>
-                      <div className="text-center p-3 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl border border-secondary/20">
-                        <div className="text-2xl font-bold text-secondary">100+</div>
-                        <div className="text-xs text-muted-foreground font-medium">Students</div>
-                      </div>
                     </div>
                   </div>
 
                   {/* Content Section */}
-                  <div className="lg:col-span-8 space-y-6">
+                  <div className="md:col-span-2 space-y-4">
                     {/* Header */}
-                    <div className="text-center lg:text-left">
-                      <h3 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent">
+                    <div>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-2 text-primary">
                         {hod.name}
                       </h3>
-                      <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-4">
-                        <Badge variant="secondary" className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 text-sm font-semibold rounded-full shadow-md">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <Badge variant="secondary" className="bg-primary text-white px-3 py-1 text-sm font-medium rounded-full">
                           {hod.designation}
                         </Badge>
-                        <Badge variant="outline" className="border-primary/30 text-primary px-4 py-2 text-sm font-medium rounded-full">
+                        <Badge variant="outline" className="border-primary/30 text-primary px-3 py-1 text-sm font-medium rounded-full">
                           Head of Department
                         </Badge>
                       </div>
                     </div>
 
-                    {/* Professional Details */}
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl border border-primary/20">
-                          <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-primary/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Briefcase className="w-5 h-5 text-primary" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-1">Education</h4>
-                            <p className="text-sm font-medium text-foreground">{hod.education}</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-secondary/5 to-secondary/10 rounded-xl border border-secondary/20">
-                          <div className="w-10 h-10 bg-gradient-to-br from-secondary/20 to-secondary/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <BookOpen className="w-5 h-5 text-secondary" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-1">Experience</h4>
-                            <p className="text-sm font-medium text-foreground">{hod.experience} Teaching Experience</p>
-                          </div>
-                        </div>
+                    {/* Key Info */}
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <span className="font-semibold text-muted-foreground">Education:</span>
+                        <p className="text-foreground">M.Tech in CSE</p>
                       </div>
-
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-accent/5 to-accent/10 rounded-xl border border-accent/20">
-                          <div className="w-10 h-10 bg-gradient-to-br from-accent/20 to-accent/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <GraduationCap className="w-5 h-5 text-accent" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-1">Department</h4>
-                            <p className="text-sm font-medium text-foreground">{hod.specialization}</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 rounded-xl border border-primary/20">
-                          <div className="w-10 h-10 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Star className="w-5 h-5 text-primary" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-1">Specialization</h4>
-                            <p className="text-sm font-medium text-foreground">AI & ML Education Leadership</p>
-                          </div>
-                        </div>
+                      <div>
+                        <span className="font-semibold text-muted-foreground">Experience:</span>
+                        <p className="text-foreground">{hod.experience} Years</p>
                       </div>
                     </div>
 
-                    {/* Message from HOD */}
-                    {hod.message && (
-                      <div className="relative">
-                        <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                          <Quote className="w-4 h-4 text-white" />
-                        </div>
-                        <div className="p-6 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 rounded-xl border border-primary/20 relative">
-                          <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-3 flex items-center gap-2">
-                            Message from HOD
-                          </h4>
-                          <p className="text-muted-foreground leading-relaxed italic text-sm">"{hod.message}"</p>
-                          <div className="absolute bottom-4 right-4 w-6 h-6 bg-gradient-to-br from-secondary to-accent rounded-full opacity-20"></div>
-                        </div>
+                    {/* Message */}
+                    <div className="bg-primary/5 rounded-lg p-4 border border-primary/20">
+                      <p className="text-muted-foreground text-sm leading-relaxed italic">
+                        "Committed to fostering innovation and excellence in AI/ML education, guiding students towards successful careers in this transformative field."
+                      </p>
+                    </div>
+
+                    {/* Key Achievements */}
+                    <div className="grid grid-cols-3 gap-4 pt-4">
+                      <div className="text-center p-4 bg-primary/10 rounded-lg border border-primary/20">
+                        <div className="text-2xl font-bold text-primary mb-1">{hod.experience.split(' ')[0]}+</div>
+                        <div className="text-sm font-medium text-primary">Years Experience</div>
                       </div>
-                    )}
-
-                    {/* Achievement Highlights */}
-                    <div className="pt-4 border-t border-border/30">
-                      <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-4 text-center lg:text-left">
-                        Key Achievements
-                      </h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          className="text-center p-3 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20 hover:shadow-md transition-all duration-300"
-                        >
-                          <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-primary/30 rounded-lg flex items-center justify-center mx-auto mb-2">
-                            <Award className="w-4 h-4 text-primary" />
-                          </div>
-                          <div className="text-lg font-bold text-primary">15+</div>
-                          <div className="text-xs text-muted-foreground">Publications</div>
-                        </motion.div>
-
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          className="text-center p-3 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-lg border border-secondary/20 hover:shadow-md transition-all duration-300"
-                        >
-                          <div className="w-8 h-8 bg-gradient-to-br from-secondary/20 to-secondary/30 rounded-lg flex items-center justify-center mx-auto mb-2">
-                            <Users className="w-4 h-4 text-secondary" />
-                          </div>
-                          <div className="text-lg font-bold text-secondary">500+</div>
-                          <div className="text-xs text-muted-foreground">Students Guided</div>
-                        </motion.div>
-
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          className="text-center p-3 bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg border border-accent/20 hover:shadow-md transition-all duration-300"
-                        >
-                          <div className="w-8 h-8 bg-gradient-to-br from-accent/20 to-accent/30 rounded-lg flex items-center justify-center mx-auto mb-2">
-                            <Star className="w-4 h-4 text-accent" />
-                          </div>
-                          <div className="text-lg font-bold text-accent">10+</div>
-                          <div className="text-xs text-muted-foreground">Years Leading</div>
-                        </motion.div>
-
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          className="text-center p-3 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-lg border border-primary/20 hover:shadow-md transition-all duration-300"
-                        >
-                          <div className="w-8 h-8 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                            <GraduationCap className="w-4 h-4 text-primary" />
-                          </div>
-                          <div className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">A+</div>
-                          <div className="text-xs text-muted-foreground">NAAC Rating</div>
-                        </motion.div>
+                      <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <div className="text-2xl font-bold text-blue-600 mb-1">500+</div>
+                        <div className="text-sm font-medium text-blue-700">Students Guided</div>
+                      </div>
+                      <div className="text-center p-4 bg-accent/10 rounded-lg border border-accent/20">
+                        <div className="text-2xl font-bold text-accent mb-1">15+</div>
+                        <div className="text-sm font-medium text-accent">Publications</div>
                       </div>
                     </div>
                   </div>
@@ -398,7 +294,7 @@ const FacultySection = () => {
                     whileHover={{ y: -5, transition: { duration: 0.2 } }}
                     className="h-full"
                   >
-                    <Card className="overflow-hidden h-full rounded-2xl shadow-lg border border-border/40 bg-gradient-to-br from-background to-primary/5 transform transition-all duration-300 hover:shadow-xl">
+                    <Card className="overflow-hidden h-full rounded-2xl shadow-lg border border-border/40 bg-background transform transition-all duration-300 hover:shadow-xl">
                       <div className="p-5">
                         <div className="flex items-start gap-3">
                           {faculty.image ? (
@@ -408,7 +304,7 @@ const FacultySection = () => {
                               className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 shadow-md"
                             />
                           ) : (
-                            <div className="w-14 h-14 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border-2 border-primary/30 shadow-md">
+                            <div className="w-14 h-14 rounded-full flex items-center justify-center bg-primary/20 border-2 border-primary/30 shadow-md">
                               <User className="w-7 h-7 text-primary" />
                             </div>
                           )}
@@ -452,14 +348,14 @@ const FacultySection = () => {
               navigate('/faculty-achievements');
               window.scrollTo(0, 0);
             }}
-            className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:from-primary/90 hover:to-secondary/90 px-6 py-3 rounded-full font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-full font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm"
           >
             See Our Faculty Achievements
           </button>
         </div>
 
         <div className="text-center mt-10">
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-6 max-w-4xl mx-auto border border-primary/20">
+          <div className="bg-primary/10 rounded-xl p-6 max-w-4xl mx-auto border border-primary/20">
             <h3 className="text-lg font-bold mb-2">Faculty Excellence</h3>
             <p className="text-muted-foreground text-sm">
               Our faculty members are dedicated to providing exceptional education and mentorship, combining academic rigor with practical industry insights to prepare students for successful careers in AI and ML.

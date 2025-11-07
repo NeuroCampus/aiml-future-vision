@@ -123,7 +123,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.55, duration: 0.7 }}
               >
                 <EnhancedButton 
-                  onClick={() => navigate('/events')}
+                  onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
                   size="lg" 
                   effect="glow"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/30 rounded-full px-6 sm:px-7 py-3 sm:py-4 text-sm sm:text-base font-semibold min-h-[48px] w-full sm:w-auto"

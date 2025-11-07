@@ -18,6 +18,13 @@ const Navigation = () => {
     { to: '/sports-achievements', label: 'Sports' },
   ];
 
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const isHashActive = (to: string) => {
     if (to.startsWith('/#')) {
       const hash = to.split('#')[1];
@@ -83,12 +90,12 @@ const Navigation = () => {
             {/* CTA Button and Theme Toggle */}
             <div className="hidden lg:flex items-center shrink-0 gap-2">
               <ThemeToggle />
-              <NavLink 
-                to="/contact"
+              <Button 
+                onClick={scrollToAbout}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 xl:px-6 py-3 font-semibold transition-transform hover:scale-105"
               >
                 Get Started
-              </NavLink>
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -136,84 +143,144 @@ const Navigation = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-background/80 backdrop-blur-lg z-40 lg:hidden"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 bg-gradient-to-br from-background/95 via-background/98 to-background/95 backdrop-blur-xl z-50 lg:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-20 right-0 bottom-0 w-full max-w-xs bg-background p-6 shadow-2xl pb-24" // Added pb-24 for bottom padding
+              initial={{ x: '100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '100%', opacity: 0 }}
+              transition={{
+                type: 'spring',
+                damping: 30,
+                stiffness: 300,
+                mass: 0.8
+              }}
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-gradient-to-b from-card/95 to-card/90 backdrop-blur-2xl border-l border-border/20 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-center justify-between mb-8">
-                <NavLink
-                  to="/"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-3 focus:outline-none"
-                  aria-label="Go to home"
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-border/10">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="flex items-center gap-3"
                 >
                   <div className="flex items-center gap-2">
-                    {/* College Logo */}
-                    <img 
-                      src="/cs-aiml-photos/AMC Logo.jpg" 
-                      alt="AMC College Logo" 
-                      className="h-8 w-auto object-contain select-none pointer-events-none" 
-                      loading="lazy" 
-                      decoding="async" 
-                      draggable={false} 
+                    <img
+                      src="/cs-aiml-photos/AMC Logo.jpg"
+                      alt="AMC College Logo"
+                      className="h-8 w-auto object-contain"
                     />
                     <span className="text-muted-foreground">|</span>
-                    {/* Department Logo */}
-                    <img 
-                      src="/cs-aiml-photos/CSAI Logo.jpeg" 
-                      alt="CSE-AIML Department Logo" 
-                      className="h-8 w-auto object-contain select-none pointer-events-none" 
-                      loading="lazy" 
-                      decoding="async" 
-                      draggable={false} 
+                    <img
+                      src="/cs-aiml-photos/CSAI Logo.jpeg"
+                      alt="CSE-AIML Department Logo"
+                      className="h-8 w-auto object-contain"
                     />
                   </div>
                   <span className="text-lg font-bold tracking-tight text-foreground">
                     CSE-AIML
                   </span>
-                </NavLink>
-                <Button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  variant="ghost"
-                  size="icon"
-                  className="w-10 h-10"
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
                 >
-                  <X className="h-6 w-6" />
-                </Button>
-              </div>
-              <nav className="flex flex-col space-y-4" aria-label="Mobile">
-                {navItems.map((item) => (
-                  <NavLink
-                    key={item.to}
-                    to={item.to}
+                  <Button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `w-full justify-start text-lg font-medium py-4 rounded-md transition-colors ${
-                        isHashActive(item.to)
-                          ? 'text-primary bg-primary/10'
-                          : 'text-muted-foreground hover:text-foreground'
-                      }`
-                    }
+                    variant="ghost"
+                    size="icon"
+                    className="w-10 h-10 rounded-full hover:bg-primary/10 hover:text-primary transition-all duration-200"
                   >
-                    {item.label}
-                  </NavLink>
-                ))}
-                <NavLink 
-                  to="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-4 text-lg font-semibold mt-4 text-center"
+                    <X className="h-5 w-5" />
+                  </Button>
+                </motion.div>
+              </div>
+
+              {/* Navigation Links */}
+              <div className="flex-1 px-6 py-8">
+                <motion.nav
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="flex flex-col space-y-2"
+                  aria-label="Mobile"
                 >
-                  Get Started
-                </NavLink>
-              </nav>
+                  {navItems.map((item, index) => (
+                    <motion.div
+                      key={item.to}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + index * 0.1 }}
+                    >
+                      <NavLink
+                        to={item.to}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={({ isActive }) =>
+                          `group flex items-center w-full px-4 py-4 text-lg font-medium rounded-xl transition-all duration-300 ${
+                            isHashActive(item.to)
+                              ? 'text-primary bg-primary/15 shadow-lg shadow-primary/10 border border-primary/20'
+                              : 'text-muted-foreground hover:text-foreground hover:bg-primary/5 hover:shadow-md'
+                          }`
+                        }
+                      >
+                        <span className="flex-1">{item.label}</span>
+                        <motion.div
+                          className="w-2 h-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          initial={false}
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </NavLink>
+                    </motion.div>
+                  ))}
+                </motion.nav>
+
+                {/* CTA Button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="mt-8"
+                >
+                  <Button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      scrollToAbout();
+                    }}
+                    className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                  >
+                    <motion.span
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
+                      Get Started
+                    </motion.span>
+                  </Button>
+                </motion.div>
+              </div>
+
+              {/* Footer */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+                className="px-6 pb-6"
+              >
+                <div className="text-center">
+                  <p className="text-sm text-muted-foreground">
+                    Department of Computer Science & Engineering
+                  </p>
+                  <p className="text-xs text-muted-foreground/70 mt-1">
+                    AI & Machine Learning
+                  </p>
+                </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}

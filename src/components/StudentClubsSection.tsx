@@ -8,6 +8,7 @@ const StudentClubsSection = () => {
       icon: Users,
       title: 'CSE-AIML Innovation Forum',
       description: 'Central body that coordinates, promotes, and provides a unified vision for four other clubs within our department.',
+      backgroundImage: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop&crop=center',
       presidents: [
         {
           name: 'ADITHYA K',
@@ -33,6 +34,7 @@ const StudentClubsSection = () => {
       icon: Code,
       title: 'NeuronNet Club',
       description: 'Encourages students to explore technological advancements.',
+      backgroundImage: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop&crop=center',
       presidents: [
         {
           name: 'Tarun Balaji K S',
@@ -52,6 +54,7 @@ const StudentClubsSection = () => {
       icon: Lightbulb,
       title: 'AI Echelon Club',
       description: 'Focused on fostering entrepreneurial skills and generating innovative ideas for startups.',
+      backgroundImage: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=300&fit=crop&crop=center',
       presidents: [
         {
           name: 'Khusumith S Veera',
@@ -71,6 +74,7 @@ const StudentClubsSection = () => {
       icon: Users,
       title: 'Fusion Fiesta Club',
       description: 'Dedicated to promoting cultural activities like dance and singing.',
+      backgroundImage: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop&crop=center',
       presidents: [
         {
           name: 'D R Mouna',
@@ -90,6 +94,7 @@ const StudentClubsSection = () => {
       icon: Trophy,
       title: 'Quantum Quicks Club',
       description: 'Supports fitness and sports activities.',
+      backgroundImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center',
       presidents: [
         {
           name: 'Masoom',
@@ -142,34 +147,40 @@ const StudentClubsSection = () => {
               className={`${index === 0 ? 'lg:col-span-2' : ''}`}
               style={{ zIndex: clubs.length - index }}
             >
-              <Card className="p-6 h-full rounded-2xl shadow-lg bg-gradient-to-br from-primary/5 to-card border border-primary/20 hover:border-primary/40 transition-all duration-300">
-                <CardHeader className="text-center pb-4">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center border border-primary/30 shadow">
-                      <club.icon className="h-8 w-8 text-primary" />
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl font-bold text-foreground">{club.title}</CardTitle>
-                  <p className="text-muted-foreground text-sm mt-2">{club.description}</p>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {club.presidents.slice(0, 1).map((president, presIndex) => (
-                    <div key={presIndex} className="bg-muted/30 rounded-lg p-4 border border-muted">
-                      <div className="flex flex-col space-y-2">
-                        <div className="flex justify-between items-start">
-                          <h4 className="font-semibold text-foreground">{president.name}</h4>
-                          <span className="text-xs text-muted-foreground bg-primary/10 px-2 py-1 rounded">
-                            {president.rollNo}
-                          </span>
-                        </div>
-                        <p className="text-xs text-primary font-medium">{president.role}</p>
-                        <blockquote className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-3">
-                          {president.quote}
-                        </blockquote>
+              <Card className="p-6 h-full rounded-2xl shadow-lg bg-gradient-to-br from-primary/5 to-card border border-primary/20 hover:border-primary/40 transition-all duration-300 relative overflow-hidden group">
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                  style={{ backgroundImage: `url(${club.backgroundImage})` }}
+                />
+                <div className="relative z-10">
+                  <CardHeader className="text-center pb-4">
+                    <div className="flex justify-center mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center border border-primary/30 shadow">
+                        <club.icon className="h-8 w-8 text-primary" />
                       </div>
                     </div>
-                  ))}
-                </CardContent>
+                    <CardTitle className="text-xl font-bold text-foreground">{club.title}</CardTitle>
+                    <p className="text-muted-foreground text-sm mt-2">{club.description}</p>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {club.presidents.slice(0, 1).map((president, presIndex) => (
+                      <div key={presIndex} className="bg-muted/30 rounded-lg p-4 border border-muted">
+                        <div className="flex flex-col space-y-2">
+                          <div className="flex justify-between items-start">
+                            <h4 className="font-semibold text-foreground">{president.name}</h4>
+                            <span className="text-xs text-muted-foreground bg-primary/10 px-2 py-1 rounded">
+                              {president.rollNo}
+                            </span>
+                          </div>
+                          <p className="text-xs text-primary font-medium">{president.role}</p>
+                          <blockquote className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-3">
+                            {president.quote}
+                          </blockquote>
+                        </div>
+                      </div>
+                    ))}
+                  </CardContent>
+                </div>
               </Card>
             </motion.div>
           ))}

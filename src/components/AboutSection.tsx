@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Target, BookOpen, Users, Award, Cpu, BarChart3, Network, Star } from 'lucide-react';
-import { Card } from '@/components/ui/card';
+import { Target, BookOpen, Users, Award, Cpu, BarChart3, Network, Star, GraduationCap } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const AboutSection = () => {
   const highlights = [
@@ -161,9 +161,25 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-        <div className="mt-6 text-center text-sm text-muted-foreground">
-          <p>College: AMC Engineering College (Autonomous)</p>
-          <p>Accreditation: NAAC A+, NBA Accredited.</p>
+        <div className="mt-12">
+          <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 border-2 border-primary/20 shadow-lg">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                    <Award className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-primary">AMC Engineering College (Autonomous)</h3>
+                    <p className="text-sm text-muted-foreground">NAAC A+ Accredited • NBA Accredited</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-xs text-muted-foreground italic">Committed to excellence</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
     </section>
   );

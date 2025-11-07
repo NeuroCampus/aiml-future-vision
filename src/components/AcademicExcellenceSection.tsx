@@ -6,20 +6,23 @@ import { Card } from '@/components/ui/card';
 const AcademicExcellenceSection = () => {
   const rankHolders = [
     // Ordered by best VTU performance (1st place, then 2nd, 3rd, etc.)
-    { name: 'Mohammad Ayyan', batch: 'Batch 2025', achievement: '1st Place – VTU (7th Sem)', cgpa: '9.43 CGPA', description: 'Led senior semester results with exemplary distinction.', icon: Trophy, image: '/Magazine/mohammed ayaan.jpg' },
-    { name: 'C. Srinivas Gowda', batch: 'Batch 2026', achievement: '1st Place – VTU (6th Sem) • 11th Rank (4th Sem)', cgpa: '9', description: 'Consistent top-tier outcomes across consecutive semesters.', icon: Trophy, image: '/Magazine/srinivas.jpeg' },
-    { name: 'Mehraj Fathima Ansari', batch: 'Batch 2026', achievement: '1st Place – VTU (4th Sem)', cgpa: '9.1', description: 'Outstanding early-semester academic foundation.', icon: Trophy },
+    { name: 'Mohammad Ayyan', batch: 'Batch 2025', achievement: '7th Rank – VTU (Branch Milestone)', cgpa: '9.43', description: 'First-ever VTU rank holder emerging from CSE–AIML.', icon: Trophy, image: '/Magazine/mohammed ayaan.jpg' },
+    { name: 'C. Srinivas Gowda', batch: 'Batch 2026', achievement: '1st Place – VTU (6th Sem) • 11th Rank (4th Sem)', cgpa: '9.36', description: 'Consistent top-tier outcomes across consecutive semesters.', icon: Trophy, image: '/Magazine/srinivas.jpeg' },
     { name: 'Ritesh N', batch: 'Batch 2026', achievement: '2nd Place – VTU (5th Sem) • 18th Place (4th Sem)', cgpa: '9.2', description: 'Rapid academic ascent with strong improvement trajectory.', icon: Star, image: '/Magazine/ritesh.jpeg' },
+    { name: 'Jayasri G', batch: 'Batch 2025', achievement: '5th Place – VTU (6th Sem)', cgpa: '—', description: 'Sustained academic rigor in advanced semester.', icon: Award, image: '/Magazine/jayasri.jpg' },
     { name: 'Kulsum', batch: 'Batch 2026', achievement: '3rd Rank – VTU (6th Sem)', cgpa: '—', description: 'High merit performance demonstrating depth and consistency.', icon: Award },
     { name: 'Deeksha G', batch: 'Batch 2026', achievement: '4th Place – VTU (4th Sem)', cgpa: '—', description: 'Early-semester excellence & strong analytical grounding.', icon: Star },
-    { name: 'Jayasri G', batch: 'Batch 2025', achievement: '5th Place – VTU (6th Sem)', cgpa: '—', description: 'Sustained academic rigor in advanced semester.', icon: Award, image: '/Magazine/jayasri.jpg' },
-    { name: 'Mohammad Ayyan', batch: 'Batch 2025', achievement: '7th Rank – VTU (Branch Milestone)', cgpa: '9.43 CGPA', description: 'First-ever VTU rank holder emerging from CSE–AIML.', icon: Trophy, image: '/Magazine/mohammed ayaan.jpg' },
     { name: 'Sai Mridula YVB', batch: 'Batch 2025', achievement: '14th Place – VTU (5th Sem)', cgpa: '—', description: 'Consistent momentum with solid performance.', icon: Star },
     { name: 'Madhusudan', batch: 'Batch 2026', achievement: '14th Place – VTU (4th Sem)', cgpa: '—', description: 'Strong mid-semester grasp in core subjects.', icon: Star },
   ];
 
-  const hero = rankHolders[0];
-  const others = rankHolders.slice(1);
+  const sortedRankHolders = rankHolders.sort((a, b) => {
+    const getCgpa = (cgpa) => cgpa === '—' ? 0 : parseFloat(cgpa.split(' ')[0]);
+    return getCgpa(b.cgpa) - getCgpa(a.cgpa);
+  });
+
+  const hero = sortedRankHolders[0];
+  const others = sortedRankHolders.slice(1);
 
   return (
     <section className="relative py-24 overflow-hidden">
