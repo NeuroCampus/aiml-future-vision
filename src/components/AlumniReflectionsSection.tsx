@@ -3,6 +3,7 @@ import { Quote } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const AlumniReflectionsSection = () => {
   const reflections = [
@@ -87,10 +88,12 @@ const AlumniReflectionsSection = () => {
                   <Card className="h-full hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-3 sm:p-4">
                       <div className="flex items-center gap-2 sm:gap-2 mb-3">
-                        <img
+                        <OptimizedImage
                           src={reflection.image}
                           alt={reflection.name}
                           className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
+                          aspectRatio="1/1"
+                          showLoadingState={false}
                         />
                         <Quote className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                       </div>

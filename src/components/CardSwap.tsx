@@ -181,7 +181,9 @@ const CardSwap = ({
           ref: refs[i],
           style: { width, height, ...(child.props.style ?? {}) },
           onClick: (e: React.MouseEvent) => {
-            (child.props as any).onClick?.(e);
+            if ('onClick' in child.props && typeof child.props.onClick === 'function') {
+              (child.props as { onClick: (e: React.MouseEvent) => void }).onClick(e);
+            }
             onCardClick?.(i);
           }
         })

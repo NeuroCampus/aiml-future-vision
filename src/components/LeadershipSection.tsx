@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 // Bento-style responsive leadership messages section
 // Larger, highlighted tiles for key leadership voices with animated entry.
@@ -131,10 +132,12 @@ const LeadershipSection = () => {
                     </blockquote>
                     {leader.image && (
                       <div className="flex justify-center mb-4 sm:mb-6">
-                        <img
+                        <OptimizedImage
                           src={leader.image}
                           alt={leader.name}
                           className="w-32 h-32 sm:w-48 sm:h-48 object-cover border-2 border-primary/20 shadow-md"
+                          containerClassName="w-32 h-32 sm:w-48 sm:h-48"
+                          aspectRatio="1/1"
                         />
                       </div>
                     )}

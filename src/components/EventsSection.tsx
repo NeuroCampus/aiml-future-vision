@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Trophy, Users, Code, Brain } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const EventsSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -140,10 +141,11 @@ const EventsSection = () => {
               >
                 <Card className="overflow-hidden h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card/95 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10">
                   <div className="relative overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src={event.mainImage[0]}
                       alt={event.title}
                       className="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                      aspectRatio="16/9"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
@@ -186,10 +188,12 @@ const EventsSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
           >
-            <img 
+            <OptimizedImage
               src="/cartoons/undraw_no-data_ig65.svg"
               alt="No events found"
               className="w-48 h-48 mx-auto mb-6 opacity-50"
+              aspectRatio="1/1"
+              showLoadingState={false}
             />
             <p className="text-muted-foreground">No events found for this category.</p>
           </motion.div>

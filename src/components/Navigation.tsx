@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import FloatingNavbar from '@/components/animations/FloatingNavbar';
 import { ThemeToggle } from '@/components/ThemeProvider';
 import { NavLink, useLocation } from 'react-router-dom';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -46,23 +47,23 @@ const Navigation = () => {
             >
               <div className="flex items-center gap-2">
                 {/* College Logo */}
-                <img 
-                  src="/cs-aiml-photos/AMC Logo.jpg" 
-                  alt="AMC College Logo" 
-                  className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]" 
-                  loading="eager" 
-                  decoding="sync" 
-                  draggable={false} 
+                <OptimizedImage
+                  src="/cs-aiml-photos/AMC Logo.jpg"
+                  alt="AMC College Logo"
+                  className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]"
+                  containerClassName="h-8 sm:h-10"
+                  priority={true}
+                  blurOnLoad={false}
                 />
                 <span className="text-muted-foreground">|</span>
                 {/* Department Logo */}
-                <img 
-                  src="/cs-aiml-photos/CSAI Logo.jpeg" 
-                  alt="CSE-AIML Department Logo" 
-                  className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]" 
-                  loading="eager" 
-                  decoding="sync" 
-                  draggable={false} 
+                <OptimizedImage
+                  src="/cs-aiml-photos/CSAI Logo.jpeg"
+                  alt="CSE-AIML Department Logo"
+                  className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]"
+                  containerClassName="h-8 sm:h-10"
+                  priority={true}
+                  blurOnLoad={false}
                 />
               </div>
               <span className="text-lg sm:text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">CSE-AIML</span>
@@ -169,16 +170,22 @@ const Navigation = () => {
                   className="flex items-center gap-3"
                 >
                   <div className="flex items-center gap-2">
-                    <img
+                    <OptimizedImage
                       src="/cs-aiml-photos/AMC Logo.jpg"
                       alt="AMC College Logo"
                       className="h-8 w-auto object-contain"
+                      containerClassName="h-8"
+                      priority={true}
+                      blurOnLoad={false}
                     />
                     <span className="text-muted-foreground">|</span>
-                    <img
+                    <OptimizedImage
                       src="/cs-aiml-photos/CSAI Logo.jpeg"
                       alt="CSE-AIML Department Logo"
                       className="h-8 w-auto object-contain"
+                      containerClassName="h-8"
+                      priority={true}
+                      blurOnLoad={false}
                     />
                   </div>
                   <span className="text-lg font-bold tracking-tight text-foreground">

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Trophy, Star, Award, Sparkles } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 // Unique multi-zone layout (hero highlight + stacked list + horizontal scroll ribbon)
 const AcademicExcellenceSection = () => {
@@ -61,14 +62,21 @@ const AcademicExcellenceSection = () => {
                     <div className="relative">
                       {hero.image ? (
                         <div className="w-16 h-16 rounded-xl overflow-hidden ring-2 ring-primary/30 shadow-inner">
-                          <img src={hero.image} alt={hero.name} className="w-full h-full object-cover" />
+                          <OptimizedImage
+                            src={hero.image}
+                            alt={hero.name}
+                            className="w-full h-full object-cover"
+                            containerClassName="w-16 h-16"
+                            aspectRatio="1/1"
+                            priority={true}
+                          />
                         </div>
                       ) : (
                         <div className="w-16 h-16 rounded-xl bg-primary/15 flex items-center justify-center ring-2 ring-primary/30 shadow-inner">
                           <hero.icon className="w-8 h-8 text-primary" />
                         </div>
                       )}
-                      
+
                     </div>
                     <div>
                       <h3 className="text-xl sm:text-2xl font-semibold tracking-tight">{hero.name}</h3>
@@ -115,7 +123,13 @@ const AcademicExcellenceSection = () => {
                   <Card className="overflow-hidden flex items-center gap-5 p-5 pr-6 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-border/60 hover:border-primary/40 transition-colors">
                     {s.image ? (
                       <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0">
-                        <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                        <OptimizedImage
+                          src={s.image}
+                          alt={s.name}
+                          className="w-full h-full object-cover"
+                          containerClassName="w-12 h-12"
+                          aspectRatio="1/1"
+                        />
                       </div>
                     ) : (
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -158,7 +172,13 @@ const AcademicExcellenceSection = () => {
                       <div className="flex items-center gap-3">
                         {s.image ? (
                           <div className="w-10 h-10 rounded-lg overflow-hidden">
-                            <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                            <OptimizedImage
+                              src={s.image}
+                              alt={s.name}
+                              className="w-full h-full object-cover"
+                              containerClassName="w-10 h-10"
+                              aspectRatio="1/1"
+                            />
                           </div>
                         ) : (
                           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -188,7 +208,13 @@ const AcademicExcellenceSection = () => {
                       <div className="flex items-center gap-3">
                         {s.image ? (
                           <div className="w-10 h-10 rounded-lg overflow-hidden">
-                            <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                            <OptimizedImage
+                              src={s.image}
+                              alt={s.name}
+                              className="w-full h-full object-cover"
+                              containerClassName="w-10 h-10"
+                              aspectRatio="1/1"
+                            />
                           </div>
                         ) : (
                           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">

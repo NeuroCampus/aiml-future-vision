@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { WobbleCard } from '@/components/ui/wobble-card';
 import { useState } from 'react';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const StartupsSection = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -143,10 +144,12 @@ const StartupsSection = () => {
                   {/* Header with logo and status */}
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 bg-muted rounded-lg flex items-center justify-center">
-                      <img
+                      <OptimizedImage
                         src={startup.illustration}
                         alt={startup.name}
                         className="w-8 h-8 object-contain"
+                        aspectRatio="1/1"
+                        showLoadingState={false}
                       />
                     </div>
                     <div className="text-right">

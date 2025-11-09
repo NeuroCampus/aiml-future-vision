@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const FacultyAchievements = () => {
   const navigate = useNavigate();
@@ -240,10 +241,12 @@ const FacultyAchievements = () => {
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
                     {faculty.image ? (
-                      <img
+                      <OptimizedImage
                         src={faculty.image}
                         alt={faculty.name}
                         className="w-16 h-16 rounded-full object-cover border-2 border-primary/30"
+                        containerClassName="w-16 h-16"
+                        aspectRatio="1/1"
                       />
                     ) : (
                       <div className="w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/40 border border-primary/30">

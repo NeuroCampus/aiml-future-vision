@@ -3,6 +3,7 @@ import { motion, useAnimation, useInView } from 'framer-motion';
 import { Lightbulb, Zap, Code, Rocket, Trophy, Star, Award, Target, TrendingUp, Users, Calendar, Sparkles, Brain, FileText, Microscope, Globe, Eye, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const InnovationResearchSection = () => {
   const [counters, setCounters] = useState({ teams: 0, hackathons: 0, projects: 0, papers: 0 });
@@ -237,10 +238,11 @@ const InnovationResearchSection = () => {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img
+                  <OptimizedImage
                     src="/ideathon.jpg"
                     alt="ThinkUp – Ideathon 2025"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                    aspectRatio="16/9"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">

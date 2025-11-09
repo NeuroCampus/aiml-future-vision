@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Users, Award, Sparkles, Brain, PlayCircle } from 'lucide-react';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
 import { useNavigate } from 'react-router-dom';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const HeroSection = () => {
   const [currentWord, setCurrentWord] = useState(0);
@@ -40,7 +41,7 @@ const HeroSection = () => {
       setCurrentWord((prev) => (prev + 1) % words.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   const stats = [
    
@@ -213,11 +214,13 @@ const HeroSection = () => {
             {[...imageFiles, ...imageFiles].map((image, index) => (
               <div key={index} className="mx-3 inline-block">
                 <div className="relative group">
-                  <img 
-                    src={`/${image}`} 
+                  <OptimizedImage
+                    src={`/${image}`}
                     alt={`Department photo ${index + 1}`}
                     className="h-32 w-48 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-all duration-500 brightness-90 group-hover:brightness-100"
-                    loading="lazy"
+                    containerClassName="h-32 w-48"
+                    aspectRatio="48/32"
+                    blurOnLoad={false}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -232,11 +235,13 @@ const HeroSection = () => {
             {[...imageFiles, ...imageFiles].map((image, index) => (
               <div key={index} className="mx-3 inline-block">
                 <div className="relative group">
-                  <img 
-                    src={`/${image}`} 
+                  <OptimizedImage
+                    src={`/${image}`}
                     alt={`Department photo ${index + 1}`}
                     className="h-32 w-48 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-all duration-500 brightness-90 group-hover:brightness-100"
-                    loading="lazy"
+                    containerClassName="h-32 w-48"
+                    aspectRatio="48/32"
+                    blurOnLoad={false}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>

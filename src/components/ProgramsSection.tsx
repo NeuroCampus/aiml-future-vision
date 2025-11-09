@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Code, Brain, Database, Globe, BookOpen, Users, ChevronRight, GraduationCap, Laptop } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const ProgramsSection = () => {
   const [showAll, setShowAll] = useState(false);
@@ -135,10 +136,12 @@ const ProgramsSection = () => {
                   <Card className="h-full bg-card/60 backdrop-blur-sm border-border/50 hover:bg-card/90 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10 overflow-hidden">
                     {/* Program illustration - hidden on mobile */}
                     <div className="hidden sm:block relative h-32 lg:h-40 overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5">
-                      <img 
+                      <OptimizedImage
                         src={program.image}
                         alt={program.title}
                         className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
+                        aspectRatio="16/9"
+                        showLoadingState={false}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card/20 to-transparent"></div>
                     </div>

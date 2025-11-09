@@ -1,5 +1,6 @@
 import React from 'react';
 import logoPng from '@/assets/csai-logo.png';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 interface DepartmentLogoProps {
   size?: number; // pixel size (height & width square container)
@@ -13,13 +14,13 @@ interface DepartmentLogoProps {
 const DepartmentLogo: React.FC<DepartmentLogoProps> = ({ size = 48, outline = false, className = '', title = 'CSE-AIML Logo' }) => {
   if (!outline) {
     return (
-      <img
+      <OptimizedImage
         src={logoPng}
         alt={title}
-        width={size}
-        height={size}
         className={`object-contain block select-none ${className}`}
-        draggable={false}
+        aspectRatio="1/1"
+        showLoadingState={false}
+        priority={true}
       />
     );
   }

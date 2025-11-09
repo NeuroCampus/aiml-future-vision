@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { useNavigate } from 'react-router-dom';
+import OptimizedImage from '@/components/ui/optimized-image';
 
 const FacultySection = () => {
   const facultyMembers = [
@@ -192,10 +193,11 @@ const FacultySection = () => {
                     <div className="relative mb-4">
                       {hod.image ? (
                         <div className="relative">
-                          <img
+                          <OptimizedImage
                             src={hod.image}
                             alt={hod.name}
                             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary/30 shadow-xl"
+                            aspectRatio="1/1"
                           />
                           <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg border-4 border-background">
                             <Award className="w-5 h-5 text-white" />
@@ -298,10 +300,12 @@ const FacultySection = () => {
                       <div className="p-5">
                         <div className="flex items-start gap-3">
                           {faculty.image ? (
-                            <img
+                            <OptimizedImage
                               src={faculty.image}
                               alt={faculty.name}
                               className="w-14 h-14 rounded-full object-cover border-2 border-primary/30 shadow-md"
+                              aspectRatio="1/1"
+                              showLoadingState={false}
                             />
                           ) : (
                             <div className="w-14 h-14 rounded-full flex items-center justify-center bg-primary/20 border-2 border-primary/30 shadow-md">
