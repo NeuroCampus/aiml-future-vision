@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const SportsAchievementsSection = () => {
-  const sportsAchievements = [
+  const achievements = [
     {
       name: 'S. S. Subhash',
       batch: 'Batch 2026',
@@ -38,9 +38,6 @@ const SportsAchievementsSection = () => {
       backgroundImage: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop&crop=center',
       gradient: 'from-green-500/20 to-emerald-500/20',
     },
-  ];
-
-  const culturalAchievements = [
     {
       name: 'Akshatha S. Girisagar',
       batch: 'Batch 2027',
@@ -82,9 +79,17 @@ const SportsAchievementsSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-20 bg-background relative overflow-hidden">
+      {/* Enhanced Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12">
+          
           
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Sports & <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Cultural Excellence</span>
@@ -94,7 +99,7 @@ const SportsAchievementsSection = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[...sportsAchievements, ...culturalAchievements].map((achievement, index) => {
+          {achievements.map((achievement, index) => {
             const Icon = achievement.icon;
             return (
               <motion.div

@@ -220,7 +220,7 @@ const AcademicExcellenceSection = () => {
                 <Trophy className="w-6 h-6 text-primary" /> Department Milestone
               </h3>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                Our students continue to secure top positions in VTU, with a landmark achievement by <span className="text-primary font-semibold">Mohammad Ayyan</span>—the first VTU rank holder emerging from the CSE–AIML branch—setting a legacy that ongoing toppers like <span className="text-primary font-semibold">{hero.name}</span> continue to elevate.
+                Our students continue to secure top positions in VTU, with a landmark achievement by <span className="text-primary font-semibold">C. Srinivas Gowda</span>—the first VTU rank holder emerging from the CSE–AIML branch—setting a legacy that ongoing toppers like <span className="text-primary font-semibold">{hero.name}</span> continue to elevate.
               </p>
             </div>
             <div className="grid grid-cols-3 gap-4 w-full md:w-auto">

@@ -15,7 +15,7 @@ const Navigation = () => {
     { to: '/innovation-research', label: 'Research' },
     { to: '/startups', label: 'Startups' },
     { to: '/student-clubs', label: 'Clubs' },
-    { to: '/sports-achievements', label: 'Sports' },
+    { to: '/sports-achievements', label: 'Champions' },
   ];
 
   const scrollToAbout = () => {
