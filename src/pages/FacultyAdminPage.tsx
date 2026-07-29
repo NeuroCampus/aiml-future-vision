@@ -171,17 +171,25 @@ const FacultyAdminPage = () => {
   };
 
   const handleDelete = async (entryId: string) => {
+    if (!supabase) {
+      toast({ title: 'Not connected', description: 'Supabase is not configured.', variant: 'destructive' });
+      return;
+    }
     if (!window.confirm('Are you sure you want to delete this entry?')) return;
-    
+
     setIsLoadingEntries(true);
     try {
-      const { error } = await supabase.from('faculty_timeline_entries').delete().eq('id', entryId);
+      const { error } = await supabase
+        .from('faculty_timeline_entries')
+        .delete()
+        .eq('id', entryId);
+
       if (error) throw error;
-      
+
       toast({ title: 'Entry deleted', description: 'The timeline item was removed.' });
-      setEntries(entries.filter(e => e.id !== entryId));
-    } catch (error) {
-      const message = error instanceof Error ? error.message : 'Unable to delete the entry.';
+      setEntries(prev => prev.filter(e => e.id !== entryId));
+    } catch (error: any) {
+      const message = error?.message ?? 'Unable to delete the entry.';
       toast({ title: 'Delete failed', description: message, variant: 'destructive' });
     } finally {
       setIsLoadingEntries(false);

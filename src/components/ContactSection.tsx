@@ -1,140 +1,127 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Linkedin, Instagram, Youtube } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { EnhancedButton } from '@/components/ui/enhanced-button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { MapPin, Mail, Linkedin, Instagram, Youtube, ExternalLink, ArrowRight } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-import OptimizedImage from '@/components/ui/optimized-image';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log(formData);
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We will get back to you shortly.",
-    });
-    setFormData({ name: '', email: '', message: '' });
-  };
+  const socials = [
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/amc-cse-aiml/', label: 'LinkedIn', color: 'hover:bg-[#0077B5]' },
+    { icon: Instagram, href: 'https://www.instagram.com/cseaiml/', label: 'Instagram', color: 'hover:bg-[#E1306C]' },
+    { icon: Mail, href: 'mailto:cseaimlminds@gmail.com', label: 'Email', color: 'hover:bg-primary' },
+    { icon: Youtube, href: '#', label: 'YouTube', color: 'hover:bg-[#FF0000]' },
+  ];
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Contact & Connection Background */}
-      <div className="absolute inset-0 -z-10">
-        {/* Colorful gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-background via-background/95 to-background/90" />
-        
-        {/* Connection-themed gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,hsl(var(--aiml-tertiary)/0.15),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,hsl(var(--tech-emerald)/0.12),transparent_65%)]" />
-        
-        {/* Network connection pattern */}
-        <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(45deg,hsl(var(--primary)/0.4)_1px,transparent_1px,transparent_20px,hsl(var(--accent)/0.3)_21px,transparent_22px)] bg-[size:100px_100px]" />
-      </div>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Get in <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Touch</span>
+    <section id="contact" className="relative bg-muted/30 overflow-hidden">
+      <div className="h-px bg-border/40" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+
+        {/* Editorial header */}
+        <div className="mb-14 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-3">Reach Out</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+            Get in <span className="text-primary">Touch</span>
           </h2>
-          <p className="text-md sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have questions about our programs, research, or admissions? Connect with us or follow us online!
+          <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            Have questions about our programs, research, or admissions? We'd love to hear from you.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="space-y-6 sm:space-y-8">
+
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-10 max-w-4xl mx-auto">
+
+          {/* Contact info card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-background rounded-2xl border border-border/50 p-8 space-y-8"
+          >
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contact Information</h3>
-              <div className="space-y-4 sm:space-y-4">
-                <div className="flex items-start space-x-3 sm:space-x-3">
-                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0 mt-1" />
-                  <a 
-                    href="https://www.google.com/maps/search/?api=1&query=AMC+Engineering+College,+18th+KM,+Bannerghatta+Road,+Bengaluru,+Karnataka,+India" 
-                    target="_blank" 
+              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-5">Contact Information</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-4 h-4 text-primary" />
+                  </div>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=AMC+Engineering+College,+18th+KM,+Bannerghatta+Road,+Bengaluru"
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed hover:text-primary transition-colors cursor-pointer"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors leading-relaxed group"
                   >
-                    AMC Engineering College, 18th KM, Bannerghatta Road, Bengaluru, Karnataka, India
+                    AMC Engineering College, 18th KM,<br />
+                    Bannerghatta Road, Bengaluru, Karnataka
+                    <ExternalLink className="inline w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 </div>
-                <div className="flex items-center space-x-3 sm:space-x-3">
-                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" />
-                  <a 
-                    href="mailto:cse.aiml@amceducation.in" 
-                    className="text-sm sm:text-base lg:text-lg text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4 text-primary" />
+                  </div>
+                  <a
+                    href="mailto:cse.aiml@amceducation.in"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     cse.aiml@amceducation.in
                   </a>
                 </div>
               </div>
             </div>
-                        <div className="mt-6 sm:mt-8">
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Follow Us</h3>
-              <div className="flex space-x-3 sm:space-x-4">
-                <motion.a 
-                  href="https://www.linkedin.com/in/amc-cse-aiml/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn" 
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors min-w-[44px] min-h-[44px]"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
-                </motion.a>
-                <motion.a 
-                  href="mailto:cseaimlminds@gmail.com" 
-                  aria-label="Email" 
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors min-w-[44px] min-h-[44px]"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                </motion.a>
-                <motion.a 
-                  href="https://www.instagram.com/cseaiml/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="Instagram" 
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors min-w-[44px] min-h-[44px]"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-                </motion.a>
-                <motion.a 
-                  href="#" 
-                  aria-label="YouTube" 
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors min-w-[44px] min-h-[44px]"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
-                </motion.a>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">Follow Us</h3>
+              <div className="flex gap-3">
+                {socials.map(({ icon: Icon, href, label, color }) => (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    whileHover={{ y: -2 }}
+                    className={`w-10 h-10 rounded-xl bg-muted flex items-center justify-center ${color} hover:text-white transition-all duration-200`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </motion.a>
+                ))}
               </div>
             </div>
-          </div>
-          <div className="flex flex-col items-center gap-4 sm:gap-6">
-            <OptimizedImage src="/cartoons/undraw_quick-chat_3gj8.svg" alt="Contact" className="w-48 h-48 sm:w-64 sm:h-auto object-contain mb-2 sm:mb-4" aspectRatio="1/1" showLoadingState={false} />
-            <div className="bg-primary/5 rounded-xl p-4 sm:p-6 text-center">
-              <h4 className="text-base sm:text-lg font-bold mb-2">We're here to help!</h4>
-              <p className="text-sm sm:text-base text-muted-foreground">Reach out for any queries about our department, programs, or events. Connect with us for updates and opportunities.</p>
+          </motion.div>
+
+          {/* CTA card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-primary rounded-2xl p-8 flex flex-col justify-between text-primary-foreground"
+          >
+            <div>
+              <h3 className="text-2xl font-bold mb-3">We're here to help!</h3>
+              <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6">
+                Reach out for any queries about our department, programs, or events. Connect with us for the latest updates and career opportunities in AI & ML.
+              </p>
+              <div className="grid grid-cols-2 gap-2 mb-8">
+                {['Admissions', 'Research', 'Events', 'Placements'].map(tag => (
+                  <span key={tag} className="text-xs font-semibold px-3 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg text-center text-primary-foreground/80">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+
+            <a
+              href="mailto:cse.aiml@amceducation.in"
+              className="inline-flex items-center gap-2 self-start px-5 py-2.5 bg-primary-foreground text-primary font-semibold text-sm rounded-full hover:bg-primary-foreground/90 transition-colors duration-200"
+            >
+              Send an Email
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>

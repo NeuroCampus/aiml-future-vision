@@ -144,8 +144,8 @@ const VortexBackground: React.FC<VortexBackgroundProps> = ({
     <div className={`relative overflow-hidden ${className}`}>
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 pointer-events-none"
-        style={{ opacity: 0.6 }}
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{ opacity: 0.25 }}
       />
       <motion.div 
         className="relative z-10"

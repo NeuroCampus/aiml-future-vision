@@ -1,3 +1,6 @@
+/* Import Inter from Google Fonts for editorial typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -154,12 +157,26 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-  @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+  @apply bg-background text-foreground antialiased overflow-x-hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+
+  /* Section editorial overline */
+  .section-overline {
+    @apply text-xs font-semibold uppercase tracking-[0.25em] text-primary;
   }
   
   /* Custom scrollbar for modern feel */

@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Trophy, Users, Code, Brain } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { EnhancedButton } from '@/components/ui/enhanced-button';
+import { Calendar, Trophy, Users, Code, ArrowUpRight } from 'lucide-react';
 import OptimizedImage from '@/components/ui/optimized-image';
 
 const EventsSection = () => {
@@ -15,7 +13,7 @@ const EventsSection = () => {
       description: 'Annual hackathon organized by CSE-DS department featuring AI/ML challenges and innovative solutions.',
       date: 'May 2024',
       category: 'hackathon',
-      mainImage: ['/cs-aiml-photos/Eventspic/HACKTOPUS.jpg'],
+      mainImage: '/cs-aiml-photos/Eventspic/HACKTOPUS.jpg',
     },
     {
       id: 2,
@@ -23,7 +21,7 @@ const EventsSection = () => {
       description: 'Innovation competition encouraging students to present creative AI solutions for real-world problems.',
       date: 'March 2024',
       category: 'competition',
-      mainImage: ['/cs-aiml-photos/Eventspic/IDEATHON.jpg'],
+      mainImage: '/cs-aiml-photos/Eventspic/IDEATHON.jpg',
     },
     {
       id: 3,
@@ -31,7 +29,7 @@ const EventsSection = () => {
       description: 'Workshop on startup funding, angel investment, and entrepreneurship in the tech industry.',
       date: 'February 2024',
       category: 'workshop',
-      mainImage: ['/cs-aiml-photos/Eventspic/AngelInvestment.jpg'],
+      mainImage: '/cs-aiml-photos/Eventspic/AngelInvestment.jpg',
     },
     {
       id: 4,
@@ -39,25 +37,23 @@ const EventsSection = () => {
       description: 'Comprehensive workshop on cybersecurity threats, prevention strategies, and ethical hacking.',
       date: 'January 2024',
       category: 'workshop',
-      mainImage: ['/cs-aiml-photos/Eventspic/Cybersecurity.jpg'],
+      mainImage: '/cs-aiml-photos/Eventspic/Cybersecurity.jpg',
     },
-    
-    
     {
       id: 6,
       title: 'World Debate Championship',
       description: 'International debate competition featuring AI ethics, technology impact, and future innovations.',
       date: 'December 2023',
       category: 'competition',
-      mainImage: ['/cs-aiml-photos/Eventspic/World-Debate.jpg'],
+      mainImage: '/cs-aiml-photos/Eventspic/World-Debate.jpg',
     },
     {
       id: 7,
       title: 'Hackathon at IIT Bombay',
-      description: 'Students participated in a national-level hackathon at IIT Bombay, showcasing their innovative AI/ML solutions.',
+      description: 'Students participated in a national-level hackathon at IIT Bombay, showcasing innovative AI/ML solutions.',
       date: 'November 2023',
       category: 'hackathon',
-      mainImage: ['/cs-aiml-photos/Studentscertficate/Hackathon at IIT Bombay.jpg'],
+      mainImage: '/cs-aiml-photos/Studentscertficate/Hackathon at IIT Bombay.jpg',
     },
   ];
 
@@ -66,132 +62,118 @@ const EventsSection = () => {
     { id: 'hackathon', label: 'Hackathons', icon: Code },
     { id: 'competition', label: 'Competitions', icon: Trophy },
     { id: 'workshop', label: 'Workshops', icon: Users },
-    
   ];
 
-  const filteredEvents = activeFilter === 'all' 
-    ? events 
+  const filteredEvents = activeFilter === 'all'
+    ? events
     : events.filter(event => event.category === activeFilter);
 
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 },
-    exit: { opacity: 0, scale: 0.8 },
+  const categoryColors: Record<string, string> = {
+    hackathon: 'text-primary bg-primary/10 border-primary/20',
+    competition: 'text-accent bg-accent/10 border-accent/20',
+    workshop: 'text-emerald-600 bg-emerald-50 border-emerald-200 dark:text-emerald-400 dark:bg-emerald-900/20 dark:border-emerald-800',
   };
 
   return (
-    <section id="events" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Events & Activities Background */}
-      <div className="absolute inset-0 -z-10">
-        {/* Colorful gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/90" />
-        
-        {/* Dynamic event gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_30%,hsl(var(--tech-orange)/0.15),transparent_70%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_70%,hsl(var(--tech-violet)/0.12),transparent_65%)]" />
-        
-        {/* Celebration pattern */}
-        <div className="absolute inset-0 opacity-[0.1] bg-[conic-gradient(from_0deg_at_50%_50%,hsl(var(--primary)/0.2),transparent_30%,hsl(var(--accent)/0.2),transparent_60%,hsl(var(--primary)/0.2))] bg-[size:200px_200px]" />
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4">
-            Events & <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Activities</span>
-          </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-            Discover the vibrant ecosystem of hackathons, competitions, workshops, and technical sessions that foster innovation and learning in our AI/ML community.
+    <section id="events" className="relative bg-background overflow-hidden">
+      <div className="h-px bg-border/40" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+
+        {/* Editorial header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-3">Campus Life</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+              Events &amp; <span className="text-primary">Activities</span>
+            </h2>
+          </div>
+          <p className="text-base text-muted-foreground max-w-md md:text-right leading-relaxed">
+            Hackathons, competitions, and workshops that fuel innovation and build tomorrow's leaders.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-8 sm:mb-10">
-          {eventCategories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <EnhancedButton
-                key={category.id}
-                onClick={() => setActiveFilter(category.id)}
-                variant={activeFilter === category.id ? "default" : "outline"}
-                effect="magnetic"
-                className="px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm lg:text-base min-h-[44px] flex-1 sm:flex-none"
-              >
-                <Icon className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                {category.label}
-              </EnhancedButton>
-            );
-          })}
+        {/* Filter tabs — clean pill style */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {eventCategories.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => setActiveFilter(id)}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+                activeFilter === id
+                  ? 'bg-primary text-primary-foreground border-primary shadow-sm'
+                  : 'bg-background text-muted-foreground border-border hover:border-primary/40 hover:text-primary'
+              }`}
+            >
+              <Icon className="w-3.5 h-3.5" />
+              {label}
+            </button>
+          ))}
         </div>
 
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Events grid */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
             {filteredEvents.map((event) => (
               <motion.div
                 key={event.id}
                 layout
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-                whileHover={{ 
-                  y: -8, 
-                  scale: 1.02,
-                  transition: { duration: 0.3 } 
-                }}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.3 }}
                 className="group"
               >
-                <Card className="overflow-hidden h-full bg-card/80 backdrop-blur-sm border-border/50 hover:bg-card/95 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10">
-                  <div className="relative overflow-hidden">
+                <div className="bg-background rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden h-full flex flex-col">
+                  {/* Image */}
+                  <div className="relative overflow-hidden h-44 bg-muted">
                     <OptimizedImage
-                      src={event.mainImage[0]}
+                      src={event.mainImage}
                       alt={event.title}
-                      className="w-full h-40 sm:h-48 md:h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       aspectRatio="16/9"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
-                      <span className="px-2 sm:px-3 py-1 bg-primary/90 text-primary-foreground text-xs font-medium rounded-full backdrop-blur-sm">
-                        {event.category}
-                      </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    {/* Category pill overlay */}
+                    <span className={`absolute top-3 left-3 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full border ${categoryColors[event.category] || 'text-primary bg-primary/10 border-primary/20'} backdrop-blur-sm bg-background/80`}>
+                      {event.category}
+                    </span>
+                  </div>
+
+                  {/* Body with left accent */}
+                  <div className="flex flex-1">
+                    <div className="w-1 bg-gradient-to-b from-primary to-accent flex-shrink-0" />
+                    <div className="p-5 flex flex-col flex-1">
+                      {/* Date */}
+                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium mb-2">
+                        <Calendar className="w-3.5 h-3.5 text-primary" />
+                        {event.date}
+                      </div>
+
+                      <h3 className="text-base font-bold leading-snug mb-2 group-hover:text-primary transition-colors duration-200">
+                        {event.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed flex-1 line-clamp-3">
+                        {event.description}
+                      </p>
                     </div>
                   </div>
-                  
-                  <CardHeader className="p-3 sm:p-4 md:p-6">
-                    <CardTitle className="text-base sm:text-lg md:text-xl group-hover:text-primary transition-colors duration-300">
-                      {event.title}
-                    </CardTitle>
-                  </CardHeader>
-                  
-                  <CardContent className="p-3 sm:p-4 md:p-6 pt-0">
-                    <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed line-clamp-3">
-                      {event.description}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center text-xs sm:text-sm text-muted-foreground">
-                        <Calendar className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 text-primary" />
-                        <span className="font-medium">{event.date}</span>
-                      </div>
-                      
-                      <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                    </div>
-                  </CardContent>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
-        
-        {/* Illustration for empty states or mobile enhancement */}
+
+        {/* Empty state */}
         {filteredEvents.length === 0 && (
-          <motion.div 
-            className="text-center py-12"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+          <motion.div
+            className="text-center py-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
           >
             <OptimizedImage
               src="/cartoons/undraw_no-data_ig65.svg"
               alt="No events found"
-              className="w-48 h-48 mx-auto mb-6 opacity-50"
+              className="w-40 h-40 mx-auto mb-6 opacity-40"
               aspectRatio="1/1"
               showLoadingState={false}
             />

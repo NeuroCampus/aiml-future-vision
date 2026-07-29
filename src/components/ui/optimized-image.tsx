@@ -68,7 +68,20 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     }
   };
 
-  const currentSrc = hasError && fallbackSrc ? fallbackSrc : src;
+  // Auto-convert standard image extensions to .webp for local files
+  const getWebpSrc = (originalSrc: string) => {
+    if (!originalSrc) return originalSrc;
+    // Only convert local files (starting with /) and matching standard image extensions
+    if (originalSrc.startsWith('/') && /\.(jpe?g|png)$/i.test(originalSrc)) {
+      return originalSrc.replace(/\.(jpe?g|png)$/i, '.webp');
+    }
+    return originalSrc;
+  };
+
+  const resolvedSrc = getWebpSrc(src);
+  const resolvedFallback = fallbackSrc ? getWebpSrc(fallbackSrc) : undefined;
+
+  const currentSrc = hasError && resolvedFallback ? resolvedFallback : resolvedSrc;
 
   return (
     <div

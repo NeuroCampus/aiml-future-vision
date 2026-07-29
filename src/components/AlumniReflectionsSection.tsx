@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import OptimizedImage from '@/components/ui/optimized-image';
@@ -10,7 +9,7 @@ const AlumniReflectionsSection = () => {
     {
       name: 'Jayasri G',
       image: '/Magazine/jayasri.jpg',
-      quote: 'Being part of the first CSE AIML batch was full of surprises and challenges. We grew, adapted, and built our department\'s identity together, supported by passionate faculty. Proud to pave the way for others.',
+      quote: "Being part of the first CSE AIML batch was full of surprises and challenges. We grew, adapted, and built our department's identity together, supported by passionate faculty. Proud to pave the way for others.",
     },
     {
       name: 'Shaikh Mohammed Ausaf',
@@ -49,81 +48,89 @@ const AlumniReflectionsSection = () => {
     },
   ];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
-    <section className="py-16 md:py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4">
-            Alumni <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Reflections</span>
-          </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-            Hear from our pioneering Batch of 2025 - the first CSE-AIML graduates who shaped the foundation of our department and established a legacy of excellence.
+    <section id="alumni-reflections" className="relative overflow-hidden bg-background">
+      <div className="h-px bg-border/40" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-3">Graduates</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+              Alumni <span className="text-primary">Reflections</span>
+            </h2>
+          </div>
+          <p className="text-base text-muted-foreground max-w-md md:text-right leading-relaxed">
+            Hear from our pioneering Batch of 2025 - the first CSE-AIML graduates who established a legacy of excellence.
           </p>
         </div>
 
-        <Carousel
-          opts={{
-            align: 'start',
-            loop: true,
-          }}
-          plugins={[Autoplay({ delay: 2500 })]}
-          className="w-full max-w-6xl mx-auto"
-        >
-          <CarouselContent>
-            {reflections.map((reflection, index) => (
-              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
-                <motion.div
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={cardVariants}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                    <CardContent className="p-3 sm:p-4">
-                      <div className="flex items-center gap-2 sm:gap-2 mb-3">
-                        <OptimizedImage
-                          src={reflection.image}
-                          alt={reflection.name}
-                          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
-                          aspectRatio="1/1"
-                          showLoadingState={false}
-                        />
-                        <Quote className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                      </div>
-                      
-                      <blockquote className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 leading-relaxed italic">
-                        "{reflection.quote}"
-                      </blockquote>
-                      
-                      <div className="border-t pt-3">
-                        <h4 className="font-bold text-xs sm:text-sm mb-1">{reflection.name}</h4>
-                        <p className="text-xs text-muted-foreground">CSE-AI&ML Batch 2025</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        {/* Carousel */}
+        <div className="relative px-6">
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {reflections.map((reflection, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="h-full"
+                  >
+                    <div className="bg-muted/30 border border-border/40 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <OptimizedImage
+                            src={reflection.image}
+                            alt={reflection.name}
+                            className="w-10 h-10 rounded-full object-cover border border-border"
+                            aspectRatio="1/1"
+                            showLoadingState={false}
+                          />
+                          <Quote className="h-5 w-5 text-primary/30" />
+                        </div>
 
-        <div className="text-center mt-12">
-          <div className="bg-primary/5 rounded-lg p-6 max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold mb-2">Pioneering Legacy</h3>
-            <p className="text-muted-foreground">
-              Our first batch of graduates established the foundation for excellence in CSE-AIML education. Their experiences, leadership, and achievements continue to inspire current and future students, creating a lasting legacy of innovation and community spirit.
-            </p>
-          </div>
+                        <blockquote className="text-sm text-muted-foreground mb-6 leading-relaxed italic">
+                          "{reflection.quote}"
+                        </blockquote>
+                      </div>
+
+                      <div className="border-t border-border/40 pt-4">
+                        <h4 className="font-bold text-sm leading-snug">{reflection.name}</h4>
+                        <p className="text-xs text-muted-foreground mt-0.5">CSE-AI&ML Batch 2025</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute -left-6 top-1/2 -translate-y-1/2" />
+            <CarouselNext className="absolute -right-6 top-1/2 -translate-y-1/2" />
+          </Carousel>
         </div>
+
+        {/* Milestone Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 bg-primary/5 border border-primary/15 rounded-2xl p-6 md:p-8 text-center"
+        >
+          <h3 className="text-base font-bold mb-2">Pioneering Legacy</h3>
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Our first batch of graduates established the foundation for excellence in CSE-AIML education. Their experiences, leadership, and achievements continue to inspire current and future students, creating a lasting legacy of innovation.
+          </p>
+        </motion.div>
+
       </div>
     </section>
   );
