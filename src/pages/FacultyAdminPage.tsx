@@ -6,8 +6,10 @@ import {
   Link2,
   LogIn,
   Paperclip,
+  Pencil,
   Plus,
   ShieldCheck,
+  Trash2,
   Upload,
   User,
 } from 'lucide-react';
@@ -70,6 +72,9 @@ const FacultyAdminPage = () => {
   const [loginForm, setLoginForm] = useState({ email: '', password: '' });
   const [formData, setFormData] = useState(emptyForm);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  
+  // Track entry being edited
+  const [editingEntryId, setEditingEntryId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!supabase) {
@@ -146,6 +151,43 @@ const FacultyAdminPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleEdit = (entry: TimelineEntry) => {
+    setEditingEntryId(entry.id);
+    setFormData({
+      entryType: entry.entry_type,
+      title: entry.title,
+      eventDate: entry.event_date,
+      details: entry.details || '',
+      referenceUrl: entry.reference_url || '',
+    });
+    setSelectedFile(null); // Force re-upload if they want to change file
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCancelEdit = () => {
+    setEditingEntryId(null);
+    setFormData(emptyForm);
+    setSelectedFile(null);
+  };
+
+  const handleDelete = async (entryId: string) => {
+    if (!window.confirm('Are you sure you want to delete this entry?')) return;
+    
+    setIsLoadingEntries(true);
+    try {
+      const { error } = await supabase.from('faculty_timeline_entries').delete().eq('id', entryId);
+      if (error) throw error;
+      
+      toast({ title: 'Entry deleted', description: 'The timeline item was removed.' });
+      setEntries(entries.filter(e => e.id !== entryId));
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unable to delete the entry.';
+      toast({ title: 'Delete failed', description: message, variant: 'destructive' });
+    } finally {
+      setIsLoadingEntries(false);
+    }
+  };
+
   const handleEntrySubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!supabase || !activeFaculty) return;
@@ -177,7 +219,7 @@ const FacultyAdminPage = () => {
         attachmentName = selectedFile.name;
       }
 
-      const { error } = await supabase.from('faculty_timeline_entries').insert({
+      const payload: any = {
         faculty_id: activeFaculty.id,
         faculty_name: activeFaculty.name,
         faculty_user_id: user?.email || 'authenticated-user',
@@ -186,15 +228,26 @@ const FacultyAdminPage = () => {
         details: formData.details,
         event_date: formData.eventDate,
         reference_url: formData.referenceUrl || null,
-        attachment_url: attachmentUrl || null,
-        attachment_name: attachmentName || null,
-      });
+      };
 
-      if (error) throw error;
+      if (attachmentUrl) {
+        payload.attachment_url = attachmentUrl;
+        payload.attachment_name = attachmentName;
+      }
 
-      toast({ title: 'Timeline updated', description: 'The new faculty record has been saved.' });
+      if (editingEntryId) {
+        const { error } = await supabase.from('faculty_timeline_entries').update(payload).eq('id', editingEntryId);
+        if (error) throw error;
+        toast({ title: 'Timeline updated', description: 'The faculty record has been modified.' });
+      } else {
+        const { error } = await supabase.from('faculty_timeline_entries').insert(payload);
+        if (error) throw error;
+        toast({ title: 'Timeline added', description: 'The new faculty record has been saved.' });
+      }
+
       setFormData(emptyForm);
       setSelectedFile(null);
+      setEditingEntryId(null);
 
       // Reload entries
       const { data, error: refreshError } = await supabase
@@ -296,7 +349,7 @@ const FacultyAdminPage = () => {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Plus className="w-5 h-5 text-primary" />
-                      Add item for {activeFaculty.name.split(' ')[0]}
+                      {editingEntryId ? `Edit item for ${activeFaculty.name}` : `Add item for ${activeFaculty.name}`}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -360,9 +413,16 @@ const FacultyAdminPage = () => {
                           </div>
                         </div>
 
-                        <Button type="submit" disabled={isSubmitting} className="w-full rounded-full">
-                          {isSubmitting ? 'Saving...' : 'Save timeline item'}
-                        </Button>
+                        <div className="flex gap-3">
+                          <Button type="submit" disabled={isSubmitting} className="flex-1 rounded-full">
+                            {isSubmitting ? 'Saving...' : editingEntryId ? 'Update timeline item' : 'Save timeline item'}
+                          </Button>
+                          {editingEntryId && (
+                            <Button type="button" variant="outline" onClick={handleCancelEdit} disabled={isSubmitting} className="rounded-full">
+                              Cancel
+                            </Button>
+                          )}
+                        </div>
                       </form>
                     )}
                   </CardContent>
@@ -408,7 +468,46 @@ const FacultyAdminPage = () => {
                                   {new Date(entry.event_date).toLocaleDateString()}
                                 </span>
                               </div>
-                              <h3 className="text-base font-semibold leading-snug">{entry.title}</h3>
+                              <div className="flex justify-between items-start gap-4">
+                                <h3 className="text-base font-semibold leading-snug">{entry.title}</h3>
+                                <div className="flex items-center gap-1 shrink-0">
+                                  <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-primary" onClick={() => handleEdit(entry)}>
+                                    <Pencil className="h-4 w-4" />
+                                  </Button>
+                                  <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-destructive" onClick={() => handleDelete(entry.id)}>
+                                    <Trash2 className="h-4 w-4" />
+                                  </Button>
+                                </div>
+                              </div>
+                              {entry.details && (
+                                <p className="text-xs text-muted-foreground leading-relaxed">{entry.details}</p>
+                              )}
+                              {(entry.reference_url || entry.attachment_url) && (
+                                <div className="flex flex-wrap gap-2 pt-1">
+                                  {entry.reference_url && (
+                                    <a
+                                      href={entry.reference_url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2.5 py-1 rounded-full"
+                                    >
+                                      <Link2 className="w-3 h-3" />
+                                      Reference Link
+                                    </a>
+                                  )}
+                                  {entry.attachment_url && (
+                                    <a
+                                      href={entry.attachment_url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="inline-flex items-center gap-1 text-xs text-primary hover:underline bg-primary/5 px-2.5 py-1 rounded-full"
+                                    >
+                                      <FileText className="w-3 h-3" />
+                                      {entry.attachment_name ?? 'View Attachment'}
+                                    </a>
+                                  )}
+                                </div>
+                              )}
                             </div>
                           </motion.article>
                         ))}
