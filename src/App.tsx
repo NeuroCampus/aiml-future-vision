@@ -10,6 +10,8 @@ import StartupsPage from "./pages/StartupsPage";
 import StudentClubsPage from "./pages/StudentClubsPage";
 import SportsAchievementsPage from "./pages/SportsAchievementsPage";
 import InnovationResearchPage from "./pages/InnovationResearchPage";
+import FacultyPortalPage from "./pages/FacultyPortalPage";
+import FacultyAdminPage from "./pages/FacultyAdminPage";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { useTheme } from "@/components/ThemeProvider";
@@ -37,6 +39,8 @@ const AppRoutes = () => {
         <Route path="/student-clubs" element={<StudentClubsPage />} />
         <Route path="/sports-achievements" element={<SportsAchievementsPage />} />
         <Route path="/innovation-research" element={<InnovationResearchPage />} />
+        <Route path="/faculty-portal/:facultyId" element={<FacultyPortalPage />} />
+        <Route path="/faculty-admin" element={<FacultyAdminPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

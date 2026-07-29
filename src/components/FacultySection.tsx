@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Award, BookOpen, Briefcase, User, GraduationCap, Star, Quote, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { useNavigate } from 'react-router-dom';
@@ -153,6 +154,11 @@ const FacultySection = () => {
     visible: { opacity: 1, scale: 1 },
   };
 
+  const openFacultyPortal = (facultyId: number) => {
+    navigate(`/faculty-portal/${facultyId}`);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section id="faculty" className="relative py-24 md:py-32 overflow-hidden">
       {/* Faculty Excellence Background */}
@@ -247,6 +253,15 @@ const FacultySection = () => {
                       </p>
                     </div>
 
+                    <div className="pt-2">
+                      <Button
+                        onClick={() => openFacultyPortal(hod.id)}
+                        className="rounded-full px-5"
+                      >
+                        View Timeline
+                      </Button>
+                    </div>
+
                     {/* Key Achievements */}
                     <div className="grid grid-cols-3 gap-4 pt-4">
                       <div className="text-center p-4 bg-primary/10 rounded-lg border border-primary/20">
@@ -334,6 +349,16 @@ const FacultySection = () => {
                         <div className="mt-3 pt-3 border-t border-border/30">
                           <h5 className="text-[10px] font-semibold text-muted-foreground mb-1">DEPARTMENT</h5>
                           <p className="text-xs">{faculty.specialization}</p>
+                        </div>
+                        <div className="mt-4 pt-3 border-t border-border/30 flex justify-end">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => openFacultyPortal(faculty.id)}
+                            className="rounded-full"
+                          >
+                            View Timeline
+                          </Button>
                         </div>
                       </div>
                     </Card>
