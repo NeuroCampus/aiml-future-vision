@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import { Lightbulb, Zap, Code, Rocket, Trophy, Star, Award, Target, TrendingUp, Users, Calendar, Sparkles, Brain, FileText, Microscope, Globe, Eye, MessageCircle } from 'lucide-react';
+import { Lightbulb, Zap, Code, Rocket, Trophy, Star, Award, Target, TrendingUp, Users, Calendar, Brain, FileText, Microscope, Globe, Eye, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
 import OptimizedImage from '@/components/ui/optimized-image';

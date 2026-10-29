@@ -1,128 +1,128 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Linkedin, Instagram, Youtube, ExternalLink, ArrowRight } from 'lucide-react';
+import { MapPin, Mail, Linkedin, Instagram, ExternalLink, Copy, Check } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [copied, setCopied] = useState(false);
 
   const socials = [
     { icon: Linkedin, href: 'https://www.linkedin.com/in/amc-cse-aiml/', label: 'LinkedIn', color: 'hover:bg-[#0077B5]' },
     { icon: Instagram, href: 'https://www.instagram.com/cseaiml/', label: 'Instagram', color: 'hover:bg-[#E1306C]' },
-    { icon: Mail, href: 'mailto:cseaimlminds@gmail.com', label: 'Email', color: 'hover:bg-primary' },
-    { icon: Youtube, href: '#', label: 'YouTube', color: 'hover:bg-[#FF0000]' },
+    { icon: Mail, href: 'mailto:cse.aiml@amceducation.in', label: 'Email', color: 'hover:bg-primary' },
   ];
 
+  const email = 'cse.aiml@amceducation.in';
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    toast({
+      title: 'Email Copied',
+      description: `${email} copied to your clipboard.`,
+    });
+    setTimeout(() => setCopied(false), 2500);
+  };
+
   return (
-    <section id="contact" className="relative bg-muted/30 overflow-hidden">
-      <div className="h-px bg-border/40" />
+    <section id="contact" className="relative overflow-hidden bg-transparent py-20 md:py-28">
+      {/* Top separator line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-
-        {/* Editorial header */}
-        <div className="mb-14 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-3">Reach Out</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
             Get in <span className="text-primary">Touch</span>
           </h2>
-          <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Have questions about our programs, research, or admissions? We'd love to hear from you.
+          <p className="text-sm sm:text-base text-muted-foreground mt-3 leading-relaxed">
+            Have questions about admissions, academic curriculum, student startups, or research opportunities? We are here to connect.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-10 max-w-4xl mx-auto">
+        {/* Single Centered Contact Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="max-w-2xl mx-auto p-7 sm:p-9 rounded-2xl bg-card/85 backdrop-blur-md border border-border/50 shadow-xl shadow-primary/5 hover:border-primary/40 transition-all duration-300"
+        >
+          <h3 className="text-xs font-bold uppercase tracking-widest text-primary mb-6 text-center sm:text-left">
+            Department Coordinates
+          </h3>
 
-          {/* Contact info card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-card/85 backdrop-blur-md rounded-2xl border border-border/50 p-8 space-y-8"
-          >
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-5">Contact Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-4 h-4 text-primary" />
-                  </div>
+          <div className="space-y-6">
+            {/* Campus Address */}
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-foreground">Campus Address</h4>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=AMC+Engineering+College,+18th+KM,+Bannerghatta+Road,+Bengaluru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors leading-relaxed block mt-1 group"
+                >
+                  AMC Engineering College, 18th KM, Bannerghatta Road, Bengaluru, Karnataka – 560083
+                  <ExternalLink className="inline w-3 h-3 ml-1 opacity-70 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </div>
+            </div>
+
+            {/* Official Inquiries */}
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-sm font-bold text-foreground">Official Inquiries</h4>
+                <p className="text-xs text-muted-foreground mt-0.5">Faculty, admissions, and student office</p>
+                <div className="flex items-center gap-2 mt-2">
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=AMC+Engineering+College,+18th+KM,+Bannerghatta+Road,+Bengaluru"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors leading-relaxed group"
+                    href={`mailto:${email}`}
+                    className="text-xs sm:text-sm font-semibold text-primary hover:underline truncate"
                   >
-                    AMC Engineering College, 18th KM,<br />
-                    Bannerghatta Road, Bengaluru, Karnataka
-                    <ExternalLink className="inline w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {email}
                   </a>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-4 h-4 text-primary" />
-                  </div>
-                  <a
-                    href="mailto:cse.aiml@amceducation.in"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  <button
+                    onClick={copyEmail}
+                    className="p-1.5 rounded-lg bg-card border border-border/50 text-muted-foreground hover:text-primary transition-colors"
+                    title="Copy email"
                   >
-                    cse.aiml@amceducation.in
-                  </a>
+                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">Follow Us</h3>
-              <div className="flex gap-3">
-                {socials.map(({ icon: Icon, href, label, color }) => (
-                  <motion.a
-                    key={label}
-                    href={href}
-                    target={href.startsWith('http') ? '_blank' : undefined}
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    whileHover={{ y: -2 }}
-                    className={`w-10 h-10 rounded-xl bg-muted flex items-center justify-center ${color} hover:text-white transition-all duration-200`}
-                  >
-                    <Icon className="w-4 h-4" />
-                  </motion.a>
-                ))}
-              </div>
+          {/* Social Channels */}
+          <div className="mt-8 pt-6 border-t border-border/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Social Channels
+            </h4>
+            <div className="flex items-center gap-2.5">
+              {socials.map(({ icon: Icon, href, label, color }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  whileHover={{ scale: 1.08, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`w-9 h-9 rounded-xl bg-card border border-border/50 flex items-center justify-center text-muted-foreground transition-all duration-200 ${color} hover:text-white hover:border-transparent`}
+                >
+                  <Icon className="w-4 h-4" />
+                </motion.a>
+              ))}
             </div>
-          </motion.div>
-
-          {/* CTA card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-primary rounded-2xl p-8 flex flex-col justify-between text-primary-foreground"
-          >
-            <div>
-              <h3 className="text-2xl font-bold mb-3">We're here to help!</h3>
-              <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6">
-                Reach out for any queries about our department, programs, or events. Connect with us for the latest updates and career opportunities in AI & ML.
-              </p>
-              <div className="grid grid-cols-2 gap-2 mb-8">
-                {['Admissions', 'Research', 'Events', 'Placements'].map(tag => (
-                  <span key={tag} className="text-xs font-semibold px-3 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg text-center text-primary-foreground/80">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <a
-              href="mailto:cse.aiml@amceducation.in"
-              className="inline-flex items-center gap-2 self-start px-5 py-2.5 bg-primary-foreground text-primary font-semibold text-sm rounded-full hover:bg-primary-foreground/90 transition-colors duration-200"
-            >
-              Send an Email
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

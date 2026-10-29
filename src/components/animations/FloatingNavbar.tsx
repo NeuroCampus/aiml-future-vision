@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp } from 'lucide-react';
 
 interface FloatingNavbarProps {
   children: React.ReactNode;
@@ -42,10 +41,6 @@ const FloatingNavbar: React.FC<FloatingNavbarProps> = ({
     return () => window.removeEventListener('scroll', controlNavbar);
   }, [lastScrollY, hideThreshold]);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <>
       <AnimatePresence>
@@ -62,23 +57,6 @@ const FloatingNavbar: React.FC<FloatingNavbarProps> = ({
           >
             {children}
           </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Scroll to Top Button */}
-      <AnimatePresence>
-        {!isAtTop && (
-          <motion.button
-            onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-50 p-3 bg-accent text-accent-foreground rounded-full shadow-lg hover:shadow-xl transition-shadow"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <ChevronUp className="w-5 h-5" />
-          </motion.button>
         )}
       </AnimatePresence>
     </>

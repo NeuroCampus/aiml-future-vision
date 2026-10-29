@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
-import LeadershipSection from '@/components/LeadershipSection';
 import AcademicExcellenceSection from '@/components/AcademicExcellenceSection';
 import EventsSection from '@/components/EventsSection';
 import FacultySection from '@/components/FacultySection';
@@ -34,7 +33,6 @@ const Index = () => {
       <div className="pt-20">
         <HeroSection />
         <AboutSection />
-        <LeadershipSection />
         <AcademicExcellenceSection />
         <EventsSection />
         <FacultySection />

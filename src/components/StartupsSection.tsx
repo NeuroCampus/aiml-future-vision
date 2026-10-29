@@ -30,14 +30,11 @@ const StartupsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-3">Student Ventures</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
-              Startups &amp; <span className="text-primary">Innovations</span>
-            </h2>
-          </div>
-          <p className="text-base text-muted-foreground max-w-md md:text-right leading-relaxed">
+        <div className="max-w-2xl mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+            Startups &amp; <span className="text-primary">Innovations</span>
+          </h2>
+          <p className="text-base text-muted-foreground mt-3 leading-relaxed">
             Our entrepreneurial students are transforming innovative ideas into successful ventures, creating real-world impact.
           </p>
         </div>

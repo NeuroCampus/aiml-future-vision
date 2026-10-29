@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Users, Award, Sparkles, Brain, PlayCircle } from 'lucide-react';
+import { ArrowRight, Users, Award, Brain, PlayCircle } from 'lucide-react';
 import { EnhancedButton } from '@/components/ui/enhanced-button';
 import { useNavigate } from 'react-router-dom';
 import OptimizedImage from '@/components/ui/optimized-image';
@@ -118,7 +118,14 @@ const HeroSection = () => {
                 transition={{ delay: 0.55, duration: 0.7 }}
               >
                 <EnhancedButton 
-                  onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    const elem = document.getElementById('events');
+                    if ((window as any).__lenis) {
+                      (window as any).__lenis.scrollTo(elem || '#events', { offset: -80, duration: 1.1 });
+                    } else if (elem) {
+                      elem.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   size="lg" 
                   effect="glow"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/30 rounded-full px-6 sm:px-7 py-3 sm:py-4 text-sm sm:text-base font-semibold min-h-[48px] w-full sm:w-auto"
@@ -129,7 +136,16 @@ const HeroSection = () => {
                   </span>
                 </EnhancedButton>
                 <EnhancedButton
-                  onClick={() => navigate('/about')}
+                  onClick={() => {
+                    const elem = document.getElementById('about');
+                    if ((window as any).__lenis) {
+                      (window as any).__lenis.scrollTo(elem || '#about', { offset: -80, duration: 1.1 });
+                    } else if (elem) {
+                      elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                      navigate('/#about');
+                    }
+                  }}
                   size="lg"
                   effect="magnetic"
                   className="rounded-full px-6 sm:px-7 py-3 sm:py-4 text-sm sm:text-base font-semibold bg-background/70 border border-primary/30 text-primary hover:bg-primary/10 min-h-[48px] w-full sm:w-auto"

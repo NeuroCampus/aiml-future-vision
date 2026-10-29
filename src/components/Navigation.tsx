@@ -21,7 +21,9 @@ const Navigation = () => {
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
-    if (aboutSection) {
+    if ((window as any).__lenis) {
+      (window as any).__lenis.scrollTo(aboutSection || '#about', { offset: -80, duration: 1.1 });
+    } else if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };

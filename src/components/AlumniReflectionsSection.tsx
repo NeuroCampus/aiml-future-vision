@@ -1,136 +1,168 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
 import OptimizedImage from '@/components/ui/optimized-image';
 
+interface Reflection {
+  name: string;
+  image: string;
+  quote: string;
+  highlight: string;
+  roleTag?: string;
+}
+
 const AlumniReflectionsSection = () => {
-  const reflections = [
+  const [isPaused, setIsPaused] = useState(false);
+
+  const reflections: Reflection[] = [
+    {
+      name: 'Mohammed Ayaan',
+      image: '/Magazine/mohammed ayaan.webp',
+      highlight: 'Set the tone for the future through hands-on learning and faculty mentorship.',
+      quote: 'Amazing time at AMC CSE-AIML first batch. Set the tone for future. Supportive faculty, hands-on learning. Energetic campus life, personal growth. Thankful for opportunities and memories.',
+      roleTag: '7th Rank VTU Holder',
+    },
     {
       name: 'Jayasri G',
       image: '/Magazine/jayasri.webp',
+      highlight: 'Proud to pave the way and build our department identity together.',
       quote: "Being part of the first CSE AIML batch was full of surprises and challenges. We grew, adapted, and built our department's identity together, supported by passionate faculty. Proud to pave the way for others.",
+      roleTag: '5th Place VTU (6th Sem)',
     },
     {
       name: 'Shaikh Mohammed Ausaf',
       image: '/Magazine/shaikh mohammed ausaf.webp',
+      highlight: 'Fostered adaptability, ownership, and lifelong professional stability.',
       quote: 'As the first CSE-AIML batch, we faced uncertainties but fostered adaptability and ownership. Passionate faculty brought stability, preparing us for jobs and life. Cherished memories and friendships from this pioneering journey.',
+      roleTag: 'Pioneering Batch',
     },
     {
       name: 'Sankruth K Gargeyasa',
       image: '/Magazine/sankruth K .webp',
+      highlight: 'Dedicated faculty mentorship that blended CSE with AI/ML depth.',
       quote: 'The first CSE-AIML batch at AMC was life-changing. Dedicated faculty mentored us beyond academics, blending CSE and AI/ML. Extracurriculars helped discover strengths. Forever grateful for the memories and family-like bond.',
+      roleTag: 'Pioneering Batch',
     },
     {
       name: 'Mamatha S',
       image: '/Magazine/mamatha.webp',
+      highlight: 'Enriching journey with balanced academics, support, and friendship.',
       quote: 'Four incredible years at AMC CSE-AIML: growth, learning, and experiences. Supportive faculty guided me academically and personally. Balanced academics and extracurriculars enriched my journey. Grateful for friendships and lessons.',
+      roleTag: 'Pioneering Batch',
     },
     {
       name: 'Tejas P V',
       image: '/Magazine/tejas pv.webp',
+      highlight: 'Unlocked creative potential with exceptional guidance from leadership and faculty.',
       quote: 'First CSE-AIML batch at AMC: ups and downs with amazing faculty like Srinivasaperumal sir and HOD Dr. Nandeeswar. Opportunities to express creativity. Fortunate to have great friends and teachers. Thankful for unlocking potential.',
+      roleTag: 'Pioneering Batch',
     },
     {
       name: 'D R Mouna',
       image: '/Magazine/mouna.webp',
+      highlight: 'Survivors and innovators blazing our unique career paths together.',
       quote: 'As CSE-AIML pioneers, we navigated a new department with self-study and humor. Teachers evolved, clubs formed. Chaos strengthened us. Survivors, innovators, blazing our path together.',
+      roleTag: 'Pioneering Batch',
     },
     {
       name: 'Khusumith S Veera',
       image: '/Magazine/khusumith s veera.webp',
+      highlight: 'A dynamic, high-energy community that continues shaping the AI future.',
       quote: 'CSE-AIML first batch: warmth, support, passionate mentors. Infectious energy with events and workshops. Student clubs like family. Part of a dynamic community shaping the future.',
-    },
-    {
-      name: 'Mohammed Ayaan',
-      image: '/Magazine/mohammed ayaan.webp',
-      quote: 'Amazing time at AMC CSE-AIML first batch. Set the tone for future. Supportive faculty, hands-on learning. Energetic campus life, personal growth. Thankful for opportunities and memories.',
+      roleTag: 'Pioneering Batch',
     },
   ];
 
+  // Duplicate list for seamless gapless marquee
+  const scrollingReflections = [...reflections, ...reflections];
+
   return (
-    <section id="alumni-reflections" className="relative overflow-hidden bg-transparent">
-      <div className="h-px bg-border/40" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+    <section id="alumni-reflections" className="relative overflow-hidden bg-transparent py-20 md:py-28">
+      {/* Top separator line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-3">Graduates</p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
-              Alumni <span className="text-primary">Reflections</span>
-            </h2>
-          </div>
-          <p className="text-base text-muted-foreground max-w-md md:text-right leading-relaxed">
-            Hear from our pioneering Batch of 2025 - the first CSE-AIML graduates who established a legacy of excellence.
+        <div className="max-w-2xl mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
+            Alumni <span className="text-primary">Reflections</span>
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground mt-3 leading-relaxed">
+            Real voices and experiences from the first-ever graduating cohort of CSE–AIML who laid the foundation for department excellence.
           </p>
         </div>
+      </div>
 
-        {/* Carousel */}
-        <div className="relative px-6">
-          <Carousel
-            opts={{
-              align: 'start',
-              loop: true,
-            }}
-            plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {reflections.map((reflection, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="h-full"
-                  >
-                    <div className="bg-card/75 backdrop-blur-md border border-border/40 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center gap-3 mb-4">
-                          <OptimizedImage
-                            src={reflection.image}
-                            alt={reflection.name}
-                            className="w-10 h-10 rounded-full object-cover border border-border"
-                            aspectRatio="1/1"
-                            showLoadingState={false}
-                          />
-                          <Quote className="h-5 w-5 text-primary/30" />
-                        </div>
+      {/* Infinite Smooth Scroll Carousel (Full-Width with Edge Fade) */}
+      <div 
+        className="relative w-full overflow-hidden py-4"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Left & Right gradient edge fades */}
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-l from-background via-background/80 to-transparent" />
 
-                        <blockquote className="text-sm text-muted-foreground mb-6 leading-relaxed italic">
-                          "{reflection.quote}"
-                        </blockquote>
-                      </div>
-
-                      <div className="border-t border-border/40 pt-4">
-                        <h4 className="font-bold text-sm leading-snug">{reflection.name}</h4>
-                        <p className="text-xs text-muted-foreground mt-0.5">CSE-AI&ML Batch 2025</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="absolute -left-6 top-1/2 -translate-y-1/2" />
-            <CarouselNext className="absolute -right-6 top-1/2 -translate-y-1/2" />
-          </Carousel>
-        </div>
-
-        {/* Milestone Box */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-primary/5 border border-primary/15 rounded-2xl p-6 md:p-8 text-center"
+        {/* Scrolling Track */}
+        <div 
+          className="flex gap-5 w-max animate-scroll-left"
+          style={{ 
+            animationDuration: '50s',
+            animationPlayState: isPaused ? 'paused' : 'running'
+          }}
         >
-          <h3 className="text-base font-bold mb-2">Pioneering Legacy</h3>
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Our first batch of graduates established the foundation for excellence in CSE-AIML education. Their experiences, leadership, and achievements continue to inspire current and future students, creating a lasting legacy of innovation.
-          </p>
-        </motion.div>
+          {scrollingReflections.map((item, index) => (
+            <div
+              key={`${item.name}-${index}`}
+              className="w-[300px] sm:w-[350px] flex-shrink-0 flex flex-col justify-between p-6 rounded-2xl bg-card/85 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+            >
+              <div>
+                {/* Header: Avatar, Name & Quote Icon */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <OptimizedImage
+                      src={item.image}
+                      alt={item.name}
+                      containerClassName="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm flex-shrink-0"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      aspectRatio="1/1"
+                      showLoadingState={false}
+                    />
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-sm text-foreground tracking-tight truncate">
+                        {item.name}
+                      </h3>
+                      <p className="text-[11px] text-muted-foreground font-medium">
+                        Batch 2025
+                      </p>
+                    </div>
+                  </div>
 
+                  <div className="p-1.5 rounded-lg bg-primary/10 text-primary flex-shrink-0">
+                    <Quote className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+
+                {/* Pull quote highlight */}
+                <p className="text-xs sm:text-sm font-semibold text-foreground/90 leading-snug mb-2.5 italic border-l-2 border-primary/40 pl-2.5">
+                  "{item.highlight}"
+                </p>
+
+                {/* Full quote */}
+                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-4">
+                  {item.quote}
+                </p>
+              </div>
+
+              {/* Role / Batch Tag */}
+              <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between text-[11px] text-muted-foreground">
+                <span className="font-medium text-primary">
+                  {item.roleTag || 'Alumni Pioneer'}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

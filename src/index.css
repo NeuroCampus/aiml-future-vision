@@ -419,12 +419,20 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
     animation: scrollLeft 30s linear infinite;
     display: flex;
     width: max-content;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   
   .animate-scroll-right {
     animation: scrollRight 30s linear infinite;
     display: flex;
     width: max-content;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   
   .animate-scroll-left:hover,
@@ -441,6 +449,23 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   .transform-style-preserve-3d {
     transform-style: preserve-3d;
   }
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -463,8 +488,11 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   background-repeat: no-repeat;
   filter: blur(5px) saturate(1.05);
   opacity: 0.38;
-  transform: scale(1.03);
+  transform: translate3d(0, 0, 0) scale(1.03);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   will-change: transform;
+  contain: strict;
 }
 
 .dark .amc-campus-backdrop {

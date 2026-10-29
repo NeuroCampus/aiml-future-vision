@@ -48,10 +48,8 @@ const AboutSection = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-primary mb-4">About the Department</p>
               <h2 id="about-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mb-6">
-                Shaping Tomorrow's<br />
-                <span className="text-primary">AI Leaders</span>
+                About the <span className="text-primary">Department</span>
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
                 The Department of Computer Science and Engineering (AI & ML) at AMC Engineering College is a hub of academic excellence, innovation, and industry-aligned education. We nurture future-ready professionals with strong technical foundations, critical thinking, ethical responsibility, and a research-driven mindset.
