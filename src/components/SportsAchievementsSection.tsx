@@ -1,171 +1,277 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Target, Medal, Star, Users, Music } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import OptimizedImage from '@/components/ui/optimized-image';
+
+interface Achievement {
+  name: string;
+  batch: string;
+  title: string;
+  category: string;
+  badge: string;
+  honor: string;
+  details: string;
+  image: string;
+  type: 'sports' | 'cultural';
+}
 
 const SportsAchievementsSection = () => {
-  const achievements = [
+  const [filter, setFilter] = useState<'all' | 'sports' | 'cultural'>('all');
+
+  const achievements: Achievement[] = [
     {
       name: 'S. S. Subhash',
-      batch: 'Batch 2026',
-      achievement: 'AMC Men\'s Cricket Team Captain',
-      result: '3rd place in VTU Inter-Collegiate Tournament',
-      date: 'October 2024',
-      icon: Trophy,
-      category: 'Cricket',
-      backgroundImage: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=300&fit=crop&crop=center',
-      gradient: 'from-orange-500/20 to-red-500/20',
+      batch: 'Batch of 2026',
+      title: "Captain, AMC Men's Cricket Team",
+      category: 'Cricket · VTU Inter-Collegiate',
+      badge: '3rd Place State Rank',
+      honor: 'Led AMC College team across regional qualifiers into the VTU State Inter-Collegiate Finals.',
+      details: 'Demonstrated tactical on-field captaincy and match-winning athletic performance across multi-day tournament fixtures.',
+      image: '/DSC_0779_Original.webp',
+      type: 'sports',
     },
     {
       name: 'Sarika Jaganath',
-      batch: 'Batch 2027',
-      achievement: 'National Shooting Championship Participant',
-      result: 'Competed in 66th National Championship',
-      date: 'November-December 2024',
-      icon: Target,
-      category: 'Shooting',
-      backgroundImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
-      gradient: 'from-blue-500/20 to-cyan-500/20',
+      batch: 'Batch of 2027',
+      title: 'National Shooting Athlete',
+      category: 'Marksmanship · Shooting',
+      badge: '66th National Championship',
+      honor: 'Represented Karnataka and AMC at the prestigious National Shooting Championship.',
+      details: 'Competed at the highest national tier in precision 10m air rifle target events under rigorous national qualification standards.',
+      image: '/DSC_9842_Original.webp',
+      type: 'sports',
     },
     {
       name: 'Harshavardhan S. Kale',
-      batch: 'Batch 2026',
-      achievement: 'Multiple Sports Awards Winner',
-      result: 'Cricket and Running Events Champion',
-      date: '2024',
-      icon: Medal,
-      category: 'Multi-Sport',
-      backgroundImage: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop&crop=center',
-      gradient: 'from-green-500/20 to-emerald-500/20',
+      batch: 'Batch of 2026',
+      title: 'Multi-Sport Athletics Champion',
+      category: 'Athletics & Cricket',
+      badge: 'Gold & Silver Medalist',
+      honor: 'Decorated all-round university athlete across sprinting, track events, and competitive cricket.',
+      details: 'Consistently secured podium medals in inter-college sprint invitationals while anchoring departmental athletic teams.',
+      image: '/IMG_8492.webp',
+      type: 'sports',
     },
     {
       name: 'Akshatha S. Girisagar',
-      batch: 'Batch 2027',
-      achievement: 'Kuchipudi Dancer',
-      result: 'Performed at prestigious institutions',
-      date: '2024',
-      icon: Music,
-      category: 'Dance',
-      backgroundImage: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&h=300&fit=crop&crop=center',
-      gradient: 'from-purple-500/20 to-pink-500/20',
+      batch: 'Batch of 2027',
+      title: 'Classical Kuchipudi Performer',
+      category: 'Classical Performing Arts',
+      badge: 'University Cultural Soloist',
+      honor: 'Performed solo recitals at premier cultural convocations and university youth celebrations.',
+      details: 'Trained classical exponent bringing authentic cultural storytelling and expressive performance art to state platforms.',
+      image: '/culture.webp',
+      type: 'cultural',
     },
     {
       name: 'Swetha K',
-      batch: 'Batch 2027',
-      achievement: 'Published Poet',
-      result: 'Acclaimed poems: "You, the Star" and "The Voice Between Life and Death"',
-      date: '2024',
-      icon: Star,
-      category: 'Literature',
-      backgroundImage: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop&crop=center',
-      gradient: 'from-indigo-500/20 to-purple-500/20',
+      batch: 'Batch of 2027',
+      title: 'Published Poet & Literary Author',
+      category: 'Creative Literature',
+      badge: 'Published Works',
+      honor: 'Authored acclaimed published poetry collections: "You, the Star" and "The Voice Between Life and Death".',
+      details: 'Widely praised for philosophical exploration and linguistic resonance, showcasing the creative depth of CSE-AIML scholars.',
+      image: '/IMG_0480.webp',
+      type: 'cultural',
     },
     {
       name: 'Nageshwar & Preethiba',
-      batch: 'Batch 2027',
-      achievement: 'Traditional Dance Performance',
-      result: 'Kannada Rajyotsava Celebration',
-      date: '2024',
-      icon: Users,
-      category: 'Cultural Dance',
-      backgroundImage: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=300&fit=crop&crop=center',
-      gradient: 'from-rose-500/20 to-pink-500/20',
+      batch: 'Batch of 2027',
+      title: 'Traditional Folk Ensemble Leads',
+      category: 'Folk Arts & Heritage',
+      badge: 'Kannada Rajyotsava Honor',
+      honor: 'Choreographed and led high-energy folk performances honoring Karnataka cultural heritage.',
+      details: 'Celebrated by college leadership for preserving traditional performing art forms through choreographed ensemble storytelling.',
+      image: '/culture.webp',
+      type: 'cultural',
     },
   ];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const filtered = filter === 'all' ? achievements : achievements.filter((a) => a.type === filter);
 
   return (
-    <section className="py-16 md:py-20 bg-transparent relative overflow-hidden">
-      {/* Enhanced Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
-      </div>
+    <section id="sports-cultural" className="relative overflow-hidden bg-transparent py-20 md:py-28">
+      {/* Top separator line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-12">
-          
-          
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Sports & <span className="bg-gradient-to-r from-primary via-primary/80 to-fuchsia-500 bg-clip-text text-transparent">Cultural Excellence</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        {/* Section Header */}
+        <div className="max-w-2xl mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
+            Sports &amp; <span className="text-primary">Cultural Excellence</span>
           </h2>
-          <p className="text-md sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Celebrating our students' achievements beyond academics – from national-level sports competitions to cultural performances that showcase their diverse talents and holistic development.
+          <p className="text-sm sm:text-base text-muted-foreground mt-3 leading-relaxed">
+            Celebrating athletic champions, performing artists, and literary creators who represent the AMC CSE–AIML spirit at national, state, and university levels.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {achievements.map((achievement, index) => {
-            const Icon = achievement.icon;
-            return (
-              <motion.div
-                key={index}
-                layout
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={cardVariants}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                className="group perspective-1000"
-              >
-                <Card className={`relative overflow-hidden bg-gradient-to-br ${achievement.gradient} to-card border border-border/30 rounded-2xl shadow-lg hover:shadow-primary/20 transition-all duration-500 h-full group-hover:shadow-2xl`}>
-                  <div
-                    className="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-15 transition-opacity duration-500"
-                    style={{ backgroundImage: `url(${achievement.backgroundImage})` }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <CardHeader className="pb-3 relative z-10">
-                    <div className="flex items-start gap-3">
-                      <motion.div 
-                        className="w-12 h-12 bg-primary/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/30 shadow-lg"
-                        whileHover={{ scale: 1.1, rotate: 360 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Icon className="h-6 w-6 text-primary" />
-                      </motion.div>
-                      <div>
-                        <CardTitle className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">{achievement.name}</CardTitle>
-                        <p className="text-sm text-muted-foreground">{achievement.batch}</p>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="relative z-10">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <Badge variant="secondary" className="bg-primary/15 text-primary border border-primary/20 backdrop-blur-sm">
-                        {achievement.category}
-                      </Badge>
-                      <span className="bg-secondary/20 backdrop-blur-sm text-xs px-2 py-1 rounded-full text-muted-foreground border border-border/20">{achievement.date}</span>
-                    </div>
-                    <h4 className="font-semibold text-sm mb-2 text-foreground group-hover:text-primary transition-colors duration-300">{achievement.achievement}</h4>
-                    <p className="text-sm text-muted-foreground mb-2 leading-relaxed">{achievement.result}</p>
-                    
-                    <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="w-full h-1 bg-gradient-to-r from-primary/20 to-primary/40 rounded-full overflow-hidden">
-                        <motion.div 
-                          className="h-full bg-gradient-to-r from-primary to-primary/80 rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: "100%" }}
-                          transition={{ duration: 1, delay: index * 0.2 }}
-                        />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
-        </div>
-        <div className="text-center mt-14">
-          <div className="bg-primary/5 rounded-xl p-6 max-w-2xl mx-auto">
-            <h4 className="text-lg font-bold mb-2">Holistic Development</h4>
-            <p className="text-muted-foreground">Our students excel not only in academics and technology but also in sports and cultural activities, demonstrating the well-rounded education and diverse opportunities available at our department.</p>
+
+        {/* Featured Cultural & Campus Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16 rounded-2xl bg-card/85 backdrop-blur-md border border-border/50 overflow-hidden shadow-lg hover:border-primary/40 transition-all duration-300"
+        >
+          <div className="grid lg:grid-cols-12 gap-0 items-stretch">
+            {/* Left Photo */}
+            <div className="lg:col-span-7 relative overflow-hidden min-h-[300px] lg:min-h-[420px] group">
+              <OptimizedImage
+                src="/culture.webp"
+                alt="AMC Cultural & Heritage Festival"
+                containerClassName="w-full h-full"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                aspectRatio="16/9"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
+              <div className="absolute top-4 left-4 z-10">
+                <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-background/90 text-foreground backdrop-blur-md border border-border/50">
+                  Annual Cultural Heritage
+                </span>
+              </div>
+              <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
+                <p className="text-xs uppercase tracking-widest text-primary-foreground/90 font-bold mb-1">
+                  Kannada Rajyotsava &amp; Arts Fest
+                </p>
+                <h3 className="text-xl sm:text-2xl font-bold leading-tight">
+                  Cultural Expression &amp; Performing Arts
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-200 mt-1 max-w-xl">
+                  Highlighting the rich cultural diversity, classical dance forms, and artistic expressions nurtured across the department.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Information Column */}
+            <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-primary mb-2 block">
+                  Holistic Development
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-3">
+                  Beyond Academic Rigor
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
+                  Engineers at AMC CSE–AIML excel across the athletic field and the artistic stage. From representing Karnataka in national shooting championships to published poetry and classical dance recitals, student endeavors embody well-rounded excellence.
+                </p>
+
+                <div className="space-y-3">
+                  <div className="p-3.5 rounded-xl bg-muted/40 border border-border/40">
+                    <p className="text-xs font-bold text-foreground">Athletic Leadership</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      Inter-university cricket championships, state track invitationals, and national shooting fixtures.
+                    </p>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-muted/40 border border-border/40">
+                    <p className="text-xs font-bold text-foreground">Artistic &amp; Literary Works</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      Classical Kuchipudi recitals, published poetry anthologies, and regional folk choreography.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-5 border-t border-border/40 flex items-center justify-between text-xs text-muted-foreground">
+                <span>VTU Affiliated Athletic Body</span>
+                <span className="font-semibold text-primary">AMC Sports Complex</span>
+              </div>
+            </div>
           </div>
+        </motion.div>
+
+        {/* Filter Pills */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-10">
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
+              filter === 'all'
+                ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
+                : 'text-muted-foreground bg-card/70 border border-border/50 hover:text-foreground hover:border-primary/40'
+            }`}
+          >
+            All Achievers
+          </button>
+          <button
+            onClick={() => setFilter('sports')}
+            className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
+              filter === 'sports'
+                ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
+                : 'text-muted-foreground bg-card/70 border border-border/50 hover:text-foreground hover:border-primary/40'
+            }`}
+          >
+            Athletic Champions
+          </button>
+          <button
+            onClick={() => setFilter('cultural')}
+            className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
+              filter === 'cultural'
+                ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
+                : 'text-muted-foreground bg-card/70 border border-border/50 hover:text-foreground hover:border-primary/40'
+            }`}
+          >
+            Cultural &amp; Literary Artists
+          </button>
+        </div>
+
+        {/* Achievers Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {filtered.map((item, index) => (
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: index * 0.08 }}
+              className="group rounded-2xl bg-card/85 backdrop-blur-md border border-border/50 overflow-hidden shadow-sm hover:border-primary/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                {/* Photo Frame */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                  <OptimizedImage
+                    src={item.image}
+                    alt={item.name}
+                    containerClassName="w-full h-full"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    aspectRatio="16/10"
+                  />
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold tracking-wide bg-background/90 text-foreground backdrop-blur-md border border-border/50">
+                      {item.category}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-3 right-3 z-10">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold tracking-wide bg-primary text-primary-foreground shadow-sm">
+                      {item.badge}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-1">
+                    <span className="font-semibold text-primary">{item.batch}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                    {item.name}
+                  </h3>
+                  <p className="text-xs font-semibold text-foreground/80 mt-0.5 mb-3">
+                    {item.title}
+                  </p>
+                  <p className="text-xs sm:text-sm text-foreground/90 font-medium leading-relaxed mb-2">
+                    {item.honor}
+                  </p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {item.details}
+                  </p>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-2">
+                <div className="h-px bg-border/40 mb-3" />
+                <span className="text-[11px] uppercase tracking-wider font-semibold text-muted-foreground">
+                  Department of CSE–AIML
+                </span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -23,6 +23,10 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if ((window as any).__lenis) {
+      (window as any).__lenis.scrollTo(0, { immediate: true });
+      setTimeout(() => (window as any).__lenis?.resize(), 50);
+    }
     window.scrollTo(0, 0);
   }, [pathname]);
 

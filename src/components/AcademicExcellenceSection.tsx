@@ -143,14 +143,16 @@ const AcademicExcellenceSection = () => {
         className="relative w-full overflow-hidden py-4"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
       >
         {/* Left & Right gradient edge fades */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-l from-background via-background/80 to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-6 sm:w-20 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 sm:w-20 z-10 bg-gradient-to-l from-background via-background/80 to-transparent" />
 
         {/* Scrolling Track */}
         <div 
-          className="flex gap-5 w-max animate-scroll-left"
+          className="flex gap-4 sm:gap-5 w-max animate-scroll-left"
           style={{ 
             animationDuration: '45s',
             animationPlayState: isPaused ? 'paused' : 'running'
@@ -163,7 +165,7 @@ const AcademicExcellenceSection = () => {
             return (
               <div
                 key={`${student.name}-${index}`}
-                className={`w-[290px] sm:w-[330px] flex-shrink-0 flex flex-col justify-between p-5 rounded-2xl bg-card/85 backdrop-blur-md border transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/40 ${
+                className={`w-[270px] sm:w-[330px] flex-shrink-0 flex flex-col justify-between p-4 sm:p-5 rounded-2xl bg-card/95 border transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/40 ${
                   isTopMilestone
                     ? 'border-primary/40 ring-1 ring-primary/20 bg-gradient-to-b from-card/95 via-card/85 to-primary/5'
                     : 'border-border/50'
@@ -187,18 +189,18 @@ const AcademicExcellenceSection = () => {
                   </div>
 
                   {/* Student Info */}
-                  <div className="flex items-center gap-3.5 mb-4">
+                  <div className="flex items-center gap-3 sm:gap-3.5 mb-4">
                     {hasPhoto ? (
                       <OptimizedImage
                         src={student.image!}
                         alt={student.name}
-                        containerClassName="w-13 h-13 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-primary/30 shadow-md flex-shrink-0"
+                        containerClassName="w-12 h-12 min-w-[48px] min-h-[48px] max-w-[48px] max-h-[48px] sm:w-14 sm:h-14 sm:min-w-[56px] sm:min-h-[56px] sm:max-w-[56px] sm:max-h-[56px] rounded-full overflow-hidden border-2 border-primary/30 shadow-md flex-shrink-0"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         aspectRatio="1/1"
                         showLoadingState={false}
                       />
                     ) : (
-                      <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-base flex-shrink-0">
+                      <div className="w-12 h-12 min-w-[48px] min-h-[48px] max-w-[48px] max-h-[48px] sm:w-14 sm:h-14 sm:min-w-[56px] sm:min-h-[56px] sm:max-w-[56px] sm:max-h-[56px] rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-base flex-shrink-0">
                         {student.name.charAt(0)}
                       </div>
                     )}

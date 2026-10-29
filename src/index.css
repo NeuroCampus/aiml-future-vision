@@ -157,19 +157,16 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   * {
     @apply border-border;
   }
 
-  body {
-  @apply bg-background text-foreground antialiased overflow-x-hidden;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  position: relative;
-  min-height: 100vh;
+  html, body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -396,22 +393,22 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
     }
   }
   
-  /* Scrolling photo carousel animations */
+  /* Hardware-accelerated scrolling photo carousel animations */
   @keyframes scrollLeft {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
   
   @keyframes scrollRight {
     0% {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
     100% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
   }
   
@@ -451,23 +448,6 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   }
 }
 
-/* Lenis smooth scrolling rules */
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
 /* ==========================================================================
    AMC CAMPUS BACKGROUND LAYER — PREMIUM SOFT BLUR & ELEGANT CONTRAST
    (Implemented matching https://neuron-net.vercel.app/)
@@ -486,18 +466,15 @@ html.lenis, html.lenis body {
   background-size: cover;
   background-position: center 25%;
   background-repeat: no-repeat;
-  filter: blur(5px) saturate(1.05);
   opacity: 0.38;
-  transform: translate3d(0, 0, 0) scale(1.03);
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  will-change: transform;
   contain: strict;
 }
 
 .dark .amc-campus-backdrop {
   opacity: 0.25;
-  filter: blur(5px) saturate(1.1) brightness(0.85);
 }
 
 #root {

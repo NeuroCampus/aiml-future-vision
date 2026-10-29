@@ -15,7 +15,7 @@ const ProgramsSection = () => {
       level: 'Undergraduate',
       intake: '60 Students',
       topics: ['AI Algorithms', 'Machine Learning', 'Deep Learning', 'Computer Vision', 'NLP', 'Robotics'],
-      image: '/cartoons/undraw_developer-activity_4zqd.svg',
+      image: '/cs-aiml-photos/Labpics/CASElab.webp',
       accentColor: 'from-primary/10 to-primary/5',
     },
     {
@@ -26,7 +26,7 @@ const ProgramsSection = () => {
       level: 'Core Subject',
       intake: 'All Students',
       topics: ['Search Algorithms', 'Knowledge Representation', 'Expert Systems', 'Logical Reasoning'],
-      image: '/cartoons/undraw_vibe-coding_mjme.svg',
+      image: '/cs-aiml-photos/Labpics/Linuxlab.webp',
       accentColor: 'from-accent/10 to-accent/5',
     },
     {
@@ -37,7 +37,7 @@ const ProgramsSection = () => {
       level: 'Specialized',
       intake: 'Advanced Track',
       topics: ['MLOps', 'Model Deployment', 'Feature Engineering', 'Performance Optimization'],
-      image: '/cartoons/undraw_monitor_ypga.svg',
+      image: '/cs-aiml-photos/Labpics/RDlab.webp',
       accentColor: 'from-primary/10 to-primary/5',
     },
     {
@@ -48,7 +48,7 @@ const ProgramsSection = () => {
       level: 'Intermediate',
       intake: 'All Students',
       topics: ['Statistical Analysis', 'Data Visualization', 'Big Data Processing', 'Predictive Modeling'],
-      image: '/cartoons/undraw_questions_g2px.svg',
+      image: '/cs-aiml-photos/Labpics/Lecturehall.webp',
       accentColor: 'from-accent/10 to-accent/5',
     },
     {
@@ -59,7 +59,7 @@ const ProgramsSection = () => {
       level: 'Advanced',
       intake: 'Research Track',
       topics: ['Research Design', 'Literature Review', 'Publication Methods', 'Thesis Writing'],
-      image: '/cartoons/undraw_books_wxzz.svg',
+      image: '/cs-aiml-photos/Labpics/Seminarhall.webp',
       accentColor: 'from-primary/10 to-primary/5',
     },
     {
@@ -70,7 +70,7 @@ const ProgramsSection = () => {
       level: 'Professional',
       intake: 'Final Year',
       topics: ['Internships', 'Live Projects', 'Industry Mentorship', 'Placement Preparation'],
-      image: '/cartoons/undraw_team_85hs.svg',
+      image: '/cs-aiml-photos/Eventspic/grouppic.webp',
       accentColor: 'from-accent/10 to-accent/5',
     },
   ];

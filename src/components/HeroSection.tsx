@@ -12,27 +12,27 @@ const HeroSection = () => {
   const words = ['Intelligence', 'Innovation', 'Engineering', 'Excellence'];
   const colors = ['text-primary', 'text-primary', 'text-primary', 'text-primary'];
 
-  // Get list of image files from public directory
-  const imageFiles = [
+  // Curated lightweight sets for the carousels
+  const topImages = [
     'DSC_0779_Original.webp',
-    'DSC_9842_Original.webp',
-    'IMG_0480.webp',
-    'IMG_0484.webp',
-    'IMG_2446.webp',
-    'IMG_2461.webp',
-    'IMG_2796.webp',
-    'IMG_6321.CR2.webp',
-    'IMG_8492.webp',
-    'IMG_8962.webp',
-    'accd3d75-7df7-42b0-9235-1e95050237b6.webp',
-    'b171ef6b-d574-4b32-93cb-1654536489d2.webp',
-    'culture.webp',
     'ideathon.webp',
+    'IMG_2446.webp',
+    'culture.webp',
+    'IMG_8492.webp',
+    'IMG_6321.CR2.webp',
+    'b171ef6b-d574-4b32-93cb-1654536489d2.webp',
+    'IMG_0480.webp',
+  ];
+
+  const bottomImages = [
+    'DSC_9842_Original.webp',
+    'IMG_2461.webp',
     'simp.webp',
-    'simp1.webp',
+    'IMG_2796.webp',
+    'accd3d75-7df7-42b0-9235-1e95050237b6.webp',
+    'IMG_8962.webp',
     'hi.webp',
-    'hi11.webp',
-    'hi111.webp'
+    'IMG_0484.webp',
   ];
 
   useEffect(() => {
@@ -121,9 +121,9 @@ const HeroSection = () => {
                   onClick={() => {
                     const elem = document.getElementById('events');
                     if ((window as any).__lenis) {
-                      (window as any).__lenis.scrollTo(elem || '#events', { offset: -80, duration: 1.1 });
+                      (window as any).__lenis.scrollTo(elem || '#events', { offset: -80, duration: 1.2 });
                     } else if (elem) {
-                      elem.scrollIntoView({ behavior: 'smooth' });
+                      elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                   }}
                   size="lg" 
@@ -139,7 +139,7 @@ const HeroSection = () => {
                   onClick={() => {
                     const elem = document.getElementById('about');
                     if ((window as any).__lenis) {
-                      (window as any).__lenis.scrollTo(elem || '#about', { offset: -80, duration: 1.1 });
+                      (window as any).__lenis.scrollTo(elem || '#about', { offset: -80, duration: 1.2 });
                     } else if (elem) {
                       elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     } else {
@@ -194,16 +194,16 @@ const HeroSection = () => {
       {/* Enhanced Carousels - Placed below main content */}
       <div className="pt-8">
         {/* Top Carousel - Left to Right */}
-        <div className="overflow-hidden py-6 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 backdrop-blur-sm border-y border-primary/10 mb-1">
+        <div className="overflow-hidden py-6 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border-y border-primary/10 mb-1">
           <div className="flex animate-scroll-left whitespace-nowrap">
-            {[...imageFiles, ...imageFiles].map((image, index) => (
+            {[...topImages, ...topImages].map((image, index) => (
               <div key={index} className="mx-3 inline-block">
                 <div className="relative group">
                   <OptimizedImage
                     src={`/${image}`}
                     alt={`Department photo ${index + 1}`}
-                    className="h-32 w-48 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-all duration-500 brightness-90 group-hover:brightness-100"
-                    containerClassName="h-32 w-48"
+                    className="h-24 w-36 sm:h-32 sm:w-48 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-all duration-300 brightness-95 group-hover:brightness-100"
+                    containerClassName="h-24 w-36 sm:h-32 sm:w-48"
                     aspectRatio="48/32"
                     blurOnLoad={false}
                   />
@@ -215,16 +215,16 @@ const HeroSection = () => {
         </div>
 
         {/* Bottom Carousel - Right to Left */}
-        <div className="overflow-hidden py-6 bg-gradient-to-r from-accent/5 via-primary/5 to-accent/5 backdrop-blur-sm border-y border-primary/10">
+        <div className="overflow-hidden py-4 sm:py-6 bg-gradient-to-r from-accent/5 via-primary/5 to-accent/5 border-y border-primary/10">
           <div className="flex animate-scroll-right whitespace-nowrap">
-            {[...imageFiles, ...imageFiles].map((image, index) => (
-              <div key={index} className="mx-3 inline-block">
+            {[...bottomImages, ...bottomImages].map((image, index) => (
+              <div key={index} className="mx-2 sm:mx-3 inline-block">
                 <div className="relative group">
                   <OptimizedImage
                     src={`/${image}`}
                     alt={`Department photo ${index + 1}`}
-                    className="h-32 w-48 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-all duration-500 brightness-90 group-hover:brightness-100"
-                    containerClassName="h-32 w-48"
+                    className="h-24 w-36 sm:h-32 sm:w-48 object-cover rounded-xl shadow-lg group-hover:scale-105 transition-all duration-300 brightness-95 group-hover:brightness-100"
+                    containerClassName="h-24 w-36 sm:h-32 sm:w-48"
                     aspectRatio="48/32"
                     blurOnLoad={false}
                   />

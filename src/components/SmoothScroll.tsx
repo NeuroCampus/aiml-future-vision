@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 
 const SmoothScroll = () => {
   useEffect(() => {
-    // Respect user's motion preferences
+    // Respect reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
@@ -14,10 +15,13 @@ const SmoothScroll = () => {
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.95,
-      touchMultiplier: 1.5,
-      infinite: false,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.0,
+      syncTouch: false, // Keep native touch scroll on mobile devices so it never sticks
+      autoResize: true,
     });
+
+    (window as any).__lenis = lenis;
 
     let rafId: number;
     function raf(time: number) {
@@ -26,10 +30,24 @@ const SmoothScroll = () => {
     }
 
     rafId = requestAnimationFrame(raf);
-    (window as any).__lenis = lenis;
+
+    // Keep Lenis updated when page height changes (images load, tabs switch, etc.)
+    const resizeObserver = new ResizeObserver(() => {
+      lenis.resize();
+    });
+    
+    if (document.body) {
+      resizeObserver.observe(document.body);
+    }
+
+    // Window resize fallback
+    const handleResize = () => lenis.resize();
+    window.addEventListener('resize', handleResize);
 
     return () => {
       cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
       lenis.destroy();
       delete (window as any).__lenis;
     };
@@ -39,4 +57,3 @@ const SmoothScroll = () => {
 };
 
 export default SmoothScroll;
-

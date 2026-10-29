@@ -119,7 +119,7 @@ const AboutSection = () => {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:w-auto w-full">
               {['AICTE Approved', 'Hackathons', 'Industry Sessions', 'Innovation Cells', 'Research Mentorship', 'Entrepreneurship'].map(item => (
-                <span key={item} className="text-xs px-3 py-2 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 font-semibold text-primary-foreground/90 tracking-wide text-center whitespace-nowrap">
+                <span key={item} className="text-[11px] sm:text-xs px-2.5 sm:px-3 py-2 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 font-semibold text-primary-foreground/90 tracking-wide text-center">
                   {item}
                 </span>
               ))}

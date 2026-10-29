@@ -47,7 +47,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="max-w-2xl mx-auto p-7 sm:p-9 rounded-2xl bg-card/85 backdrop-blur-md border border-border/50 shadow-xl shadow-primary/5 hover:border-primary/40 transition-all duration-300"
+          className="max-w-2xl mx-auto p-5 sm:p-9 rounded-2xl bg-card/85 backdrop-blur-md border border-border/50 shadow-xl shadow-primary/5 hover:border-primary/40 transition-all duration-300"
         >
           <h3 className="text-xs font-bold uppercase tracking-widest text-primary mb-6 text-center sm:text-left">
             Department Coordinates

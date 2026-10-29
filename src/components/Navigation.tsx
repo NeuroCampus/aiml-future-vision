@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import FloatingNavbar from '@/components/animations/FloatingNavbar';
-import { ThemeToggle } from '@/components/ThemeProvider';
 import { NavLink, useLocation } from 'react-router-dom';
 import OptimizedImage from '@/components/ui/optimized-image';
 
@@ -19,14 +18,7 @@ const Navigation = () => {
     { to: '/sports-achievements', label: 'Champions' },
   ];
 
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if ((window as any).__lenis) {
-      (window as any).__lenis.scrollTo(aboutSection || '#about', { offset: -80, duration: 1.1 });
-    } else if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+
 
   const isHashActive = (to: string) => {
     if (to.startsWith('/#')) {
@@ -90,20 +82,8 @@ const Navigation = () => {
               ))}
             </nav>
 
-            {/* CTA Button and Theme Toggle */}
-            <div className="hidden lg:flex items-center shrink-0 gap-2">
-              <ThemeToggle />
-              <Button 
-                onClick={scrollToAbout}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 xl:px-6 py-3 font-semibold transition-transform hover:scale-105"
-              >
-                Get Started
-              </Button>
-            </div>
-
             {/* Mobile Menu Button */}
-            <div className="lg:hidden relative z-10 flex items-center gap-2">
-              <ThemeToggle />
+            <div className="lg:hidden relative z-10 flex items-center">
               <Button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 variant="ghost"
@@ -250,28 +230,6 @@ const Navigation = () => {
                   ))}
                 </motion.nav>
 
-                {/* CTA Button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  className="mt-8"
-                >
-                  <Button
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      scrollToAbout();
-                    }}
-                    className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground rounded-full py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
-                  >
-                    <motion.span
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      Get Started
-                    </motion.span>
-                  </Button>
-                </motion.div>
               </div>
 
               {/* Footer */}

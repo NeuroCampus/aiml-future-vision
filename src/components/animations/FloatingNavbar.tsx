@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface FloatingNavbarProps {
   children: React.ReactNode;
@@ -9,57 +8,33 @@ interface FloatingNavbarProps {
 
 const FloatingNavbar: React.FC<FloatingNavbarProps> = ({
   children,
-  hideThreshold = 100,
   className = '',
 }) => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isAtTop, setIsAtTop] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const controlNavbar = () => {
-      const currentScrollY = window.scrollY;
-      
-      setIsAtTop(currentScrollY < 50);
-      
-      if (currentScrollY > hideThreshold) {
-        if (currentScrollY > lastScrollY) {
-          // Scrolling down
-          setIsVisible(false);
-        } else {
-          // Scrolling up
-          setIsVisible(true);
-        }
-      } else {
-        setIsVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 20;
+      setIsScrolled(prev => (prev !== scrolled ? scrolled : prev));
     };
 
-    window.addEventListener('scroll', controlNavbar);
-    return () => window.removeEventListener('scroll', controlNavbar);
-  }, [lastScrollY, hideThreshold]);
+    // Check once on mount
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <>
-      <AnimatePresence>
-        {isVisible && (
-          <motion.div
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-              isAtTop ? 'bg-transparent' : 'bg-background/80 backdrop-blur-lg border-b border-border/50 shadow-lg'
-            } ${className}`}
-            initial={{ y: 0, opacity: 1 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -100, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            whileHover={{ y: 0 }}
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
+        isScrolled
+          ? 'bg-background/85 backdrop-blur-md border-b border-border/50 shadow-sm'
+          : 'bg-transparent border-b border-transparent'
+      } ${className}`}
+    >
+      {children}
+    </header>
   );
 };
 

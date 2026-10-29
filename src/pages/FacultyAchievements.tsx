@@ -288,6 +288,7 @@ const FacultyAchievements = () => {
                           key={idx}
                           initial={{ opacity: 0, scale: 0.95 }}
                           whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
                           transition={{ duration: 0.3, delay: idx * 0.05 }}
                           className="border-l-4 border-primary/30 pl-4 py-4 bg-muted/20 rounded-r-lg hover:bg-muted/30 transition-colors"
                         >

@@ -98,14 +98,16 @@ const AlumniReflectionsSection = () => {
         className="relative w-full overflow-hidden py-4"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
       >
         {/* Left & Right gradient edge fades */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 z-10 bg-gradient-to-l from-background via-background/80 to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-6 sm:w-20 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 sm:w-20 z-10 bg-gradient-to-l from-background via-background/80 to-transparent" />
 
         {/* Scrolling Track */}
         <div 
-          className="flex gap-5 w-max animate-scroll-left"
+          className="flex gap-4 sm:gap-5 w-max animate-scroll-left"
           style={{ 
             animationDuration: '50s',
             animationPlayState: isPaused ? 'paused' : 'running'
@@ -114,7 +116,7 @@ const AlumniReflectionsSection = () => {
           {scrollingReflections.map((item, index) => (
             <div
               key={`${item.name}-${index}`}
-              className="w-[300px] sm:w-[350px] flex-shrink-0 flex flex-col justify-between p-6 rounded-2xl bg-card/85 backdrop-blur-md border border-border/50 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+              className="w-[270px] sm:w-[350px] flex-shrink-0 flex flex-col justify-between p-4 sm:p-6 rounded-2xl bg-card/95 border border-border/50 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
             >
               <div>
                 {/* Header: Avatar, Name & Quote Icon */}
@@ -123,7 +125,7 @@ const AlumniReflectionsSection = () => {
                     <OptimizedImage
                       src={item.image}
                       alt={item.name}
-                      containerClassName="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm flex-shrink-0"
+                      containerClassName="w-12 h-12 min-w-[48px] min-h-[48px] max-w-[48px] max-h-[48px] sm:w-14 sm:h-14 sm:min-w-[56px] sm:min-h-[56px] sm:max-w-[56px] sm:max-h-[56px] rounded-full overflow-hidden border-2 border-primary/20 shadow-sm flex-shrink-0"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       aspectRatio="1/1"
                       showLoadingState={false}
