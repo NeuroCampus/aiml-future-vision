@@ -102,7 +102,7 @@ const FacultyPortalPage = () => {
   }, {});
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-transparent">
 
       {/* Top accent bar */}
       <div className="h-1 bg-gradient-to-r from-primary via-accent to-primary" />

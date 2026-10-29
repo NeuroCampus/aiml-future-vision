@@ -1,5 +1,5 @@
 import React from 'react';
-import logoPng from '@/assets/csai-logo.png';
+import logoPng from '@/assets/csai-logo.webp';
 import OptimizedImage from '@/components/ui/optimized-image';
 
 interface DepartmentLogoProps {

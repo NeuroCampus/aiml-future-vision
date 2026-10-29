@@ -16,7 +16,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'COE, HOD (CSE-AIML)',
     education: 'UG: Computer Science & Engineering, PG: Computer Science & Engineering',
     specialization: 'Department of CSE with AIML',
-    image: '/Magazine/nandeeshwar.png',
+    image: '/Magazine/nandeeshwar.webp',
     experience: '23 Years',
     message: 'As the Head of Department, I am committed to fostering innovation and excellence in AI and ML education.',
   },
@@ -26,7 +26,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Professor',
     education: 'UG: Computer Science & Engineering, PG: Computer Science & Engineering',
     specialization: 'Department of CSE with AIML',
-    image: '/cs-aiml-photos/Dr K Vijayakumar.png',
+    image: '/cs-aiml-photos/Dr K Vijayakumar.webp',
     experience: '23 Years',
   },
   {
@@ -35,7 +35,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Assistant Professor',
     education: 'UG: Computer Science & Engineering, PG: Computer Science & Engineering',
     specialization: 'Department of CSE with AIML',
-    image: '/Magazine/swathi.jpg',
+    image: '/Magazine/swathi.webp',
     experience: '5 Years',
   },
   {
@@ -44,7 +44,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Assistant Professor',
     education: 'UG: Computer Science & Engineering, PG: Computer Science & Engineering',
     specialization: 'Department of CSE with AIML',
-    image: '/Magazine/ambili k.jpg',
+    image: '/Magazine/ambili k.webp',
     experience: '3 Years',
   },
   {
@@ -53,7 +53,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Assistant Professor',
     education: 'UG: Computer Science & Engineering, PG: Computer Science & Engineering',
     specialization: 'Department of CSE with AIML',
-    image: '/Magazine/vinaya s.jpg',
+    image: '/Magazine/vinaya s.webp',
     experience: '2.7 Years',
   },
   {
@@ -71,7 +71,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Assistant Professor',
     education: 'UG: Computer Science & Engineering, PG: Computer Science & Engineering',
     specialization: 'Department of CSE with AIML',
-    image: '/Magazine/mackal rajawat.jpg',
+    image: '/Magazine/mackal rajawat.webp',
     experience: '(Not specified)',
   },
   {
@@ -80,7 +80,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Professor',
     education: 'UG: Computer Science & Engineering, PG: Computer Science & Engineering',
     specialization: 'Department of CSE with AIML',
-    image: '/Magazine/ramkrishna d.jpg',
+    image: '/Magazine/ramkrishna d.webp',
     experience: '2 Years 4 Months',
   },
   {
@@ -98,7 +98,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Assistant Professor',
     education: 'UG: Electronics & Communication, PG: VLSI Design & Embedded Systems',
     specialization: 'Department of CSE with AIML',
-    image: '/Magazine/nallamilli kavita.png',
+    image: '/Magazine/nallamilli kavita.webp',
     experience: '1 Year',
   },
   {
@@ -107,7 +107,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Assistant Professor',
     education: 'UG: Computer Application, PG: Computer Application',
     specialization: 'Department of CSE with AIML',
-    image: '/cs-aiml-photos/Nagavarshini.jpg',
+    image: '/cs-aiml-photos/Nagavarshini.webp',
     experience: 'Fresher',
   },
   {
@@ -116,7 +116,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Assistant Professor',
     education: 'UG: Computer Science & Engineering, PG: Computer Science & Engineering',
     specialization: 'Department of CSE with AIML',
-    image: '/cs-aiml-photos/Prof Pamela.png',
+    image: '/cs-aiml-photos/Prof Pamela.webp',
     experience: '4 Months',
   },
   {
@@ -125,7 +125,7 @@ export const facultyProfiles: FacultyProfile[] = [
     designation: 'Assistant Professor',
     education: 'UG: Mechanical Engineering, PG: Computational Science',
     specialization: 'Department of CSE with AIML',
-    image: '/Magazine/roshan.jpg',
+    image: '/Magazine/roshan.webp',
     experience: '(Not specified)',
   },
 ];

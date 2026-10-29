@@ -102,7 +102,7 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
                 {showAMCLogo ? (
                   <motion.img
                     key="amc-logo"
-                    src="/cs-aiml-photos/AMC Logo.jpg"
+                    src="/cs-aiml-photos/AMC Logo.webp"
                     alt="AMC College Logo"
                     className="absolute inset-0 m-auto w-20 h-20 sm:w-24 sm:h-24 object-contain select-none bg-transparent"
                     draggable={false}
@@ -114,7 +114,7 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
                 ) : (
                   <motion.img
                     key="cs-aiml-logo"
-                    src="/cs-aiml-photos/CSAI Logo.jpeg"
+                    src="/cs-aiml-photos/CSAI Logo.webp"
                     alt="CSE-AIML Department Logo"
                     className="absolute inset-0 m-auto w-20 h-20 sm:w-24 sm:h-24 object-contain select-none bg-transparent"
                     draggable={false}

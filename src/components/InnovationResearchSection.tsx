@@ -96,7 +96,7 @@ const InnovationResearchSection = () => {
   };
 
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-background relative overflow-hidden">
+    <section ref={ref} className="py-16 md:py-24 bg-transparent relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,hsl(var(--primary)/0.05),transparent_50%)]" />
@@ -239,7 +239,7 @@ const InnovationResearchSection = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <OptimizedImage
-                    src="/ideathon.jpg"
+                    src="/ideathon.webp"
                     alt="ThinkUp – Ideathon 2025"
                     className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                     aspectRatio="16/9"

@@ -28,7 +28,7 @@ const Index = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-transparent text-foreground">
       <Navigation />
       {/* Added pt-20 to ensure content doesn't overlap with fixed navbar on small screens */}
       <div className="pt-20">

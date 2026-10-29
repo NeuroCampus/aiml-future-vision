@@ -13,7 +13,7 @@ const EventsSection = () => {
       description: 'Annual hackathon organized by CSE-DS department featuring AI/ML challenges and innovative solutions.',
       date: 'May 2024',
       category: 'hackathon',
-      mainImage: '/cs-aiml-photos/Eventspic/HACKTOPUS.jpg',
+      mainImage: '/cs-aiml-photos/Eventspic/HACKTOPUS.webp',
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ const EventsSection = () => {
       description: 'Innovation competition encouraging students to present creative AI solutions for real-world problems.',
       date: 'March 2024',
       category: 'competition',
-      mainImage: '/cs-aiml-photos/Eventspic/IDEATHON.jpg',
+      mainImage: '/cs-aiml-photos/Eventspic/IDEATHON.webp',
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ const EventsSection = () => {
       description: 'Workshop on startup funding, angel investment, and entrepreneurship in the tech industry.',
       date: 'February 2024',
       category: 'workshop',
-      mainImage: '/cs-aiml-photos/Eventspic/AngelInvestment.jpg',
+      mainImage: '/cs-aiml-photos/Eventspic/AngelInvestment.webp',
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const EventsSection = () => {
       description: 'Comprehensive workshop on cybersecurity threats, prevention strategies, and ethical hacking.',
       date: 'January 2024',
       category: 'workshop',
-      mainImage: '/cs-aiml-photos/Eventspic/Cybersecurity.jpg',
+      mainImage: '/cs-aiml-photos/Eventspic/Cybersecurity.webp',
     },
     {
       id: 6,
@@ -45,7 +45,7 @@ const EventsSection = () => {
       description: 'International debate competition featuring AI ethics, technology impact, and future innovations.',
       date: 'December 2023',
       category: 'competition',
-      mainImage: '/cs-aiml-photos/Eventspic/World-Debate.jpg',
+      mainImage: '/cs-aiml-photos/Eventspic/World-Debate.webp',
     },
     {
       id: 7,
@@ -53,7 +53,7 @@ const EventsSection = () => {
       description: 'Students participated in a national-level hackathon at IIT Bombay, showcasing innovative AI/ML solutions.',
       date: 'November 2023',
       category: 'hackathon',
-      mainImage: '/cs-aiml-photos/Studentscertficate/Hackathon at IIT Bombay.jpg',
+      mainImage: '/cs-aiml-photos/Studentscertficate/Hackathon at IIT Bombay.webp',
     },
   ];
 
@@ -75,7 +75,7 @@ const EventsSection = () => {
   };
 
   return (
-    <section id="events" className="relative bg-background overflow-hidden">
+    <section id="events" className="relative bg-transparent overflow-hidden">
       <div className="h-px bg-border/40" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
 
@@ -101,7 +101,7 @@ const EventsSection = () => {
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
                 activeFilter === id
                   ? 'bg-primary text-primary-foreground border-primary shadow-sm'
-                  : 'bg-background text-muted-foreground border-border hover:border-primary/40 hover:text-primary'
+                  : 'bg-card/70 backdrop-blur-sm text-muted-foreground border-border hover:border-primary/40 hover:text-primary'
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -123,7 +123,7 @@ const EventsSection = () => {
                 transition={{ duration: 0.3 }}
                 className="group"
               >
-                <div className="bg-background rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden h-full flex flex-col">
+                <div className="bg-card/85 backdrop-blur-md rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden h-full flex flex-col">
                   {/* Image */}
                   <div className="relative overflow-hidden h-44 bg-muted">
                     <OptimizedImage

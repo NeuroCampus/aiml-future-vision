@@ -48,9 +48,9 @@ const Navigation = () => {
               <div className="flex items-center gap-2">
                 {/* College Logo */}
                 <OptimizedImage
-                  src="/cs-aiml-photos/AMC Logo.jpg"
+                  src="/cs-aiml-photos/AMC Logo.webp"
                   alt="AMC College Logo"
-                  className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]"
+                  className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04] dark:brightness-125 dark:drop-shadow-[0_1px_3px_rgba(255,255,255,0.25)]"
                   containerClassName="h-8 sm:h-10"
                   priority={true}
                   blurOnLoad={false}
@@ -58,7 +58,7 @@ const Navigation = () => {
                 <span className="text-muted-foreground">|</span>
                 {/* Department Logo */}
                 <OptimizedImage
-                  src="/cs-aiml-photos/CSAI Logo.jpeg"
+                  src="/cs-aiml-photos/CSAI Logo.webp"
                   alt="CSE-AIML Department Logo"
                   className="h-8 sm:h-10 w-auto object-contain select-none pointer-events-none transition-transform group-hover:scale-[1.04]"
                   containerClassName="h-8 sm:h-10"
@@ -171,16 +171,16 @@ const Navigation = () => {
                 >
                   <div className="flex items-center gap-2">
                     <OptimizedImage
-                      src="/cs-aiml-photos/AMC Logo.jpg"
+                      src="/cs-aiml-photos/AMC Logo.webp"
                       alt="AMC College Logo"
-                      className="h-8 w-auto object-contain"
+                      className="h-8 w-auto object-contain dark:brightness-125 dark:drop-shadow-[0_1px_3px_rgba(255,255,255,0.25)]"
                       containerClassName="h-8"
                       priority={true}
                       blurOnLoad={false}
                     />
                     <span className="text-muted-foreground">|</span>
                     <OptimizedImage
-                      src="/cs-aiml-photos/CSAI Logo.jpeg"
+                      src="/cs-aiml-photos/CSAI Logo.webp"
                       alt="CSE-AIML Department Logo"
                       className="h-8 w-auto object-contain"
                       containerClassName="h-8"

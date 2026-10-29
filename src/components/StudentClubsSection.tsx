@@ -114,7 +114,7 @@ const StudentClubsSection = () => {
   ];
 
   return (
-    <section id="student-clubs" className="py-16 md:py-20 bg-background relative">
+    <section id="student-clubs" className="py-16 md:py-20 bg-transparent relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -159,7 +159,7 @@ const StudentClubsSection = () => {
                   delay: index * 0.1,
                 }}
               >
-                <Card className={`h-full shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group ${borderColorClass}`}>
+                <Card className={`h-full bg-card/85 backdrop-blur-md shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group ${borderColorClass}`}>
                   {/* Animated gradient border */}
                   <div className={`absolute inset-0 rounded-lg bg-gradient-to-r ${gradientClass} p-[1px] animate-spin opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
                        style={{ animationDuration: '8s' }}>

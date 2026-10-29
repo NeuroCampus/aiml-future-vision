@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
   return (
     <NextThemesProvider 
-      defaultTheme="dark" 
+      defaultTheme="light" 
       enableSystem={false}
       themes={['light', 'dark']}
       {...props}

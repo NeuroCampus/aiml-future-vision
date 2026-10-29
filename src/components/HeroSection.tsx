@@ -14,26 +14,25 @@ const HeroSection = () => {
 
   // Get list of image files from public directory
   const imageFiles = [
-    'DSC_0779_Original.JPG',
-    'DSC_9842_Original.JPG',
-    'IMG_0480.jpg',
-    'IMG_0484.jpg',
-    'IMG_2446.jpeg',
-    'IMG_2461.jpeg',
-    'IMG_2796.jpeg',
-    'IMG_6321.CR2.jpg',
-    'IMG_8492.jpg',
-    'IMG_8962.jpg',
-    'accd3d75-7df7-42b0-9235-1e95050237b6.jpg',
-    'b171ef6b-d574-4b32-93cb-1654536489d2.jpg',
-    'culture.jpeg',
-    'ideathon.jpg',
-    'simp.jpg',
-    'simp1.jpg',
-    'hi.jpeg',
-    'hi11.jpeg',
-    'hi111.jpeg'
-    
+    'DSC_0779_Original.webp',
+    'DSC_9842_Original.webp',
+    'IMG_0480.webp',
+    'IMG_0484.webp',
+    'IMG_2446.webp',
+    'IMG_2461.webp',
+    'IMG_2796.webp',
+    'IMG_6321.CR2.webp',
+    'IMG_8492.webp',
+    'IMG_8962.webp',
+    'accd3d75-7df7-42b0-9235-1e95050237b6.webp',
+    'b171ef6b-d574-4b32-93cb-1654536489d2.webp',
+    'culture.webp',
+    'ideathon.webp',
+    'simp.webp',
+    'simp1.webp',
+    'hi.webp',
+    'hi11.webp',
+    'hi111.webp'
   ];
 
   useEffect(() => {
@@ -43,15 +42,10 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [words.length]);
 
-  const stats = [
-   
-  ];
-
   return (
     <section id="home" className="relative overflow-hidden py-8 md:py-12">
-      {/* Professional Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-background" />
+      {/* Professional Atmospheric Glows */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.08),transparent_70%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--accent)/0.05),transparent_65%)]" />
       </div>
@@ -108,7 +102,7 @@ const HeroSection = () => {
 
               {/* Description */}
               <motion.p 
-                className="text-base sm:text-lg lg:text-xl text-muted-foreground/90 max-w-xl lg:max-w-lg mx-auto lg:mx-0 leading-relaxed mb-8 sm:mb-10"
+                className="text-base sm:text-lg lg:text-xl text-foreground/80 dark:text-foreground/85 font-medium max-w-xl lg:max-w-lg mx-auto lg:mx-0 leading-relaxed mb-8 sm:mb-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35, duration: 0.75 }}
@@ -144,65 +138,40 @@ const HeroSection = () => {
                     <PlayCircle className="h-4 sm:h-5 w-4 sm:w-5" /> Vision & Impact
                   </span>
                 </EnhancedButton>
-              </motion.div>            {/* Stats */}
-            <motion.div 
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 text-left"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.75, duration: 0.8 }}
-            >
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
-                  <div key={index} className="group relative p-3 sm:p-4 rounded-xl border border-primary/25 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/55 overflow-hidden">
-                    <div className="flex items-center gap-3 sm:gap-4 relative">
-                      <div className="p-2 sm:p-2.5 rounded-lg bg-primary/10 ring-1 ring-primary/30 flex-shrink-0">
-                        <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary drop-shadow" />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-foreground">{stat.number}</div>
-                        <div className="text-[10px] sm:text-[11px] lg:text-xs text-muted-foreground font-medium uppercase tracking-wide leading-tight">{stat.label}</div>
-                      </div>
-                    </div>
-                    <span className="pointer-events-none absolute inset-0 rounded-xl ring-0 ring-primary/0 group-hover:ring-2 group-hover:ring-primary/50 transition-all duration-500" />
-                  </div>
-                );
-              })}
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          {/* Right Content - Abstract Visual */}
-          <motion.div 
-            className="relative mt-12 lg:mt-0 order-first lg:order-last"
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.25, duration: 0.9, ease: [0.22,1,0.36,1] }}
-          >
-            <div className="relative w-full max-w-sm sm:max-w-md mx-auto aspect-square">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/25 via-fuchsia-500/25 to-transparent blur-2xl opacity-70" />
-              <div className="absolute inset-0 rounded-full border border-primary/30 animate-pulse" />
-              <div className="absolute inset-4 sm:inset-6 rounded-full border border-primary/20" />
-              <div className="absolute inset-8 sm:inset-12 rounded-full border border-primary/10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-2xl bg-background/60 backdrop-blur-xl border border-primary/30 shadow-xl shadow-primary/10 flex flex-col items-center justify-center gap-2 sm:gap-3 text-center p-4 sm:p-6">
-                  <div className="text-[10px] sm:text-[11px] uppercase tracking-wider text-primary/80 font-medium">AI & ML Focus</div>
-                  <p className="text-base sm:text-lg lg:text-xl font-semibold text-foreground drop-shadow">
-                    Applied Intelligence
-                  </p>
-                  <p className="text-[9px] sm:text-[10px] lg:text-xs text-muted-foreground leading-snug max-w-[8rem] sm:max-w-[10rem]">
-                    Research • Innovation • Industry • Impact
-                  </p>
-                  <div className="mt-1 grid grid-cols-2 gap-1 sm:gap-2 w-full">
-                    {['Research','Projects','Ranks','Innovation'].map(label => (
-                      <span key={label} className="text-[8px] sm:text-[9px] lg:text-[10px] px-1 sm:px-2 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary font-medium tracking-wide">
-                        {label}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+            {/* Right Content - CSE AIML Department Crest Visual */}
+            <motion.div 
+              className="relative mt-12 lg:mt-0 order-first lg:order-last"
+              initial={{ opacity: 0, scale: 0.9, x: 40 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ delay: 0.25, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto aspect-square flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/25 via-accent/20 to-transparent blur-3xl opacity-70 pointer-events-none" />
+                <div className="absolute inset-0 rounded-full border border-primary/25 animate-pulse" />
+                <div className="absolute inset-4 sm:inset-6 rounded-full border border-primary/20" />
+                <div className="absolute inset-8 sm:inset-12 rounded-full border border-primary/10" />
+                
+                {/* CSE-AIML Logo with subtle ambient float */}
+                <motion.div
+                  className="relative z-10 flex items-center justify-center p-4 sm:p-6"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <OptimizedImage
+                    src="/cs-aiml-photos/CSAI Logo.webp"
+                    alt="CSE-AIML Department Logo"
+                    containerClassName="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 overflow-visible flex items-center justify-center"
+                    className="w-full h-full object-contain select-none pointer-events-none drop-shadow-[0_15px_35px_rgba(43,89,209,0.35)] transition-transform duration-500 hover:scale-105"
+                    priority={true}
+                    blurOnLoad={false}
+                    showLoadingState={false}
+                  />
+                </motion.div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
         </div>
       </div>
 

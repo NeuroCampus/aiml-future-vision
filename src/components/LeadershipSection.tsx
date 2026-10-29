@@ -8,7 +8,7 @@ const LeadershipSection = () => {
       name: 'Dr. K.R. Paramahamsa',
       position: 'Chairman, AMC Institutions',
       quote: 'The CSE AIML department is playing a pivotal role in preparing the next generation of innovators. I am proud of its academic excellence, industry-aligned skill development, and the remarkable achievements of our students in securing university ranks, publishing research, and launching innovative projects.',
-      image: '/Magazine/paramahamsa.png',
+      image: '/Magazine/paramahamsa.webp',
       accentColor: 'border-l-4 border-primary',
     },
     {
@@ -70,7 +70,7 @@ const LeadershipSection = () => {
   };
 
   return (
-    <section id="leadership" className="relative overflow-hidden bg-background">
+    <section id="leadership" className="relative overflow-hidden bg-transparent">
       <div className="h-px bg-border/40" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
         
@@ -98,7 +98,7 @@ const LeadershipSection = () => {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className={`${getLayoutClasses(index)}`}
             >
-              <div className={`h-full bg-muted/30 hover:bg-background rounded-2xl border border-border/40 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col p-6 sm:p-8 ${leader.accentColor}`}>
+              <div className={`h-full bg-card/75 backdrop-blur-md hover:bg-card/90 rounded-2xl border border-border/40 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col p-6 sm:p-8 ${leader.accentColor}`}>
                 <Quote className="h-6 w-6 text-primary/40 mb-4 flex-shrink-0" />
                 
                 <blockquote className="text-sm sm:text-base text-muted-foreground leading-relaxed italic flex-1 mb-6">

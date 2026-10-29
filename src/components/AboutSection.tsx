@@ -25,13 +25,6 @@ const AboutSection = () => {
     },
   ];
 
-  const stats = [
-    { label: 'University Ranks', value: 'Multiple+', icon: '🏆' },
-    { label: 'Research & Publications', value: 'Growing', icon: '📄' },
-    { label: 'Industry Tie-ups', value: 'Active', icon: '🤝' },
-    { label: 'Innovation Drives', value: 'Hackathons', icon: '💡' },
-  ];
-
   const pillars = [
     { icon: Cpu, text: 'AI Core' },
     { icon: Network, text: 'Collaboration' },
@@ -101,7 +94,7 @@ const AboutSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="group bg-background rounded-2xl p-5 border border-border/50 hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                    className="group bg-card/80 backdrop-blur-md rounded-2xl p-5 border border-border/50 hover:border-primary/30 hover:shadow-md transition-all duration-300"
                   >
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                       <Icon className="h-5 w-5 text-primary" />
@@ -112,28 +105,6 @@ const AboutSection = () => {
                 );
               })}
             </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* Stats row — clean white */}
-      <div className="bg-background border-b border-border/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border/30 rounded-2xl overflow-hidden">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-background px-6 py-8 text-center"
-              >
-                <div className="text-3xl mb-2">{stat.icon}</div>
-                <p className="text-xl font-bold text-primary mb-1">{stat.value}</p>
-                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{stat.label}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </div>

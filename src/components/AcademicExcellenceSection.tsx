@@ -4,10 +4,10 @@ import OptimizedImage from '@/components/ui/optimized-image';
 
 const AcademicExcellenceSection = () => {
   const rankHolders = [
-    { name: 'Mohammad Ayyan', batch: 'Batch 2025', achievement: '7th Rank – VTU (Branch Milestone)', cgpa: '9.43', description: 'First-ever VTU rank holder emerging from CSE–AIML.', icon: Trophy, image: '/Magazine/mohammed ayaan.jpg' },
-    { name: 'C. Srinivas Gowda', batch: 'Batch 2026', achievement: '1st Place – VTU (6th Sem) • 11th Rank (4th Sem)', cgpa: '9.36', description: 'Consistent top-tier outcomes across consecutive semesters.', icon: Trophy, image: '/Magazine/srinivas.jpeg' },
-    { name: 'Ritesh N', batch: 'Batch 2026', achievement: '2nd Place – VTU (5th Sem) • 18th Place (4th Sem)', cgpa: '9.2', description: 'Rapid academic ascent with strong improvement trajectory.', icon: Star, image: '/Magazine/ritesh.jpeg' },
-    { name: 'Jayasri G', batch: 'Batch 2025', achievement: '5th Place – VTU (6th Sem)', cgpa: '—', description: 'Sustained academic rigor in advanced semester.', icon: Award, image: '/Magazine/jayasri.jpg' },
+    { name: 'Mohammad Ayyan', batch: 'Batch 2025', achievement: '7th Rank – VTU (Branch Milestone)', cgpa: '9.43', description: 'First-ever VTU rank holder emerging from CSE–AIML.', icon: Trophy, image: '/Magazine/mohammed ayaan.webp' },
+    { name: 'C. Srinivas Gowda', batch: 'Batch 2026', achievement: '1st Place – VTU (6th Sem) • 11th Rank (4th Sem)', cgpa: '9.36', description: 'Consistent top-tier outcomes across consecutive semesters.', icon: Trophy, image: '/Magazine/srinivas.webp' },
+    { name: 'Ritesh N', batch: 'Batch 2026', achievement: '2nd Place – VTU (5th Sem) • 18th Place (4th Sem)', cgpa: '9.2', description: 'Rapid academic ascent with strong improvement trajectory.', icon: Star, image: '/Magazine/ritesh.webp' },
+    { name: 'Jayasri G', batch: 'Batch 2025', achievement: '5th Place – VTU (6th Sem)', cgpa: '—', description: 'Sustained academic rigor in advanced semester.', icon: Award, image: '/Magazine/jayasri.webp' },
     { name: 'Kulsum', batch: 'Batch 2026', achievement: '3rd Rank – VTU (6th Sem)', cgpa: '—', description: 'High merit performance demonstrating depth and consistency.', icon: Award },
     { name: 'Deeksha G', batch: 'Batch 2026', achievement: '4th Place – VTU (4th Sem)', cgpa: '—', description: 'Early-semester excellence & strong analytical grounding.', icon: Star },
     { name: 'Sai Mridula YVB', batch: 'Batch 2025', achievement: '14th Place – VTU (5th Sem)', cgpa: '—', description: 'Consistent momentum with solid performance.', icon: Star },
@@ -50,7 +50,7 @@ const AcademicExcellenceSection = () => {
             transition={{ duration: 0.5 }}
             className="md:col-span-3"
           >
-            <div className="h-full bg-background rounded-2xl border-l-4 border-l-primary border-y border-r border-border/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 p-8 sm:p-10 flex flex-col justify-between">
+            <div className="h-full bg-card/85 backdrop-blur-md rounded-2xl border-l-4 border-l-primary border-y border-r border-border/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 p-8 sm:p-10 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-4 mb-6">
                   {hero.image ? (
@@ -107,7 +107,7 @@ const AcademicExcellenceSection = () => {
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="group"
               >
-                <div className="bg-background rounded-xl border border-border/40 hover:border-primary/30 hover:shadow-md transition-all duration-200 p-4 flex items-center gap-4">
+                <div className="bg-card/80 backdrop-blur-md rounded-xl border border-border/40 hover:border-primary/30 hover:shadow-md transition-all duration-200 p-4 flex items-center gap-4">
                   {s.image ? (
                     <OptimizedImage
                       src={s.image}
@@ -155,7 +155,7 @@ const AcademicExcellenceSection = () => {
               { label: 'Top Performers', value: 'Each Year' },
               { label: 'Growth Focus', value: 'AI & ML' },
             ].map(s => (
-              <div key={s.label} className="text-center px-4 py-3 bg-background rounded-xl border border-border/40 min-w-[100px]">
+              <div key={s.label} className="text-center px-4 py-3 bg-card/80 backdrop-blur-md rounded-xl border border-border/40 min-w-[100px]">
                 <p className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold mb-1">{s.label}</p>
                 <p className="text-xs font-bold text-foreground">{s.value}</p>
               </div>

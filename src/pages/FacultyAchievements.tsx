@@ -16,7 +16,7 @@ const FacultyAchievements = () => {
       designation: 'COE, HOD (CSE-AIML)',
       education: 'PhD, M.Tech',
       specialization: 'Computer Vision, AI Applications, Wireless Sensor Networks',
-      image: '/Magazine/nandeeshwar.png',
+      image: '/Magazine/nandeeshwar.webp',
       achievements: [
         {
           year: 'Feb-24',
@@ -56,7 +56,7 @@ const FacultyAchievements = () => {
       designation: 'Professor',
       education: 'PhD, M.Tech',
       specialization: 'IoT Systems, 5G Networks, Deep Learning, Computer Architecture',
-      image: '/cs-aiml-photos/Dr K Vijayakumar.png',
+      image: '/cs-aiml-photos/Dr K Vijayakumar.webp',
       achievements: [
         {
           year: 'Apr-24',
@@ -114,7 +114,7 @@ const FacultyAchievements = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'AI Chatbots, Image Processing, GANs, Object Detection',
-      image: '/Magazine/swathi.jpg',
+      image: '/Magazine/swathi.webp',
       achievements: [
         {
           year: 'Feb-25',
@@ -178,7 +178,7 @@ const FacultyAchievements = () => {
       designation: 'Assistant Professor',
       education: 'PhD, M.Tech',
       specialization: 'Machine Learning, IoT Systems, Object Detection, Image Processing',
-      image: '/Magazine/ambili k.jpg',
+      image: '/Magazine/ambili k.webp',
       achievements: [
         {
           year: 'Jan-25',
@@ -196,11 +196,11 @@ const FacultyAchievements = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-transparent">
       {/* Header */}
       <div className="relative py-16 md:py-24 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-bl from-background via-background/95 to-background/90" />
+          <div className="absolute inset-0 bg-gradient-to-bl from-background/40 via-background/30 to-transparent" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--aiml-primary)/0.16),transparent_70%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,hsl(var(--aiml-secondary)/0.14),transparent_65%)]" />
         </div>

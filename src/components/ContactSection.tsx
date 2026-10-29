@@ -37,7 +37,7 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-background rounded-2xl border border-border/50 p-8 space-y-8"
+            className="bg-card/85 backdrop-blur-md rounded-2xl border border-border/50 p-8 space-y-8"
           >
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-5">Contact Information</h3>

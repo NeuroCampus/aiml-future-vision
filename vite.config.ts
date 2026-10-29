@@ -33,12 +33,19 @@ export default defineConfig(({ mode }) => ({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Split vendor chunks for better caching
-          vendor: ['react', 'react-dom'],
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-tooltip'],
-          animations: ['framer-motion', 'gsap'],
-          router: ['react-router-dom'],
+        manualChunks(id: string) {
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+            return 'vendor';
+          }
+          if (id.includes('node_modules/@radix-ui/')) {
+            return 'ui';
+          }
+          if (id.includes('node_modules/framer-motion/') || id.includes('node_modules/gsap/')) {
+            return 'animations';
+          }
+          if (id.includes('node_modules/react-router-dom/')) {
+            return 'router';
+          }
         },
       },
     },

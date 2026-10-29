@@ -8,48 +8,48 @@ const AlumniReflectionsSection = () => {
   const reflections = [
     {
       name: 'Jayasri G',
-      image: '/Magazine/jayasri.jpg',
+      image: '/Magazine/jayasri.webp',
       quote: "Being part of the first CSE AIML batch was full of surprises and challenges. We grew, adapted, and built our department's identity together, supported by passionate faculty. Proud to pave the way for others.",
     },
     {
       name: 'Shaikh Mohammed Ausaf',
-      image: '/Magazine/shaikh mohammed ausaf.jpg',
+      image: '/Magazine/shaikh mohammed ausaf.webp',
       quote: 'As the first CSE-AIML batch, we faced uncertainties but fostered adaptability and ownership. Passionate faculty brought stability, preparing us for jobs and life. Cherished memories and friendships from this pioneering journey.',
     },
     {
       name: 'Sankruth K Gargeyasa',
-      image: '/Magazine/sankruth K .jpg',
+      image: '/Magazine/sankruth K .webp',
       quote: 'The first CSE-AIML batch at AMC was life-changing. Dedicated faculty mentored us beyond academics, blending CSE and AI/ML. Extracurriculars helped discover strengths. Forever grateful for the memories and family-like bond.',
     },
     {
       name: 'Mamatha S',
-      image: '/Magazine/mamatha.jpg',
+      image: '/Magazine/mamatha.webp',
       quote: 'Four incredible years at AMC CSE-AIML: growth, learning, and experiences. Supportive faculty guided me academically and personally. Balanced academics and extracurriculars enriched my journey. Grateful for friendships and lessons.',
     },
     {
       name: 'Tejas P V',
-      image: '/Magazine/tejas pv.jpg',
+      image: '/Magazine/tejas pv.webp',
       quote: 'First CSE-AIML batch at AMC: ups and downs with amazing faculty like Srinivasaperumal sir and HOD Dr. Nandeeswar. Opportunities to express creativity. Fortunate to have great friends and teachers. Thankful for unlocking potential.',
     },
     {
       name: 'D R Mouna',
-      image: '/Magazine/mouna.jpg',
+      image: '/Magazine/mouna.webp',
       quote: 'As CSE-AIML pioneers, we navigated a new department with self-study and humor. Teachers evolved, clubs formed. Chaos strengthened us. Survivors, innovators, blazing our path together.',
     },
     {
       name: 'Khusumith S Veera',
-      image: '/Magazine/khusumith s veera.jpg',
+      image: '/Magazine/khusumith s veera.webp',
       quote: 'CSE-AIML first batch: warmth, support, passionate mentors. Infectious energy with events and workshops. Student clubs like family. Part of a dynamic community shaping the future.',
     },
     {
       name: 'Mohammed Ayaan',
-      image: '/Magazine/mohammed ayaan.jpg',
+      image: '/Magazine/mohammed ayaan.webp',
       quote: 'Amazing time at AMC CSE-AIML first batch. Set the tone for future. Supportive faculty, hands-on learning. Energetic campus life, personal growth. Thankful for opportunities and memories.',
     },
   ];
 
   return (
-    <section id="alumni-reflections" className="relative overflow-hidden bg-background">
+    <section id="alumni-reflections" className="relative overflow-hidden bg-transparent">
       <div className="h-px bg-border/40" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
 
@@ -86,7 +86,7 @@ const AlumniReflectionsSection = () => {
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     className="h-full"
                   >
-                    <div className="bg-muted/30 border border-border/40 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
+                    <div className="bg-card/75 backdrop-blur-md border border-border/40 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 h-full flex flex-col justify-between">
                       <div>
                         <div className="flex items-center gap-3 mb-4">
                           <OptimizedImage

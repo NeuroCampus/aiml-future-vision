@@ -168,6 +168,8 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   body {
   @apply bg-background text-foreground antialiased overflow-x-hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: relative;
+  min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -179,22 +181,16 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
     @apply text-xs font-semibold uppercase tracking-[0.25em] text-primary;
   }
   
-  /* Custom scrollbar for modern feel */
+  /* Hide scrollbar while maintaining full scrollability */
+  html, body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
   ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--accent));
-    border-radius: 4px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary));
+    display: none;
+    width: 0px;
+    height: 0px;
   }
 }
 
@@ -445,4 +441,38 @@ All colors MUST be HSL. Blue theme with futuristic gradients.
   .transform-style-preserve-3d {
     transform-style: preserve-3d;
   }
+}
+
+/* ==========================================================================
+   AMC CAMPUS BACKGROUND LAYER — PREMIUM SOFT BLUR & ELEGANT CONTRAST
+   (Implemented matching https://neuron-net.vercel.app/)
+   ========================================================================== */
+.amc-campus-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('/assets/images/amc-campus-bg.webp');
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  filter: blur(5px) saturate(1.05);
+  opacity: 0.38;
+  transform: scale(1.03);
+  will-change: transform;
+}
+
+.dark .amc-campus-backdrop {
+  opacity: 0.25;
+  filter: blur(5px) saturate(1.1) brightness(0.85);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
